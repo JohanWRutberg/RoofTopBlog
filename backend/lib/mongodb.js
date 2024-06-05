@@ -1,7 +1,7 @@
-import { mongoClient } from "mongodb";
+import { MongoClient } from "mongodb";
 
 if (!process.env.MONGODB_URI) {
-  throw new Error('Invalid/Missing Environment Variable: "MONGODB_URI"');
+  throw new Error("Invalid/Missing Environment Variable: MONGODB_URI");
 }
 
 const uri = process.env.MONGODB_URI;

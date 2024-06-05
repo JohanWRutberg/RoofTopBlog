@@ -2,8 +2,10 @@ import { RiBarChartHorizontalLine } from "react-icons/ri";
 import { GoScreenFull } from "react-icons/go";
 import { BiExitFullscreen } from "react-icons/bi";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 export default function Header() {
+  const { data: session } = useSession();
   const [isFullscreen, setisFullscreen] = useState(false);
 
   const toggleFullscreen = () => {
@@ -35,7 +37,11 @@ export default function Header() {
             <img src="/img/push-notifications.svg" alt="notification" width={45} height={45} />
           </div>
           <div className="profilenav">
-            <img src="/img/user.svg" alt="user" width={45} height={45} />
+            {session ? (
+              <img src={session.user.image} alt="user" width={45} height={45} />
+            ) : (
+              <img src="/img/user.svg" alt="user" width={45} height={45} />
+            )}
           </div>
         </div>
       </header>

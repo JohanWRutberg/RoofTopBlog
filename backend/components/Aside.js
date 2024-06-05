@@ -40,10 +40,10 @@ export default function Aside() {
               <span>Blogs</span>
             </li>
           </Link>
-          <Link href="/blog/addblog">
+          <Link href="/blogs/addblog">
             <li
-              className={activeLink === "/blog/addblog" ? "navactive" : ""}
-              onClick={() => handleLinkClick("/blog/addblog")}
+              className={activeLink === "/blogs/addblog" ? "navactive" : ""}
+              onClick={() => handleLinkClick("/blogs/addblog")}
             >
               <MdOutlineAddPhotoAlternate />
               <span>AddBlog</span>
