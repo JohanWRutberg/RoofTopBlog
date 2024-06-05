@@ -1,3 +1,4 @@
+import Blog from "@/components/Blog";
 import Loading from "@/components/Loading";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -40,7 +41,9 @@ export default function Addblog() {
               <MdOutlineAddPhotoAlternate /> <span>/</span> <span>Add Blog</span>
             </div>
           </div>
-          <div className="blogsadd"></div>
+          <div className="blogsadd">
+            <Blog />
+          </div>
         </div>
       </>
     );
