@@ -1,4 +1,9 @@
+import axios from "axios";
+import { useRouter } from "next/router";
 import { useState } from "react";
+import MarkdownEditor from "react-markdown-editor-lite";
+import ReactMarkdown from "react-markdown";
+import "react-markdown-editor-lite/lib/index.css";
 
 export default function Blog({
   _id,
@@ -9,6 +14,9 @@ export default function Blog({
   tags: existingTags,
   status: existingStatus
 }) {
+  const [redirect, setRedirect] = useState(false);
+  const router = useRouter();
+
   const [title, setTitle] = useState(existingTitle || "");
   const [slug, setSlug] = useState(existingSlug || "");
   const [blogcategory, setBlogcategory] = useState(existingBlogcategory || "");
@@ -16,9 +24,35 @@ export default function Blog({
   const [tags, setTags] = useState(existingTags || "");
   const [status, setStatus] = useState(existingStatus || "");
 
+  async function createProduct(ev) {
+    ev.preventDefault();
+
+    const data = { title, slug, description, blogcategory, tags, status };
+    if (_id) {
+      await axios.put("/api/blogapi", { ...data, _id });
+    } else {
+      await axios.post("/api/blogapi");
+    }
+
+    setRedirect(true);
+  }
+
+  if (redirect) {
+    router.push("/");
+    return null;
+  }
+  // Makes every blank space to be a -
+  const handleSlugChange = (ev) => {
+    const inputValue = ev.target.value;
+
+    const newSlug = inputValue.replace(/\s+/g, "-");
+
+    setSlug(newSlug);
+  };
+
   return (
     <>
-      <form className="addWebsiteform">
+      <form onSubmit={createProduct} className="addWebsiteform">
         {/* Blog title */}
         <div className="w-100 flex flex-col flex-left mb-2">
           <label htmlFor="title">Title</label>
@@ -34,14 +68,7 @@ export default function Blog({
         {/* Blog slug */}
         <div className="w-100 flex flex-col flex-left mb-2">
           <label htmlFor="slug">Slug</label>
-          <input
-            type="text"
-            id="slug"
-            value={slug}
-            onChange={(e) => setSlug(e.target.value)}
-            placeholder="Enter Slug url"
-            required
-          />
+          <input type="text" id="slug" value={slug} onChange={handleSlugChange} placeholder="Enter Slug url" required />
         </div>
 
         {/* Blog category */}
@@ -66,6 +93,44 @@ export default function Blog({
         {/* Markdown description content */}
         <div className="description w-100 flex flex-col flex-left mb-2">
           <label htmlFor="description">Blog Content</label>
+          <MarkdownEditor
+            value={description}
+            onChange={(ev) => setDescription(ev.text)}
+            style={{ width: "100%", height: "400px" }} //Adjust the height as wanted
+            renderHTML={(text) => (
+              <ReactMarkdown
+                components={{
+                  code: ({ node, inline, className, children, ...props }) => {
+                    const match = /language-(\w+)/.exec(className || "");
+                    if (inline) {
+                      return <code>{children}</code>;
+                    } else if (match) {
+                      return (
+                        <div style={{ position: "relative" }}>
+                          <pre
+                            style={{ padding: "0", borderRadius: "5px", overflowX: "auto", whiteSpace: "pre-wrap" }}
+                            {...props}
+                          >
+                            <code>{children}</code>
+                          </pre>
+                          <button
+                            style={{ position: "absolute", top: "0", right: "0", zIndex: "1" }}
+                            onClick={() => navigator.clipboard.writeText(children)}
+                          >
+                            Copy code
+                          </button>
+                        </div>
+                      );
+                    } else {
+                      return <code {...props}>{children}</code>;
+                    }
+                  }
+                }}
+              >
+                {text}
+              </ReactMarkdown>
+            )}
+          />
         </div>
 
         {/* tegs */}
