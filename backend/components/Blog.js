@@ -28,10 +28,11 @@ export default function Blog({
     ev.preventDefault();
 
     const data = { title, slug, description, blogcategory, tags, status };
+
     if (_id) {
       await axios.put("/api/blogapi", { ...data, _id });
     } else {
-      await axios.post("/api/blogapi");
+      await axios.post("/api/blogapi", data);
     }
 
     setRedirect(true);
@@ -159,6 +160,7 @@ export default function Blog({
         <div className="w-100 flex flex-col flex-left mb-2">
           <label htmlFor="status">Status</label>
           <select name="status" value={status} onChange={(e) => setStatus(e.target.value)} id="status">
+            <option value="">No selected</option>
             <option value="draft">Draft</option>
             <option value="publish">Publish</option>
           </select>
