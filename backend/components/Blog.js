@@ -134,7 +134,7 @@ export default function Blog({
           />
         </div>
 
-        {/* tegs */}
+        {/* tags */}
         <div className="w-100 flex flex-col flex-left mb-2">
           <label htmlFor="tags">Tags</label>
           <select

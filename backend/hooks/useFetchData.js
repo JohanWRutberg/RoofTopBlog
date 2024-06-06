@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const { useState, useEffect } = require("react");
 
 function useFetchData(apiEndPoint) {
@@ -32,7 +34,7 @@ function useFetchData(apiEndPoint) {
     }
   }, [initialLoad, apiEndPoint]);
 
-  return { allData, loading };
+  return { alldata, loading };
 }
 
 export default useFetchData;
