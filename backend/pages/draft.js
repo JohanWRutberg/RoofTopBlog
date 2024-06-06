@@ -14,7 +14,7 @@ export default function draft() {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Change the number of blogs / pages to show on page
-  const [perPage] = useState(6);
+  const [perPage] = useState(4);
 
   // Fetch blogs form api endpoint with hooks
   const { alldata, loading } = useFetchData("/api/blogapi");
@@ -112,13 +112,13 @@ export default function draft() {
                           </td>
                           <td>
                             <div className="flex gap-2 flex-center">
-                              <Link href="/blogs/edit/id">
+                              <Link href={"/blogs/edit/" + blog._id}>
                                 <button title="edit">
                                   <FaEdit />
                                 </button>
                               </Link>
-                              <Link href="/blogs/edit/id">
-                                <button title="edit">
+                              <Link href={"/blogs/delete/" + blog._id}>
+                                <button title="delete">
                                   <RiDeleteBin6Fill />
                                 </button>
                               </Link>

@@ -123,13 +123,13 @@ export default function blogs() {
                           </td>
                           <td>
                             <div className="flex gap-2 flex-center">
-                              <Link href="/blogs/edit/id">
+                              <Link href={"/blogs/edit/" + blog._id}>
                                 <button title="edit">
                                   <FaEdit />
                                 </button>
                               </Link>
-                              <Link href="/blogs/edit/id">
-                                <button title="edit">
+                              <Link href={"/blogs/delete/" + blog._id}>
+                                <button title="delete">
                                   <RiDeleteBin6Fill />
                                 </button>
                               </Link>

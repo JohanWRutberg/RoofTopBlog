@@ -24,7 +24,7 @@ export default async function handle(req, res) {
   // Data fetch or Get data
   if (method === "GET") {
     if (req.query?.id) {
-      res.json(await Blog.findbyId(req.query.id));
+      res.json(await Blog.findById(req.query.id));
     } else {
       res.json((await Blog.find()).reverse());
     }
@@ -32,7 +32,7 @@ export default async function handle(req, res) {
 
   // UPDATE
   if (method === "PUT") {
-    const { id, title, slug, description, blogcategory, tags, status } = req.body;
+    const { _id, title, slug, description, blogcategory, tags, status } = req.body;
     await Blog.updateOne(
       { _id },
       {
