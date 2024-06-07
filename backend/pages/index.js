@@ -126,39 +126,39 @@ export default function Home() {
         <div className="dashboard">
           {/* title dashboard */}
           <div className="titledashboard flex flex-sb">
-            <div>
+            <div data-aos="fade-right">
               <h2>
                 Blogs <span>Dashboard</span>
               </h2>
               <h3>ADMIN PANEL</h3>
             </div>
-            <div className="breadcrumb">
+            <div className="breadcrumb" data-aos="fade-right">
               <IoHome /> <span>/</span> <span>Dashboard</span>
             </div>
           </div>
 
           {/* dashboard four cards */}
           <div className="topfourcards flex flex-sb">
-            <div className="four_card">
+            <div className="four_card" data-aos="fade-right">
               <h2>Total Blogs</h2>
               <span>{blogsData.filter((ab) => ab.status === "publish").length}</span>
             </div>
-            <div className="four_card">
+            <div className="four_card" data-aos="fade-right">
               <h2>Total Topics</h2>
               <span>4</span>
             </div>
-            <div className="four_card">
+            <div className="four_card" data-aos="fade-left">
               <h2>Total Tags</h2>
               <span>6</span>
             </div>
-            <div className="four_card">
+            <div className="four_card" data-aos="fade-left">
               <h2>Draft Blogs</h2>
               <span>{blogsData.filter((ab) => ab.status === "draft").length}</span>
             </div>
           </div>
           {/* year overview */}
           <div className="year_overview flex flex-sb">
-            <div className="leftyearoverview">
+            <div className="leftyearoverview" data-aos="fade-up">
               <div className="flex flex-sb">
                 <h3>Year Overview</h3>
                 <ul className="creative-dots">
@@ -175,7 +175,7 @@ export default function Home() {
               </div>
               <Bar data={data} options={options} />
             </div>
-            <div className="right_salescont">
+            <div className="right_salescont" data-aos="fade-up">
               <div>
                 <h3>Blogs by category</h3>
                 <ul className="creative-dots">

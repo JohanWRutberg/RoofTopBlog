@@ -55,7 +55,7 @@ export default function Blog({
     <>
       <form onSubmit={createProduct} className="addWebsiteform">
         {/* Blog title */}
-        <div className="w-100 flex flex-col flex-left mb-2">
+        <div className="w-100 flex flex-col flex-left mb-2" data-aos="fade-up">
           <label htmlFor="title">Titel</label>
           <input
             type="text"
@@ -67,13 +67,13 @@ export default function Blog({
         </div>
 
         {/* Blog slug */}
-        <div className="w-100 flex flex-col flex-left mb-2">
+        <div className="w-100 flex flex-col flex-left mb-2" data-aos="fade-up">
           <label htmlFor="slug">Slug</label>
           <input type="text" id="slug" value={slug} onChange={handleSlugChange} placeholder="Enter Slug url" required />
         </div>
 
         {/* Blog category */}
-        <div className="w-100 flex flex-col flex-left mb-2">
+        <div className="w-100 flex flex-col flex-left mb-2" data-aos="fade-up">
           <label htmlFor="category">Kategori</label>
           <select
             name="category"
@@ -92,7 +92,7 @@ export default function Blog({
             {Array.isArray(existingBlogcategory) && existingBlogcategory.map((category) => <span>{category}</span>)}
           </p>
         </div>
-        {/* Markdown description content */}
+        {/* Markdown description content. No animation here! */}
         <div className="description w-100 flex flex-col flex-left mb-2">
           <label htmlFor="description">Blogg Innehåll</label>
           <MarkdownEditor
@@ -136,7 +136,7 @@ export default function Blog({
         </div>
 
         {/* tags */}
-        <div className="w-100 flex flex-col flex-left mb-2">
+        <div className="w-100 flex flex-col flex-left mb-2" data-aos="fade-up">
           <label htmlFor="tags">Taggar</label>
           <select
             name="tags"

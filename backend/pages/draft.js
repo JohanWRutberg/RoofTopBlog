@@ -100,17 +100,17 @@ export default function draft() {
       <>
         <div className="blogpage">
           <div className="titledashboard flex flex-sb">
-            <div>
+            <div data-aos="fade-right">
               <h2>
                 Alla Utkast <span>Bloggar</span>
               </h2>
               <h3>ADMIN PANEL</h3>
             </div>
-            <div className="breadcrumb">
+            <div className="breadcrumb" data-aos="fade-left">
               <BsPostcard /> <span>/</span> <span>Utkast till blogg</span>
             </div>
           </div>
-          <div className="blogstable">
+          <div className="blogstable" data-aos="fade-up">
             <table className="table table-styling">
               <thead>
                 <tr>

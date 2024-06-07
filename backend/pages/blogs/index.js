@@ -69,18 +69,18 @@ export default function blogs() {
       <>
         <div className="blogpage">
           <div className="titledashboard flex flex-sb">
-            <div>
+            <div data-aos="fade-right">
               <h2>
                 Alla Publiserade <span>Bloggar</span>
               </h2>
               <h3>ADMIN PANEL</h3>
             </div>
-            <div className="breadcrumb">
+            <div className="breadcrumb" data-aos="fade-left">
               <BsPostcard /> <span>/</span> <span>Bloggar</span>
             </div>
           </div>
           <div className="blogstable">
-            <div className="flex gap-2 mb-1">
+            <div className="flex gap-2 mb-1" data-aos="fade-up">
               <h2>Sök Blogg: </h2>
               <input
                 type="text"
@@ -89,7 +89,7 @@ export default function blogs() {
                 placeholder="Search by title..."
               />
             </div>
-            <table className="table table-styling">
+            <table className="table table-styling" data-aos="fade-up">
               <thead>
                 <tr>
                   <th>#</th>

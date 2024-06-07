@@ -1,3 +1,4 @@
+import Aos from "@/components/Aos";
 import Aside from "@/components/Aside";
 import Header from "@/components/Header";
 import Loading from "@/components/Loading";
@@ -21,7 +22,9 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
             <Header />
             <Aside />
             <main>
-              <Component {...pageProps} />
+              <Aos>
+                <Component {...pageProps} />
+              </Aos>
             </main>
           </>
         )}
