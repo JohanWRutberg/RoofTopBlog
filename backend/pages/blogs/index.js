@@ -23,10 +23,6 @@ export default function blogs() {
     setCurrentPage(pageNumber);
   };
 
-  /* const indexOfLastblog = currentPage * perPage;
-  const indexOfFirstblog = indexOfLastblog - perPage;
-  const currentBlogs = alldata.slice(indexOfFirstblog, indexOfLastblog); */
-
   const allblog = alldata.length;
 
   // Search function
