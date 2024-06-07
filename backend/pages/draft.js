@@ -12,6 +12,43 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 export default function draft() {
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
+  // Change the number of blogs / pages to show on page
+  const [perPage] = useState(5);
+  // Fetch blogs form api endpoint with hooks
+  const { alldata, loading } = useFetchData("/api/blogapi");
+
+  // Function to handle page change
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  /* const indexOfLastblog = currentPage * perPage;
+  const indexOfFirstblog = indexOfLastblog - perPage;
+  const currentBlogs = alldata.slice(indexOfFirstblog, indexOfLastblog); */
+
+  const allblog = alldata.length;
+
+  // Search function
+  const filteredBlog =
+    searchQuery.trim() === ""
+      ? alldata
+      : alldata.filter((blog) => blog.title.toLowerCase().includes(searchQuery.toLowerCase()));
+
+  const indexOfFirstblog = (currentPage - 1) * perPage;
+  const indexOfLastblog = currentPage * perPage;
+
+  const currentBlogs = filteredBlog.slice(indexOfFirstblog, indexOfLastblog);
+
+  // Filtering draft blogs
+  const draftBlogs = currentBlogs.filter((ab) => ab.status === "draft");
+  const pageNumbers = [];
+
+  for (let i = 1; i <= Math.ceil(allblog / perPage); i++) {
+    pageNumbers.push(i);
+  }
+  /*   // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Change the number of blogs / pages to show on page
   const [perPage] = useState(4);
@@ -36,7 +73,7 @@ export default function draft() {
 
   for (let i = 1; i <= Math.ceil(allblog / perPage); i++) {
     pageNumbers.push(i);
-  }
+  } */
 
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -53,7 +90,7 @@ export default function draft() {
     return (
       <div className="loadingdata flex flex-col flex-center wh_100">
         <Loading />
-        <h1>Loading...</h1>
+        <h1>Laddar...</h1>
       </div>
     );
   }
@@ -65,12 +102,12 @@ export default function draft() {
           <div className="titledashboard flex flex-sb">
             <div>
               <h2>
-                All Draft <span>Blogs</span>
+                Alla Utkast <span>Bloggar</span>
               </h2>
               <h3>ADMIN PANEL</h3>
             </div>
             <div className="breadcrumb">
-              <BsPostcard /> <span>/</span> <span>Draft Blogs</span>
+              <BsPostcard /> <span>/</span> <span>Utkast till blogg</span>
             </div>
           </div>
           <div className="blogstable">
@@ -78,9 +115,9 @@ export default function draft() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Title</th>
+                  <th>Titel</th>
                   <th>Slug</th>
-                  <th>Edit / Delete</th>
+                  <th>Redigera / Ta bort</th>
                 </tr>
               </thead>
               <tbody>
@@ -97,7 +134,7 @@ export default function draft() {
                     {draftBlogs.length === 0 ? (
                       <tr>
                         <td colSpan={4} className="text-center">
-                          No Draft Blog
+                          Inget utkast till blogg
                         </td>
                       </tr>
                     ) : (
@@ -136,7 +173,7 @@ export default function draft() {
             ) : (
               <div className="blogpagination">
                 <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
-                  Previous
+                  Föregående
                 </button>
                 {pageNumbers
                   .slice(Math.max(currentPage - 3, 0), Math.min(currentPage + 2, pageNumbers.length))
@@ -150,7 +187,7 @@ export default function draft() {
                     </button>
                   ))}
                 <button onClick={() => paginate(currentPage + 1)} disabled={currentBlogs.length < perPage}>
-                  Next
+                  Nästa
                 </button>
               </div>
             )}

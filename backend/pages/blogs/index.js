@@ -12,10 +12,9 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 export default function blogs() {
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-
+  const [searchQuery, setSearchQuery] = useState("");
   // Change the number of blogs / pages to show on page
-  const [perPage] = useState(6);
-
+  const [perPage] = useState(5);
   // Fetch blogs form api endpoint with hooks
   const { alldata, loading } = useFetchData("/api/blogapi");
 
@@ -24,21 +23,30 @@ export default function blogs() {
     setCurrentPage(pageNumber);
   };
 
-  const indexOfLastblog = currentPage * perPage;
+  /* const indexOfLastblog = currentPage * perPage;
   const indexOfFirstblog = indexOfLastblog - perPage;
-  const currentBlogs = alldata.slice(indexOfFirstblog, indexOfLastblog);
-
-  // Filtering published blogs
-  const publishedblog = currentBlogs.filter((ab) => ab.status === "publish");
+  const currentBlogs = alldata.slice(indexOfFirstblog, indexOfLastblog); */
 
   const allblog = alldata.length;
+
+  // Search function
+  const filteredBlog =
+    searchQuery.trim() === ""
+      ? alldata
+      : alldata.filter((blog) => blog.title.toLowerCase().includes(searchQuery.toLowerCase()));
+
+  const indexOfFirstblog = (currentPage - 1) * perPage;
+  const indexOfLastblog = currentPage * perPage;
+
+  const currentBlogs = filteredBlog.slice(indexOfFirstblog, indexOfLastblog);
+
+  // Filtering published blogs
+  const publishedblogs = currentBlogs.filter((ab) => ab.status === "publish");
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(allblog / perPage); i++) {
     pageNumbers.push(i);
   }
-
-  const [searchQuery, setSearchQuery] = useState("");
 
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -55,7 +63,7 @@ export default function blogs() {
     return (
       <div className="loadingdata flex flex-col flex-center wh_100">
         <Loading />
-        <h1>Loading...</h1>
+        <h1>Laddar...</h1>
       </div>
     );
   }
@@ -67,17 +75,17 @@ export default function blogs() {
           <div className="titledashboard flex flex-sb">
             <div>
               <h2>
-                All Published <span>Blogs</span>
+                Alla Publiserade <span>Bloggar</span>
               </h2>
               <h3>ADMIN PANEL</h3>
             </div>
             <div className="breadcrumb">
-              <BsPostcard /> <span>/</span> <span>Blogs</span>
+              <BsPostcard /> <span>/</span> <span>Bloggar</span>
             </div>
           </div>
           <div className="blogstable">
             <div className="flex gap-2 mb-1">
-              <h2>Search Blogs: </h2>
+              <h2>Sök Blogg: </h2>
               <input
                 type="text"
                 value={searchQuery}
@@ -89,9 +97,9 @@ export default function blogs() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Title</th>
+                  <th>Titel</th>
                   <th>Slug</th>
-                  <th>Edit / Delete</th>
+                  <th>Redigera / Ta bort</th>
                 </tr>
               </thead>
               <tbody>
@@ -105,14 +113,14 @@ export default function blogs() {
                   </>
                 ) : (
                   <>
-                    {publishedblog.length === 0 ? (
+                    {publishedblogs.length === 0 ? (
                       <tr>
                         <td colSpan={4} className="text-center">
-                          No Published Blogs
+                          Inga Publicerade Bloggar
                         </td>
                       </tr>
                     ) : (
-                      publishedblog.map((blog, index) => (
+                      publishedblogs.map((blog, index) => (
                         <tr key={blog._id}>
                           <td>{indexOfFirstblog + index + 1}</td>
                           <td>
@@ -142,7 +150,29 @@ export default function blogs() {
                 )}
               </tbody>
             </table>
-            {/* Pagination pending start after database add... */}
+            {publishedblogs.length === 0 ? (
+              ""
+            ) : (
+              <div className="blogpagination">
+                <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+                  Föregående
+                </button>
+                {pageNumbers
+                  .slice(Math.max(currentPage - 3, 0), Math.min(currentPage + 2, pageNumbers.length))
+                  .map((number) => (
+                    <button
+                      key={number}
+                      onClick={() => paginate(number)}
+                      className={`${currentPage === number ? "active" : ""}`}
+                    >
+                      {number}
+                    </button>
+                  ))}
+                <button onClick={() => paginate(currentPage + 1)} disabled={currentBlogs.length < perPage}>
+                  Nästa
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </>

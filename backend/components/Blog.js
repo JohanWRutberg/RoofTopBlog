@@ -56,7 +56,7 @@ export default function Blog({
       <form onSubmit={createProduct} className="addWebsiteform">
         {/* Blog title */}
         <div className="w-100 flex flex-col flex-left mb-2">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Titel</label>
           <input
             type="text"
             id="title"
@@ -74,7 +74,7 @@ export default function Blog({
 
         {/* Blog category */}
         <div className="w-100 flex flex-col flex-left mb-2">
-          <label htmlFor="category">Category</label>
+          <label htmlFor="category">Kategori</label>
           <select
             name="category"
             id="category"
@@ -88,12 +88,13 @@ export default function Blog({
             <option value="deployment">Deployment</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
-            Selected: <span>category</span>
+            Selected:{" "}
+            {Array.isArray(existingBlogcategory) && existingBlogcategory.map((category) => <span>{category}</span>)}
           </p>
         </div>
         {/* Markdown description content */}
         <div className="description w-100 flex flex-col flex-left mb-2">
-          <label htmlFor="description">Blog Content</label>
+          <label htmlFor="description">Blogg Innehåll</label>
           <MarkdownEditor
             value={description}
             onChange={(ev) => setDescription(ev.text)}
@@ -136,7 +137,7 @@ export default function Blog({
 
         {/* tags */}
         <div className="w-100 flex flex-col flex-left mb-2">
-          <label htmlFor="tags">Tags</label>
+          <label htmlFor="tags">Taggar</label>
           <select
             name="tags"
             id="tags"
@@ -152,7 +153,7 @@ export default function Blog({
             <option value="database">database</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
-            Selected: <span>tags</span>
+            Vald: {Array.isArray(existingTags) && existingTags.map((category) => <span>{category}</span>)}
           </p>
         </div>
 
@@ -160,18 +161,18 @@ export default function Blog({
         <div className="w-100 flex flex-col flex-left mb-2">
           <label htmlFor="status">Status</label>
           <select name="status" value={status} onChange={(e) => setStatus(e.target.value)} id="status">
-            <option value="">No selected</option>
-            <option value="draft">Draft</option>
-            <option value="publish">Publish</option>
+            <option value="">Ingen vald</option>
+            <option value="draft">Utkast</option>
+            <option value="publish">Publisera</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
-            Selected: <span>status</span>
+            Vald: <span>{existingStatus}</span>
           </p>
         </div>
         {/* Save button */}
         <div className="w-100 mb-2">
           <button type="submit" className="w-100 addwebbtn flex flex-center">
-            SAVE BLOG
+            SPARA BLOGG
           </button>
         </div>
       </form>

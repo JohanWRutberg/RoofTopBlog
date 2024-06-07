@@ -24,7 +24,7 @@ export default function EditBlog() {
     return (
       <div className="loadingdata flex flex-col flex-center wh_100">
         <Loading />
-        <h1>Loading...</h1>
+        <h1>Laddar...</h1>
       </div>
     );
   }
@@ -48,18 +48,18 @@ export default function EditBlog() {
     return (
       <>
         <Head>
-          <title>Update Blog</title>
+          <title>Redigera Blogg</title>
         </Head>
         <div className="blogpage">
           <div className="titledashboard flex flex-sb">
             <div>
               <h2>
-                Edit <span>{productInfo?.title}</span>
+                Redigera <span>{productInfo?.title}</span>
               </h2>
               <h3>ADMIN PANEL</h3>
             </div>
             <div className="breadcrumb">
-              <BsPostcard /> <span>/</span> <span>Edit Blog</span>
+              <BsPostcard /> <span>/</span> <span>Redigera Blogg</span>
             </div>
           </div>
 

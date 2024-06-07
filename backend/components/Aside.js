@@ -37,7 +37,7 @@ export default function Aside() {
           <Link href="/blogs">
             <li className={activeLink === "/blogs" ? "navactive" : ""} onClick={() => handleLinkClick("/blogs")}>
               <BsPostcard />
-              <span>Blogs</span>
+              <span>Bloggar</span>
             </li>
           </Link>
           <Link href="/blogs/addblog">
@@ -46,19 +46,19 @@ export default function Aside() {
               onClick={() => handleLinkClick("/blogs/addblog")}
             >
               <MdOutlineAddPhotoAlternate />
-              <span>AddBlog</span>
+              <span>Blogg +</span>
             </li>
           </Link>
           <Link href="/draft">
             <li className={activeLink === "/draft" ? "navactive" : ""} onClick={() => handleLinkClick("/draft")}>
               <MdOutlinePending />
-              <span>Pending</span>
+              <span>Utkast</span>
             </li>
           </Link>
           <Link href="/settings">
             <li className={activeLink === "/settings" ? "navactive" : ""} onClick={() => handleLinkClick("/settings")}>
               <IoSettingsOutline />
-              <span>Settings</span>
+              <span>Inställning</span>
             </li>
           </Link>
         </ul>
