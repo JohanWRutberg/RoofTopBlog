@@ -5,7 +5,7 @@ const BlogSchema = new Schema(
     title: { type: String },
     slug: { type: String, required: true },
     description: { type: String },
-    blogcategory: [{ type: String }],
+    blogcategory: [{ type: String }], // Markdown content
     tags: [{ type: String }],
     status: { type: String }
   },

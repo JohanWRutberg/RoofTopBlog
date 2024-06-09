@@ -4,6 +4,7 @@ import { FaXmark } from "react-icons/fa6";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { LuSun } from "react-icons/lu";
 import { useEffect, useState } from "react";
+import useFetchData from "@/hooks/useFetchData";
 
 export default function Header() {
   // Searchbar open and close function
@@ -59,6 +60,19 @@ export default function Header() {
     setDarkMode(!darkMode); // Toggle dark mode status
   };
 
+  // Search data fetch
+  const { alldata, loading } = useFetchData("/api/getblog");
+
+  // Filtering published blogs
+  const publishedblogs = alldata.filter((ab) => ab.status === "publish");
+
+  const [searchQuery, setSearchQuery] = useState("");
+  // Filtering based on search query, search data from title
+  const filteredBlogs =
+    searchQuery.trim() === ""
+      ? publishedblogs
+      : publishedblogs.filter((blog) => blog.title.toLowerCase().includes(searchQuery.toLowerCase()));
+
   return (
     <>
       <div className="header_sec">
@@ -70,7 +84,13 @@ export default function Header() {
           </div>
           <div className="searchbar">
             <IoSearchSharp />
-            <input onClick={openSearch} type="search" placeholder="Discover news, articles and more..." />
+            <input
+              onClick={openSearch}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              type="search"
+              placeholder="Discover news, articles and more..."
+            />
           </div>
 
           <div className="nav_list_dark">
@@ -106,12 +126,43 @@ export default function Header() {
         <div className={`search_click ${searchopen ? "open" : ""}`}>
           <div className="searchab_input">
             <IoSearchSharp />
-            <input type="search" placeholder="Discover news, articles and more..." />
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Discover news, articles and more..."
+            />
           </div>
           <div className="search_data text-center">
-            <div className="blog">
-              <h3>Search data</h3>
-            </div>
+            {loading ? (
+              <div className="wh-100 flex flex-center mt-2 pb-5">
+                <div className="loader"></div>
+              </div>
+            ) : (
+              <>
+                {searchQuery ? (
+                  <>
+                    {filteredBlogs.slice(0, 3).map((blog) => {
+                      return (
+                        <div className="blog" key={blog._id}>
+                          <div className="bloginfo">
+                            <Link href={`/blog/${blog.slug}`}>
+                              <h3>{blog.slug}</h3>
+                            </Link>
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                              ut labore et dolore magna aliqua.
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </>
+                ) : (
+                  <div>No Search Result</div>
+                )}
+              </>
+            )}
           </div>
           <div className="exit_search" onClick={closeSearch}>
             <div>
