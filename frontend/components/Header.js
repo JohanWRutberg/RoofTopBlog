@@ -144,17 +144,17 @@ export default function Header() {
                   <>
                     {filteredBlogs.slice(0, 3).map((blog) => {
                       return (
-                        <div className="blog" key={blog._id}>
+                        <Link onClick={closeSearch} className="blog" key={blog._id} href={`/blog/${blog.slug}`}>
                           <div className="bloginfo">
-                            <Link href={`/blog/${blog.slug}`}>
+                            <div>
                               <h3>{blog.slug}</h3>
-                            </Link>
+                            </div>
                             <p>
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                               ut labore et dolore magna aliqua.
                             </p>
                           </div>
-                        </div>
+                        </Link>
                       );
                     })}
                   </>

@@ -7,7 +7,8 @@
 body {
   overflow-x: hidden;
   /* background-color: rgb(67, 71, 79); */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
   font-weight: 600;
 }
 
@@ -239,7 +240,6 @@ body.dark {
 
 /* ================================================== */
 
-
 .full-h {
   height: 100vh !important;
 }
@@ -427,7 +427,6 @@ button {
   border-radius: 50%;
 }
 
-
 .navlist_mobile ul {
   margin-top: 1rem;
   padding-bottom: 2rem;
@@ -479,7 +478,7 @@ button {
   bottom: 0;
   background-color: #f4f4f5;
   box-shadow: 0 0 10px #999;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 30px;
 }
 
@@ -493,14 +492,14 @@ button {
   top: 50%;
   transform: translateY(-50%);
   background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
-  transition: .4s;
+  transition: 0.4s;
 }
 
-.darkmode input:checked+.slider_header {
+.darkmode input:checked + .slider_header {
   background-color: #303136;
 }
 
-.darkmode input:checked+.slider_header:before {
+.darkmode input:checked + .slider_header:before {
   left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
   background: #303136;
   /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
@@ -532,8 +531,6 @@ button {
 .search_click.open {
   display: flex;
 }
-
-
 
 .searchab_input {
   display: flex;
@@ -622,13 +619,12 @@ button {
 .exit_search h4 {
   color: #303136;
 }
-.dark .exit_search h4{
+.dark .exit_search h4 {
   color: #fff;
 }
 .exit_search div svg:hover {
   color: #fff;
 }
-
 
 .navlist_mobile_ul {
   display: flex;
@@ -649,7 +645,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .navlist_mobile_ul button svg {
@@ -688,7 +683,7 @@ button {
 }
 
 .leftheader_info h1 {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 3rem;
   font-weight: 900;
   color: #2d3748;
@@ -807,7 +802,6 @@ button {
 /************************************** main_blog_section section */
 /* ================================================== */
 
-
 .loader {
   --hue: 210;
   --size: 100px;
@@ -845,12 +839,7 @@ button {
   top: 0%;
   left: 50%;
   translate: -50% 0;
-  background: conic-gradient(
-    white,
-    hsl(var(--hue), 100%, 70%),
-    hsl(var(--hue), 100%, 10%),
-    transparent 65%
-  );
+  background: conic-gradient(white, hsl(var(--hue), 100%, 70%), hsl(var(--hue), 100%, 10%), transparent 65%);
   border-radius: 50%;
   mask: radial-gradient(
     transparent calc(((var(--size) * 0.5) - var(--border)) - 1px),
@@ -863,9 +852,6 @@ button {
     transform: rotate(-360deg) translateY(var(--y));
   }
 }
-
-
-
 
 .main_blog_section {
   position: relative;
@@ -882,7 +868,6 @@ button {
   /* width: 50%; */
 }
 
-
 .leftblog_sec h2 {
   position: relative;
   font-size: 25px;
@@ -895,9 +880,8 @@ button {
   color: #edf2f7;
 }
 
-
 .leftblog_sec h2::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   width: 5px;
@@ -948,7 +932,6 @@ button {
   height: 100%;
   object-fit: cover;
 }
-
 
 .bloginfo h3 {
   margin: 1rem 0;
@@ -1127,8 +1110,6 @@ button {
   background-color: #667eea;
   color: #fff;
 }
-
-
 
 .tags_sec h2 {
   text-align: center;
@@ -1314,7 +1295,6 @@ button {
   color: #2b3a53;
 }
 
-
 /* ================================================== */
 /*                                Home Slug Page */
 /* ================================================== */
@@ -1323,7 +1303,7 @@ button {
   position: relative;
   padding-top: 5rem;
   background-color: #eeeeee65;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .dark .slugpage {
@@ -1331,7 +1311,7 @@ button {
 }
 
 .slugtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 3rem;
   font-weight: 800;
   color: #2d3748;
@@ -1370,7 +1350,6 @@ button {
   color: #e74717;
 }
 
-
 .leftblog_data_markdown {
   position: relative;
   width: 750px;
@@ -1393,7 +1372,6 @@ button {
   margin-bottom: 5rem;
   overflow: hidden;
   font-weight: 500;
-
 }
 
 .dark .blogcontent {
@@ -1403,7 +1381,6 @@ button {
 
 .blogh1 {
   font-size: 45px;
-
 }
 
 .blogcontent h1:first-child {
@@ -1441,7 +1418,7 @@ button {
   position: relative;
   margin: 16px 0;
   padding: 5px 8px 5px 30px;
-  background: none repeat scroll 0 0 rgba(102, 128, 153, .05);
+  background: none repeat scroll 0 0 rgba(102, 128, 153, 0.05);
   color: #333;
   border: none;
   border-left: 10px solid #d6dbdf;
@@ -1505,14 +1482,13 @@ button {
 
 .slug_profile_img {
   position: relative;
-  width: 90px;
+  width: 100px;
 }
 
 .slug_profile_img img {
   width: 100%;
   height: 100%;
   margin-top: -10px;
-  margin-left: 10px;
   object-fit: cover;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 20px;
@@ -1545,7 +1521,7 @@ button {
 .profile_imgbg {
   width: 100%;
   height: 100%;
-  background-image: url('/img/profile_bg.png');
+  background-image: url("/img/profile_bg.png");
   background-size: 8rem;
   position: absolute;
   opacity: 0.15;
@@ -1572,8 +1548,6 @@ button {
   color: #8d99ae;
 }
 
-
-
 /* ================================================== */
 
 /*                                category Slug Page */
@@ -1599,7 +1573,6 @@ button {
   color: #8fabdb;
 }
 
-
 .dark .category_title h1 {
   color: #fcfcfc;
 }
@@ -1620,7 +1593,6 @@ button {
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 
 .cate_blog {
@@ -1645,7 +1617,6 @@ button {
   box-shadow: 0 0 5px #222;
 }
 
-
 .cate_blog .bloginfo {
   padding: 0rem 1rem;
   padding-bottom: 1rem;
@@ -1659,11 +1630,6 @@ button {
 .dark .cate_blog:hover {
   box-shadow: 0 0 5px #555;
 }
-
-
-
-
-
 
 /* *************************************************************************** */
 /* ***************************************************** MEDIA QUERY RESPONSIVE WEBSITE */
@@ -1758,13 +1724,13 @@ button {
   .blogpage .cate_blog {
     width: 100%;
   }
-  .cate_blog a img{
+  .cate_blog a img {
     height: auto;
   }
   .category_title h1 {
     font-size: 35px;
   }
-  .searchab_input{
+  .searchab_input {
     margin-top: 5rem;
   }
   .searchab_input,
