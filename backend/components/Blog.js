@@ -82,10 +82,10 @@ export default function Blog({
             onChange={(e) => setBlogcategory(Array.from(e.target.selectedOptions, (option) => option.value))}
             multiple
           >
-            <option value="htmlcssjs">HTML, CSS & JavaScript</option>
-            <option value="nextjs">Next JS, React JS</option>
-            <option value="database">Database</option>
-            <option value="deployment">Deployment</option>
+            <option value="drumsets">Drum sets</option>
+            <option value="pads">Pads</option>
+            <option value="sound">Sound</option>
+            <option value="hot">Hot topics</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Selected:{" "}
@@ -145,12 +145,15 @@ export default function Blog({
             onChange={(e) => setTags(Array.from(e.target.selectedOptions, (option) => option.value))}
             multiple
           >
-            <option value="html">html</option>
-            <option value="css">css</option>
-            <option value="javascript">javascript</option>
-            <option value="nextjs">nextjs</option>
-            <option value="reactjs">reactjs</option>
-            <option value="database">database</option>
+            <option value="edrums">edrums</option>
+            <option value="drums">drums</option>
+            <option value="electronic">electronic</option>
+            <option value="pads">pads</option>
+            <option value="cymbals">cymbals</option>
+            <option value="kits">kits</option>
+            <option value="sound">sound</option>
+            <option value="drumkit">drumkit</option>
+            <option value="beat">beat</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Vald: {Array.isArray(existingTags) && existingTags.map((category) => <span>{category}</span>)}
@@ -163,7 +166,7 @@ export default function Blog({
           <select name="status" value={status} onChange={(e) => setStatus(e.target.value)} id="status">
             <option value="">Ingen vald</option>
             <option value="draft">Utkast</option>
-            <option value="publish">Publisera</option>
+            <option value="publish">Publicera</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Vald: <span>{existingStatus}</span>

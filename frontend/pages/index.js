@@ -155,7 +155,7 @@ export default function Home() {
             <div className="topics_sec">
               <h2>Topics</h2>
               <div className="topics_list">
-                <Link href="/topics/htmlcssjs">
+                <Link href="/topics/drumsets">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
                       <GiDrumKit />
@@ -163,7 +163,7 @@ export default function Home() {
                     <h3>Drum Sets</h3>
                   </div>
                 </Link>
-                <Link href="/topics/htmlcssjs">
+                <Link href="/topics/pads">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
                       <GiDrum />
@@ -171,7 +171,7 @@ export default function Home() {
                     <h3>Pads</h3>
                   </div>
                 </Link>
-                <Link href="/topics/htmlcssjs">
+                <Link href="/topics/sound">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
                       <ImHeadphones />
@@ -179,7 +179,7 @@ export default function Home() {
                     <h3>Sound</h3>
                   </div>
                 </Link>
-                <Link href="/topics/htmlcssjs">
+                <Link href="/topics/hot">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
                       <DiCodeigniter />
@@ -192,12 +192,15 @@ export default function Home() {
             <div className="tags_sec mt-3">
               <h2>Tags</h2>
               <div className="tags_list">
-                <Link href="/tag/html">#Html</Link>
-                <Link href="/tag/css">#Css</Link>
-                <Link href="/tag/javascript">#JavaScript</Link>
-                <Link href="/tag/nextjs">#Nextjs</Link>
-                <Link href="/tag/reactjs">#Reactjs</Link>
-                <Link href="/tag/database">#Database</Link>
+                <Link href="/tag/edrums">#Edrums</Link>
+                <Link href="/tag/drums">#Drums</Link>
+                <Link href="/tag/electronic">#Electronic</Link>
+                <Link href="/tag/pads">#Pads</Link>
+                <Link href="/tag/cymbals">#Cymbals</Link>
+                <Link href="/tag/kits">#Kits</Link>
+                <Link href="/tag/sound">#Sound</Link>
+                <Link href="/tag/drumkit">#Drumkit</Link>
+                <Link href="/tag/beat">#Beat</Link>
               </div>
             </div>
             <div className="letstalk_sec mt-3">

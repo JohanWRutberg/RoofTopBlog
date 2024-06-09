@@ -140,19 +140,19 @@ export default function Home() {
           {/* dashboard four cards */}
           <div className="topfourcards flex flex-sb">
             <div className="four_card" data-aos="fade-right">
-              <h2>Total Blogs</h2>
+              <h2>Bloggar</h2>
               <span>{blogsData.filter((ab) => ab.status === "publish").length}</span>
             </div>
             <div className="four_card" data-aos="fade-right">
-              <h2>Total Topics</h2>
-              <span>4</span>
+              <h2>Ämnen</h2>
+              <span>{blogsData.filter((ab) => ab.status === "topics").length}</span>
             </div>
             <div className="four_card" data-aos="fade-left">
-              <h2>Total Tags</h2>
-              <span>6</span>
+              <h2>Taggar</h2>
+              <span>{blogsData.filter((ab) => ab.status === "tags").length}</span>
             </div>
             <div className="four_card" data-aos="fade-left">
-              <h2>Draft Blogs</h2>
+              <h2>Utkast</h2>
               <span>{blogsData.filter((ab) => ab.status === "draft").length}</span>
             </div>
           </div>
@@ -197,19 +197,19 @@ export default function Home() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Html, CSS & JavaScript</td>
+                      <td>Drum Sets</td>
                       <td>10</td>
                     </tr>
                     <tr>
-                      <td>NextJs, ReactJs</td>
+                      <td>Pads</td>
                       <td>10</td>
                     </tr>
                     <tr>
-                      <td>Database</td>
+                      <td>Sound</td>
                       <td>10</td>
                     </tr>
                     <tr>
-                      <td>Deployment</td>
+                      <td>Hot Topics</td>
                       <td>10</td>
                     </tr>
                   </tbody>

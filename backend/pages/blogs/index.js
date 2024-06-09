@@ -71,7 +71,7 @@ export default function blogs() {
           <div className="titledashboard flex flex-sb">
             <div data-aos="fade-right">
               <h2>
-                Alla Publiserade <span>Bloggar</span>
+                Alla Publicerade <span>Bloggar</span>
               </h2>
               <h3>ADMIN PANEL</h3>
             </div>

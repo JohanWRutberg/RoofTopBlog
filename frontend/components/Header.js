@@ -197,16 +197,16 @@ export default function Header() {
           <h3 className="mt-3">Topics</h3>
           <ul onClick={handleLinkClick}>
             <li>
-              <Link href="/topics/htmlcssjs">Html Css Js</Link>
+              <Link href="/topics/drumsets">Drum Sets</Link>
             </li>
             <li>
-              <Link href="/topics/nextjs">Next Js</Link>
+              <Link href="/topics/pads">Pads</Link>
             </li>
             <li>
-              <Link href="/topics/database">Database</Link>
+              <Link href="/topics/sound">Sound</Link>
             </li>
             <li>
-              <Link href="/topics/deployment">Deployment</Link>
+              <Link href="/topics/hot">Hot Topics</Link>
             </li>
           </ul>
         </div>
