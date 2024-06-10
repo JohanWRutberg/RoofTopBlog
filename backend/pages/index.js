@@ -113,6 +113,19 @@ export default function Home() {
     datasets
   };
 
+  /* const totalCategories = blogsData.reduce((acc, blog) => acc + blog.blogcategory.length, 0);
+  const totalTags = blogsData.reduce((acc, blog) => acc + blog.tags.length, 0); */
+  const uniqueCategories = new Set();
+  const uniqueTags = new Set();
+
+  blogsData.forEach((blog) => {
+    blog.blogcategory.forEach((category) => uniqueCategories.add(category));
+    blog.tags.forEach((tag) => uniqueTags.add(tag));
+  });
+
+  const totalCategories = uniqueCategories.size;
+  const totalTags = uniqueTags.size;
+
   if (session) {
     return (
       <>
@@ -145,17 +158,18 @@ export default function Home() {
             </div>
             <div className="four_card" data-aos="fade-right">
               <h2>Ämnen</h2>
-              <span>{blogsData.filter((ab) => ab.status === "topics").length}</span>
+              <span>{totalCategories}</span>
             </div>
             <div className="four_card" data-aos="fade-left">
               <h2>Taggar</h2>
-              <span>{blogsData.filter((ab) => ab.status === "tags").length}</span>
+              <span>{totalTags}</span>
             </div>
             <div className="four_card" data-aos="fade-left">
               <h2>Utkast</h2>
               <span>{blogsData.filter((ab) => ab.status === "draft").length}</span>
             </div>
           </div>
+
           {/* year overview */}
           <div className="year_overview flex flex-sb">
             <div className="leftyearoverview" data-aos="fade-up">

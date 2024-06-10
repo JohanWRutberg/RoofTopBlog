@@ -65,6 +65,17 @@ export default function CategoryPage() {
     return match ? match[1] : null;
   }
 
+  function removeSpecialCharacters(text) {
+    return text.replace(/[^a-zA-Z0-9\s]/g, "");
+  }
+
+  function getFirstWords(text) {
+    if (!text) return "";
+    const cleanedText = removeSpecialCharacters(text);
+    const words = cleanedText.split(" ");
+    return words.slice(0, 10).join(" ") + "...";
+  }
+
   return (
     <>
       <div className="blogpage">
@@ -72,15 +83,15 @@ export default function CategoryPage() {
           <div className="container">
             <div className="category_title">
               <div className="flex gap-1">
-                <h1>
+                <h2>
                   {loading ? (
                     <div>Loading...</div>
                   ) : publishedblogs ? (
-                    publishedblogs && publishedblogs[0]?.blogcategory
+                    publishedblogs && publishedblogs[0]?.blogcategory.join(" - ")
                   ) : (
-                    publishedblogs && publishedblogs.blogcategory
+                    publishedblogs && publishedblogs.blogcategory.join(" - ")
                   )}
-                </h1>
+                </h2>
                 <span>{loading ? <div>0</div> : publishedblogs.filter((blog) => blog.blogcategory).length}</span>
               </div>
               <p>
@@ -114,7 +125,7 @@ export default function CategoryPage() {
                           <Link href={`/blog/${item.slug}`}>
                             <h3>{item.title}</h3>
                           </Link>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                          <p>{getFirstWords(item.description)}</p>
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
                               <img src="/img/profile_bg.png" />

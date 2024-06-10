@@ -9,7 +9,7 @@ import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); // Page number
-  const [perPage] = useState(10); // Number of blogs per page
+  const [perPage] = useState(5); // Number of blogs per page
 
   const { alldata, loading } = useFetchData("/api/getblog");
 
@@ -44,6 +44,17 @@ export default function Home() {
     return match ? match[1] : null;
   }
 
+  function removeSpecialCharacters(text) {
+    return text.replace(/[^a-zA-Z0-9\s]/g, "");
+  }
+
+  function getFirstWords(text) {
+    if (!text) return "";
+    const cleanedText = removeSpecialCharacters(text);
+    const words = cleanedText.split(" ");
+    return words.slice(0, 10).join(" ") + "...";
+  }
+
   return (
     <>
       <Head>
@@ -56,10 +67,10 @@ export default function Home() {
       <section className="header_data_section">
         <div className="container flex flex-sb w-100">
           <div className="leftheader_info">
-            <h1>
+            <h1 data-aos="fade-right">
               Explore <span>BeatMaster Mind</span>. <br />
             </h1>
-            <h3>Electronic drum enthusiasts</h3>
+            <h3 data-aos="fade-right">Electronic drum enthusiasts</h3>
             <div className="flex gap-2">
               <Link href="/contact">
                 <button>Contact</button>
@@ -92,7 +103,7 @@ export default function Home() {
                     // In the markdown content first image shows here
                     const firstImageUrl = extractFirstImageUrl(blog.description);
                     return (
-                      <div className="blog" key={blog._id}>
+                      <div className="blog flex" key={blog._id}>
                         <div className="blogimg">
                           {/* If no image in markdown, show noimage */}
                           <Link href={`/blog/${blog.slug}`}>
@@ -103,16 +114,17 @@ export default function Home() {
                           <Link href={`/tag/${blog.tags[0]}`}>
                             <div className="blogtag">{blog.tags[0]}</div>
                           </Link>
+
                           <Link href={`/blog/${blog.slug}`}>
                             <h3>{blog.title}</h3>
                           </Link>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                          <p>{getFirstWords(blog.description)}</p>
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
                               <img src="/img/profile_bg.png" />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
-                              <h4>BMM</h4>
+                              <h4>BeatMasterMind</h4>
                               <span>
                                 {new Date(blog.createdAt).toLocaleDateString("en-US", {
                                   month: "long",
@@ -194,19 +206,19 @@ export default function Home() {
               <div className="tags_list">
                 <Link href="/tag/edrums">#Edrums</Link>
                 <Link href="/tag/drums">#Drums</Link>
-                <Link href="/tag/electronic">#Electronic</Link>
+                <Link href="/tag/drumkit">#Drumkit</Link>
                 <Link href="/tag/pads">#Pads</Link>
                 <Link href="/tag/cymbals">#Cymbals</Link>
-                <Link href="/tag/kits">#Kits</Link>
-                <Link href="/tag/sound">#Sound</Link>
-                <Link href="/tag/drumkit">#Drumkit</Link>
                 <Link href="/tag/beat">#Beat</Link>
+                <Link href="/tag/sound">#Sound</Link>
+                <Link href="/tag/electronic">#Electronic</Link>
+                <Link href="/tag/kits">#Kits</Link>
               </div>
             </div>
             <div className="letstalk_sec mt-3">
               <h2>Let's Talk</h2>
               <div className="talk_sec">
-                <h4>Want to know how we can help you find your first or next electronic drum kit?</h4>
+                <h4>Visit us on our Social Media platforms!</h4>
                 <div className="social_talks flex flex-center gap-1 mt-2">
                   <div className="st_icon">
                     <FaInstagram />

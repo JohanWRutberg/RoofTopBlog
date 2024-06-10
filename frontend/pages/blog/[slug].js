@@ -33,6 +33,16 @@ export default function blogPage() {
     }
   }, [slug]);
 
+  // Calculate reading time
+  const calculateReadingTime = (text) => {
+    const wordsPerMinute = 200; // Average reading speed
+    const words = text.split(/\s+/).length;
+    const minutes = Math.ceil(words / wordsPerMinute);
+    return minutes;
+  };
+
+  const readingTime = blog[0].description ? calculateReadingTime(blog[0].description) : 1;
+
   // Markdown code highlighter
   const Code = ({ node, inline, className, children, ...props }) => {
     const match = /language-(\w+)/.exec(className || "");
@@ -94,14 +104,14 @@ export default function blogPage() {
             <h1 className="slugtitle">{loading ? <div>Loading...</div> : blog && blog[0]?.title}</h1>
             <h5>
               By <span>JRcoder</span>. Published in{" "}
-              <span>{loading ? <div>Loading...</div> : blog && blog[0]?.blogcategory}</span>.{" "}
+              <span>{loading ? <div>Loading...</div> : blog && blog[0]?.blogcategory.join(" - ")}</span>.{" "}
               {blog &&
                 new Date(blog[0].createdAt).toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",
                   year: "numeric"
                 })}{" "}
-              -<span> 1 min read</span>
+              -<span> {readingTime} min read</span>
             </h5>
           </div>
 
@@ -131,7 +141,7 @@ export default function blogPage() {
               <div className="slug_profile_info">
                 <div className="slugprofile_sec">
                   {/* <div className="profile_imgbg"></div> */}
-                  <div className="slug_profile_img">
+                  <div className="slug_aff_img">
                     {/* <div className="image_bg_top0"></div>
                     <div className="image_bg_top1"></div> */}
                     <img src="/img/vecteezy_amazon-logo-png-amazon-icon-transparent-png_19766240.png" alt="brand" />
