@@ -355,7 +355,15 @@ button {
 
 .searchbar svg {
   font-size: 1.5rem;
-  color: #666;
+  color: #999;
+}
+
+.searchbar input::placeholder {
+  color: #bebebe; /* Replace with your desired color */
+}
+
+.dark .searchbar input::placeholder {
+  color: #999; /* Replace with your desired color */
 }
 
 .nav_list_dark {
@@ -930,7 +938,7 @@ button {
 } */
 
 .blogimg {
-  width: 55%;
+  width: 50%;
   height: auto;
   border-radius: 10px;
   overflow: hidden;
@@ -944,8 +952,13 @@ button {
 }
 
 .bloginfo {
-  width: 45%; /* Take up 50% of the width */
-  padding-left: 10px; /* Optional: add some padding for spacing */
+  width: 50%; /* Take up 45% of the width */
+  padding-left: 5px; /* Optional: add some padding for spacing */
+}
+
+.search_data .bloginfo {
+  width: 100%; /* Take up 45% of the width */
+  padding-left: 5px; /* Optional: add some padding for spacing */
 }
 
 .bloginfo h3 {

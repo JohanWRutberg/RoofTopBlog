@@ -63,6 +63,17 @@ export default function Header() {
   // Search data fetch
   const { alldata, loading } = useFetchData("/api/getblog");
 
+  function removeSpecialCharacters(text) {
+    return text.replace(/[^a-zA-Z0-9\s]/g, "");
+  }
+
+  function getFirstWords(text) {
+    if (!text) return "";
+    const cleanedText = removeSpecialCharacters(text);
+    const words = cleanedText.split(" ");
+    return words.slice(0, 10).join(" ") + "...";
+  }
+
   // Filtering published blogs
   const publishedblogs = alldata.filter((ab) => ab.status === "publish");
 
@@ -133,7 +144,7 @@ export default function Header() {
               placeholder="Discover news, articles and more..."
             />
           </div>
-          <div className="search_data text-center">
+          <div className="search_data text-start">
             {loading ? (
               <div className="wh-100 flex flex-center mt-2 pb-5">
                 <div className="loader"></div>
@@ -149,10 +160,7 @@ export default function Header() {
                             <div>
                               <h3>{blog.slug}</h3>
                             </div>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                              ut labore et dolore magna aliqua.
-                            </p>
+                            <p>{getFirstWords(blog.description)}</p>
                           </div>
                         </Link>
                       );
