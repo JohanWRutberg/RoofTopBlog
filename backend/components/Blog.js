@@ -62,7 +62,7 @@ export default function Blog({
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter small title"
+            placeholder="Enter a title"
           />
         </div>
 

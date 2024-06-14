@@ -318,13 +318,16 @@ button {
   background-color: #2d3748;
 }
 
+.header_logo {
+}
+
 .header {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #2d3748;
-  padding: 2rem 0;
+  padding: 0.5rem 0;
 }
 
 .dark .header {

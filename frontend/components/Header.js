@@ -88,9 +88,9 @@ export default function Header() {
     <>
       <div className="header_sec">
         <div className="container header">
-          <div className="logo">
+          <div className="header_logo">
             <Link href="/">
-              <h1>BMM Blog</h1>
+              <img src="/img/B800AF389575.PNG" alt="logo" width={140} height={140} />
             </Link>
           </div>
           <div className="searchbar">
