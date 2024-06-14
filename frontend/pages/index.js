@@ -72,10 +72,10 @@ export default function Home() {
             </h1>
             <h3 data-aos="fade-right">Electronic drum enthusiasts</h3>
             <div className="flex gap-2">
-              <Link href="/contact">
+              <Link href="/">
                 <button>Contact</button>
               </Link>
-              <Link href="/about">
+              <Link href="/">
                 <button>About</button>
               </Link>
             </div>
@@ -121,7 +121,7 @@ export default function Home() {
                           <p>{getFirstWords(blog.description)}</p>
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
-                              <img src="/img/profile_bg.png" />
+                              <img src="/img/1F84564DDFA5.PNG" />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
                               <h4>BeatMasterMind</h4>
