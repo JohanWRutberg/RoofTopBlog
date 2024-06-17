@@ -90,7 +90,7 @@ export default function Header() {
         <div className="container header">
           <div className="header_logo">
             <Link href="/">
-              <img src="/img/B800AF389575.PNG" alt="logo" width={140} height={140} />
+              <img src="/img/Beat_Master.PNG" alt="logo" width={90} height={90} />
             </Link>
           </div>
           <div className="searchbar">

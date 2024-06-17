@@ -985,8 +985,8 @@ button {
 .blogaimg {
   background-color: #e2e8f0;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1590,7 +1590,7 @@ button {
 .profile_imgbg {
   width: 100%;
   height: 100%;
-  background-image: url("/img/1F84564DDFA5.PNG");
+  background-image: url("/img/Beat_Master.png");
   background-size: 8rem;
   position: absolute;
   opacity: 0.15;
