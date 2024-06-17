@@ -125,7 +125,7 @@ export default function Home() {
                           {/* Display blog author */}
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
-                              <img src="/img/Beat-Master.png" />
+                              <img src="/img/Beat_Master.png" />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
                               <h4>BeatMaster Mind</h4>
