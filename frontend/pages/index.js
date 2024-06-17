@@ -104,27 +104,31 @@ export default function Home() {
                     const firstImageUrl = extractFirstImageUrl(blog.description);
                     return (
                       <div className="blog flex" key={blog._id}>
+                        {/* Displays the first image in blog */}
                         <div className="blogimg">
                           {/* If no image in markdown, show noimage */}
                           <Link href={`/blog/${blog.slug}`}>
                             <img src={firstImageUrl || "/img/noimage.jpg"} alt={blog.title} />
                           </Link>
                         </div>
+                        {/* Get the first tag in blog */}
                         <div className="bloginfo">
                           <Link href={`/tag/${blog.tags[0]}`}>
                             <div className="blogtag">{blog.tags[0]}</div>
                           </Link>
-
+                          {/* Get the title of blog */}
                           <Link href={`/blog/${blog.slug}`}>
                             <h3>{blog.title}</h3>
                           </Link>
+                          {/* Display the first 10 words from blog */}
                           <p>{getFirstWords(blog.description)}</p>
+                          {/* Display blog author */}
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
-                              <img src="/img/Beat_Master.png" />
+                              <img src="/img/Beat-Master.png" />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
-                              <h4>BeatMasterMind</h4>
+                              <h4>BeatMaster Mind</h4>
                               <span>
                                 {new Date(blog.createdAt).toLocaleDateString("en-US", {
                                   month: "long",
