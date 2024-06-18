@@ -142,21 +142,30 @@ export default function blogPage() {
                 <div className="slugprofile_sec">
                   {/* <div className="profile_imgbg"></div> */}
                   <div className="slug_aff_img">
-                    {/* <div className="image_bg_top0"></div>
-                    <div className="image_bg_top1"></div> */}
                     <img src="/img/vecteezy_amazon-logo-png-amazon-icon-transparent-png_19766240.png" alt="brand" />
                   </div>
                 </div>
-                <h3>Amazon</h3>
-                <h4>Affiliate</h4>
+                <div className="aff_container">
+                  <div className="aff_img">
+                    <Link href="/">
+                      <img src="/img/amazon-associate.jpg" alt="Aff" />
+                    </Link>
+                  </div>
+                  <div className="aff_img">
+                    <Link href="/">
+                      <img src="/img/amazon-associate.jpg" alt="Aff" />
+                    </Link>
+                  </div>
+                </div>
+
                 <div className="social_talks flex flex-center gap-1 mt-2">
-                  <div className="st_icon">
+                  <div className="st_icon_amazon">
                     <BsAmazon />
                   </div>
-                  <div className="st_icon">
+                  <div className="st_icon_amazon">
                     <BsAmazon />
                   </div>
-                  <div className="st_icon">
+                  <div className="st_icon_amazon">
                     <BsAmazon />
                   </div>
                 </div>

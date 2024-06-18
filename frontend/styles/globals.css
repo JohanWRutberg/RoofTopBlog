@@ -1234,6 +1234,25 @@ button {
   color: #c1c1c1;
 }
 
+.aff_container {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.aff_img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.aff_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
 .st_icon {
   background-color: #e2e8f0;
   padding: 1rem;
@@ -1264,10 +1283,38 @@ button {
   background-color: #667eea;
 }
 
+.st_icon_amazon {
+  background-color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.st_icon_amazon svg {
+  font-size: 22px;
+}
+
+.st_icon_amazon:nth-child(2) svg {
+  color: #2baeff;
+}
+
+.st_icon_amazon:nth-child(3) svg {
+  color: #c643e0;
+}
+
+.st_icon_amazon:hover svg {
+  color: #fff;
+}
+
+.st_icon_amazon:hover {
+  background-color: #f68f3d;
+}
+
 /* ================================================== */
-
-/*                                   Footer Section */
-
+/*                                   Footer Section   */
 /* ================================================== */
 
 .footer {
@@ -1277,6 +1324,21 @@ button {
 
 .dark .footer {
   background-color: #2d3748;
+}
+
+.footer_logo {
+  flex: 1 1 100%;
+  max-width: 25%;
+}
+
+.q_links {
+  flex: 1 1 100%;
+  max-width: 25%;
+}
+
+.affiliate_disclosure {
+  flex: 1 1 100%;
+  max-width: 25%;
 }
 
 .footer_logo h2 {
@@ -1335,6 +1397,15 @@ button {
 
 .q_links ul li:hover {
   color: #2b3a53;
+}
+
+.q_links p {
+  color: #5e697c;
+  margin-bottom: 1rem;
+}
+
+.dark .q_links p {
+  color: #929eb4;
 }
 
 /* ================================================== */

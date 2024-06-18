@@ -6,7 +6,9 @@ export default function Footer() {
       <div className="footer">
         <div className="container flex flex-sb flex-wrap flex-left">
           <div className="footer_logo">
-            <h2>BBM Blog</h2>
+            <Link href="/">
+              <img src="/img/Beatmaster_mind.PNG" alt="logo" width={150} height={90} />
+            </Link>
             <h4>&copy; 2024 All Rights Reserved.</h4>
             <h3>
               Coded By <span>@JRcoder</span>
@@ -39,6 +41,15 @@ export default function Footer() {
                 <Link href="/">Facebook</Link>
               </li>
             </ul>
+          </div>
+          <div className="q_links affiliate_disclosure">
+            <h3>Affiliate Disclosure</h3>
+            <p>
+              As an Amazon Associate, we earn from qualifying purchases. This means that if you click on a link to an
+              Amazon product on this site and make a purchase, we may receive a commission at no additional cost to you.
+              This helps support the site and allows us to continue providing useful content. Thank you for your
+              support!
+            </p>
           </div>
         </div>
       </div>
