@@ -179,12 +179,12 @@ export default function Home() {
                     <h3>Drum Sets</h3>
                   </div>
                 </Link>
-                <Link href="/topics/pads">
+                <Link href="/topics/accessories">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
                       <GiDrum />
                     </div>
-                    <h3>Pads</h3>
+                    <h3>Accessories</h3>
                   </div>
                 </Link>
                 <Link href="/topics/sound">
@@ -217,6 +217,7 @@ export default function Home() {
                 <Link href="/tag/sound">#Sound</Link>
                 <Link href="/tag/electronic">#Electronic</Link>
                 <Link href="/tag/kits">#Kits</Link>
+                <Link href="/tag/drumsticks">#Drumsticks</Link>
               </div>
             </div>
             <div className="letstalk_sec mt-3">

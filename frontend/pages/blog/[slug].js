@@ -103,7 +103,7 @@ export default function blogPage() {
           <div className="topslug_titles">
             <h1 className="slugtitle">{loading ? <div>Loading...</div> : blog && blog[0]?.title}</h1>
             <h5>
-              By <span>JRcoder</span>. Published in{" "}
+              By <span>BeatMaster</span>. Published in{" "}
               <span>{loading ? <div>Loading...</div> : blog && blog[0]?.blogcategory.join(" - ")}</span>.{" "}
               {blog &&
                 new Date(blog[0].createdAt).toLocaleDateString("en-US", {
@@ -181,12 +181,12 @@ export default function blogPage() {
                       <h3>Drum Sets</h3>
                     </div>
                   </Link>
-                  <Link href="/topics/pads">
+                  <Link href="/topics/accessories">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
                         <GiDrum />
                       </div>
-                      <h3>Pads</h3>
+                      <h3>Accessories</h3>
                     </div>
                   </Link>
                   <Link href="/topics/sound">

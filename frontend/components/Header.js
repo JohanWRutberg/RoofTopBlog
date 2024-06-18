@@ -90,7 +90,7 @@ export default function Header() {
         <div className="container header">
           <div className="header_logo">
             <Link href="/">
-              <img src="/img/Beatmaster_mind.PNG" alt="logo" width={150} height={90} />
+              <img src="/img/logo_2.PNG" alt="logo" width={150} height={100} />
             </Link>
           </div>
           <div className="searchbar">
@@ -100,7 +100,7 @@ export default function Header() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               type="search"
-              placeholder="Discover news, articles and more..."
+              placeholder="Discover our blog articles..."
             />
           </div>
 
@@ -141,7 +141,7 @@ export default function Header() {
               type="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Discover news, articles and more..."
+              placeholder="Discover our blog articles..."
             />
           </div>
           <div className="search_data text-start">
@@ -208,7 +208,7 @@ export default function Header() {
               <Link href="/topics/drumsets">Drum Sets</Link>
             </li>
             <li>
-              <Link href="/topics/pads">Pads</Link>
+              <Link href="/topics/accessories">Accessories</Link>
             </li>
             <li>
               <Link href="/topics/sound">Sound</Link>

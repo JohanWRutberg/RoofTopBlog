@@ -215,7 +215,7 @@ export default function Home() {
                       <td>10</td>
                     </tr>
                     <tr>
-                      <td>Pads</td>
+                      <td>Accessories</td>
                       <td>10</td>
                     </tr>
                     <tr>
