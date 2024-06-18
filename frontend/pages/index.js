@@ -72,10 +72,10 @@ export default function Home() {
             </h1>
             <h3 data-aos="fade-right">Electronic drum enthusiasts</h3>
             <div className="flex gap-2">
-              <Link href="/">
+              <Link href="/contact">
                 <button>Contact</button>
               </Link>
-              <Link href="/">
+              <Link href="/about">
                 <button>About</button>
               </Link>
             </div>
@@ -125,7 +125,7 @@ export default function Home() {
                           {/* Display blog author */}
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
-                              <img src="/img/Beat_Master.png" />
+                              <img src="/img/Beat_Master.PNG" alt="logo" />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
                               <h4>BeatMaster Mind</h4>
