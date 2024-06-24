@@ -98,7 +98,7 @@ export default function Blog({
           <MarkdownEditor
             value={description}
             onChange={(ev) => setDescription(ev.text)}
-            style={{ width: "100%", height: "400px" }} //Adjust the height as wanted
+            style={{ width: "100%", height: "800px" }} //Adjust the height as wanted
             renderHTML={(text) => (
               <ReactMarkdown
                 components={{

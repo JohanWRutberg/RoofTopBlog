@@ -1240,7 +1240,7 @@ button {
 }
 
 .aff_img {
-  width: 50%;
+  width: 100%;
   height: auto;
   border-radius: 10px;
   overflow: hidden;
@@ -1336,7 +1336,7 @@ button {
   max-width: 25%;
 }
 
-.affiliate_disclosure {
+.affiliate_disclaimer {
   flex: 1 1 100%;
   max-width: 20%;
 }

@@ -1,5 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BsAmazon } from "react-icons/bs";
@@ -11,12 +12,13 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
 
-export default function blogPage() {
+export default function BlogPage() {
   const router = useRouter();
   const { slug } = router.query;
 
   const [blog, setBlog] = useState([""]);
   const [loading, setLoading] = useState(true);
+  const [currentAltText, setCurrentAltText] = useState("");
 
   useEffect(() => {
     if (slug) {
@@ -33,6 +35,41 @@ export default function blogPage() {
     }
   }, [slug]);
 
+  useEffect(() => {
+    if (!loading) {
+      const links = document.querySelectorAll(".observed-link, .blog-content-link");
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCurrentAltText(entry.target.getAttribute("alt") || entry.target.href);
+          } else if (
+            (!entry.isIntersecting &&
+              entry.target.className === "observed-link" &&
+              currentAltText === (entry.target.getAttribute("alt") || entry.target.href)) ||
+            (entry.target.className === "blog-content-link" &&
+              currentAltText === (entry.target.getAttribute("alt") || entry.target.href))
+          ) {
+            setCurrentAltText("");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      links.forEach((link) => observer.observe(link));
+
+      return () => {
+        links.forEach((link) => observer.unobserve(link));
+      };
+    }
+  }, [loading, blog, currentAltText]);
+
   // Calculate reading time
   const calculateReadingTime = (text) => {
     const wordsPerMinute = 200; // Average reading speed
@@ -47,7 +84,7 @@ export default function blogPage() {
   const Code = ({ node, inline, className, children, ...props }) => {
     const match = /language-(\w+)/.exec(className || "");
 
-    const [copied, setCopied] = useState();
+    const [copied, setCopied] = useState(false);
     // Copy code function
     const handleCopy = () => {
       navigator.clipboard.writeText(children);
@@ -67,7 +104,14 @@ export default function blogPage() {
             language={match[1]}
             PreTag="pre"
             {...props}
-            codeTagProps={{ style: { padding: "0", borderRadius: "5px", overflowX: "auto", whitespace: "pre-wrap" } }}
+            codeTagProps={{
+              style: {
+                padding: "0",
+                borderRadius: "5px",
+                overflowX: "auto",
+                whiteSpace: "pre-wrap"
+              }
+            }}
           >
             {String(children).replace(/\n$/, "")}
           </SyntaxHighlighter>
@@ -128,6 +172,11 @@ export default function blogPage() {
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
+                        a: ({ href, children }) => (
+                          <a href={href} className="observed-link" alt={children}>
+                            {children}
+                          </a>
+                        ),
                         code: Code
                       }}
                     >
@@ -140,21 +189,18 @@ export default function blogPage() {
             <div className="rightslug_data">
               <div className="slug_profile_info">
                 <div className="slugprofile_sec">
-                  {/* <div className="profile_imgbg"></div> */}
                   <div className="slug_aff_img">
-                    <img src="/img/vecteezy_amazon-logo-png-amazon-icon-transparent-png_19766240.png" alt="brand" />
+                    <Image
+                      src="/img/vecteezy_amazon-logo-png-amazon-icon-transparent-png_19766240.png"
+                      alt="brand"
+                      width={500}
+                      height={200}
+                    />
                   </div>
                 </div>
                 <div className="aff_container">
                   <div className="aff_img">
-                    <Link href="/">
-                      <img src="/img/amazon-associate.jpg" alt="Aff" />
-                    </Link>
-                  </div>
-                  <div className="aff_img">
-                    <Link href="/">
-                      <img src="/img/amazon-associate.jpg" alt="Aff" />
-                    </Link>
+                    <h3>{currentAltText}</h3>
                   </div>
                 </div>
 

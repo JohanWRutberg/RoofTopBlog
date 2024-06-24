@@ -28,7 +28,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="q_links">
+          {/* <div className="q_links">
             <h3>Social Media</h3>
             <ul>
               <li>
@@ -41,8 +41,8 @@ export default function Footer() {
                 <Link href="/">Facebook</Link>
               </li>
             </ul>
-          </div>
-          <div className="q_links affiliate_disclosure">
+          </div> */}
+          <div className="q_links affiliate_disclaimer">
             <h3>Disclaimer</h3>
             <p>
               As an Amazon Associate, we earn from qualifying purchases. <br />

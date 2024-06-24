@@ -1,6 +1,7 @@
 import useFetchData from "@/hooks/useFetchData";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { GiDrumKit, GiDrum } from "react-icons/gi";
 import { ImHeadphones } from "react-icons/im";
@@ -59,7 +60,7 @@ export default function Home() {
     <>
       <Head>
         <title>BeatMaster Mind Blog</title>
-        <meta name="description" content="BeatMaster Mind Blog" />
+        <meta name="description" content="BeatMaster Mind Blog about Electronic drums and accessories." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -108,7 +109,12 @@ export default function Home() {
                         <div className="blogimg">
                           {/* If no image in markdown, show noimage */}
                           <Link href={`/blog/${blog.slug}`}>
-                            <img src={firstImageUrl || "/img/noimage.jpg"} alt={blog.title} />
+                            <Image
+                              src={firstImageUrl || "/img/noimage.jpg"}
+                              alt={blog.title}
+                              width={800}
+                              height={600}
+                            />
                           </Link>
                         </div>
                         {/* Get the first tag in blog */}
@@ -220,7 +226,7 @@ export default function Home() {
                 <Link href="/tag/drumsticks">#Drumsticks</Link>
               </div>
             </div>
-            <div className="letstalk_sec mt-3">
+            {/* <div className="letstalk_sec mt-3">
               <h2>Let's Talk</h2>
               <div className="talk_sec">
                 <h4>Visit us on our Social Media platforms!</h4>
@@ -236,7 +242,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
