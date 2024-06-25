@@ -18,7 +18,7 @@ export default function BlogPage() {
 
   const [blog, setBlog] = useState([""]);
   const [loading, setLoading] = useState(true);
-  const [currentAltText, setCurrentAltText] = useState("");
+  const [linkDetails, setLinkDetails] = useState([]);
 
   useEffect(() => {
     if (slug) {
@@ -37,38 +37,14 @@ export default function BlogPage() {
 
   useEffect(() => {
     if (!loading) {
-      const links = document.querySelectorAll(".observed-link, .blog-content-link");
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.5
-      };
-
-      const observerCallback = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setCurrentAltText(entry.target.getAttribute("alt") || entry.target.href);
-          } else if (
-            (!entry.isIntersecting &&
-              entry.target.className === "observed-link" &&
-              currentAltText === (entry.target.getAttribute("alt") || entry.target.href)) ||
-            (entry.target.className === "blog-content-link" &&
-              currentAltText === (entry.target.getAttribute("alt") || entry.target.href))
-          ) {
-            setCurrentAltText("");
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-      links.forEach((link) => observer.observe(link));
-
-      return () => {
-        links.forEach((link) => observer.unobserve(link));
-      };
+      const links = document.querySelectorAll(".observed-link");
+      const details = Array.from(links).map((link) => ({
+        alt: link.getAttribute("alt") || link.href,
+        href: link.href
+      }));
+      setLinkDetails(details);
     }
-  }, [loading, blog, currentAltText]);
+  }, [loading, blog]);
 
   // Calculate reading time
   const calculateReadingTime = (text) => {
@@ -200,19 +176,22 @@ export default function BlogPage() {
                 </div>
                 <div className="aff_container">
                   <div className="aff_img">
-                    <h3>{currentAltText}</h3>
-                  </div>
-                </div>
-
-                <div className="social_talks flex flex-center gap-1 mt-2">
-                  <div className="st_icon_amazon">
-                    <BsAmazon />
-                  </div>
-                  <div className="st_icon_amazon">
-                    <BsAmazon />
-                  </div>
-                  <div className="st_icon_amazon">
-                    <BsAmazon />
+                    <ul>
+                      {linkDetails.map((link, index) => (
+                        <li key={index}>
+                          <Link href={link.href} legacyBehavior>
+                            <a className="flex flex-left">
+                              <div className="social_talks">
+                                <div className="st_icon_amazon">
+                                  <BsAmazon />
+                                </div>
+                              </div>
+                              {link.alt}
+                            </a>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>

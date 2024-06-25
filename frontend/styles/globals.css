@@ -1244,6 +1244,20 @@ button {
   height: auto;
   border-radius: 10px;
   overflow: hidden;
+  text-align: left;
+}
+
+.aff_img ul {
+  padding-left: 5px; /* Optional: add some padding to the left for better readability */
+}
+
+.aff_img li {
+  list-style-type: none; /* Optional: remove the bullet points */
+  padding-top: 5px; /* Optional: add some padding to the top for better readability */
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
 }
 
 .aff_img img {
@@ -1251,6 +1265,25 @@ button {
   height: 100%;
   border-radius: 10px;
   object-fit: cover;
+}
+
+.aff_img a {
+  color: #818a94;
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dark .aff_img a {
+  color: #c1c1c1;
+}
+
+.social_talks {
+  display: flex;
+  margin-right: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .st_icon {
