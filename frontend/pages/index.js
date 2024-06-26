@@ -224,6 +224,7 @@ export default function Home() {
                 <Link href="/tag/electronic">#Electronic</Link>
                 <Link href="/tag/kits">#Kits</Link>
                 <Link href="/tag/drumsticks">#Drumsticks</Link>
+                <Link href="/tag/kids">#Kids</Link>
               </div>
             </div>
             {/* <div className="letstalk_sec mt-3">

@@ -38,10 +38,12 @@ export default function BlogPage() {
   useEffect(() => {
     if (!loading) {
       const links = document.querySelectorAll(".observed-link");
-      const details = Array.from(links).map((link) => ({
-        alt: link.getAttribute("alt") || link.href,
-        href: link.href
-      }));
+      const details = Array.from(links)
+        .map((link) => ({
+          alt: link.getAttribute("alt") || link.href,
+          href: link.href
+        }))
+        .filter((link) => link.href.includes("https://amzn"));
       setLinkDetails(details);
     }
   }, [loading, blog]);
@@ -149,7 +151,13 @@ export default function BlogPage() {
                       remarkPlugins={[remarkGfm]}
                       components={{
                         a: ({ href, children }) => (
-                          <a href={href} className="observed-link" alt={children}>
+                          <a
+                            href={href}
+                            className="observed-link"
+                            alt={children}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             {children}
                           </a>
                         ),
@@ -180,7 +188,7 @@ export default function BlogPage() {
                       {linkDetails.map((link, index) => (
                         <li key={index}>
                           <Link href={link.href} legacyBehavior>
-                            <a className="flex flex-left">
+                            <a className="flex flex-left" target="_blank" rel="noopener noreferrer">
                               <div className="social_talks">
                                 <div className="st_icon_amazon">
                                   <BsAmazon />

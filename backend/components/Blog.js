@@ -155,6 +155,7 @@ export default function Blog({
             <option value="drumkit">drumkit</option>
             <option value="beat">beat</option>
             <option value="drumsticks">drumsticks</option>
+            <option value="kids">kids</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Vald: {Array.isArray(existingTags) && existingTags.map((category) => <span>{category}</span>)}
