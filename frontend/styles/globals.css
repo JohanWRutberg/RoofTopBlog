@@ -1501,6 +1501,15 @@ button {
   width: 750px;
 }
 
+.leftblog_data_markdown a {
+  color: #667eea;
+}
+
+.leftblog_data_markdown a:hover {
+  color: #667eea;
+  text-decoration: underline;
+}
+
 .leftblog_data_markdown img {
   width: 100%;
   height: 100%;
