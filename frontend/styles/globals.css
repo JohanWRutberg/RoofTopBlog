@@ -1503,7 +1503,7 @@ button {
 
 .leftblog_data_markdown img {
   width: 100%;
-  height: 380px;
+  height: 100%;
   border-radius: 15px;
   object-fit: cover;
 }
