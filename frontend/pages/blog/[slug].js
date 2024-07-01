@@ -180,6 +180,18 @@ export default function BlogPage() {
                       width={500}
                       height={200}
                     />
+                    <p>
+                      As an Amazon Associate, we earn from qualifying purchases. This means that if you click on a link
+                      to an Amazon product on this site and make a purchase, we may receive a commission at no
+                      additional cost to you.
+                      <br />
+                      This helps support the site and allows us to continue providing useful content.
+                      <br />
+                      Thank you for your support!
+                    </p>
+                    <br />
+                    <p>Shop the items from the blog post here:</p>
+                    <br />
                   </div>
                 </div>
                 <div className="aff_container">
