@@ -190,7 +190,7 @@ export default function BlogPage() {
                       Thank you for your support!
                     </p>
                     <br />
-                    <p>Shop the items from the blog post here:</p>
+                    <p>Buy the products featured in the blog post here:</p>
                     <br />
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function BlogPage() {
                                   <BsAmazon />
                                 </div>
                               </div>
-                              {link.alt}
+                              <span className="link-alt">{link.alt}</span>
                             </a>
                           </Link>
                         </li>
