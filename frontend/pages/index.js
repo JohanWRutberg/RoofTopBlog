@@ -10,7 +10,7 @@ import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); // Page number
-  const [perPage] = useState(5); // Number of blogs per page
+  const [perPage] = useState(9); // Number of blogs per page
 
   const { alldata, loading } = useFetchData("/api/getblog");
 

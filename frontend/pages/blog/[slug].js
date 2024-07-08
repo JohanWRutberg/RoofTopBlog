@@ -150,17 +150,20 @@ export default function BlogPage() {
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
-                        a: ({ href, children }) => (
-                          <a
-                            href={href}
-                            className="observed-link"
-                            alt={children}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {children}
-                          </a>
-                        ),
+                        a: ({ href, children }) => {
+                          const isAmazonLink = href.startsWith("https://amzn");
+                          return (
+                            <a
+                              href={href}
+                              className="observed-link"
+                              alt={children}
+                              target={isAmazonLink ? "_blank" : "_self"}
+                              rel={isAmazonLink ? "noopener noreferrer" : undefined}
+                            >
+                              {children}
+                            </a>
+                          );
+                        },
                         code: Code
                       }}
                     >
