@@ -150,7 +150,7 @@ export default function Blog({
             <option value="electronic">electronic</option>
             <option value="pads">pads</option>
             <option value="cymbals">cymbals</option>
-            <option value="kits">kits</option>
+            <option value="sets">sets</option>
             <option value="sound">sound</option>
             <option value="drumkit">drumkit</option>
             <option value="beat">beat</option>
