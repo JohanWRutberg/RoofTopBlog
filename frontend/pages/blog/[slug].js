@@ -183,15 +183,7 @@ export default function BlogPage() {
                       width={500}
                       height={200}
                     />
-                    <p>
-                      As an Amazon Associate, we earn from qualifying purchases. This means that if you click on a link
-                      to an Amazon product on this site and make a purchase, we may receive a commission at no
-                      additional cost to you.
-                      <br />
-                      This helps support the site and allows us to continue providing useful content.
-                      <br />
-                      Thank you for your support!
-                    </p>
+
                     <br />
                     <p>Buy the products featured in the blog post here:</p>
                     <br />
@@ -216,6 +208,18 @@ export default function BlogPage() {
                       ))}
                     </ul>
                   </div>
+                </div>
+                <div className="slug_aff_img mt-15">
+                  <p>
+                    As an Amazon Associate, we earn from qualifying purchases. This means that if you click on a link to
+                    an Amazon product on this site and make a purchase, we may receive a commission at no additional
+                    cost to you.
+                    <br />
+                    This helps support the site and allows us to continue providing useful content.
+                    <br />
+                    <br />
+                    Thank you for your support!
+                  </p>
                 </div>
               </div>
               <div className="topics_sec">
