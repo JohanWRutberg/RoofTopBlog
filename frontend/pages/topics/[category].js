@@ -84,6 +84,7 @@ export default function CategoryPage() {
             <div className="category_title">
               <div className="flex gap-1">
                 <h2>
+                  Categories:
                   {loading ? (
                     <div>Loading...</div>
                   ) : publishedblogs ? (
@@ -94,10 +95,6 @@ export default function CategoryPage() {
                 </h2>
                 <span>{loading ? <div>0</div> : publishedblogs.filter((blog) => blog.blogcategory).length}</span>
               </div>
-              <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                laborum.
-              </p>
             </div>
             <div className="category_blogs mt-3">
               {loading ? (
