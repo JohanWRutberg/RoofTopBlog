@@ -183,7 +183,7 @@ export default function Header() {
         {/* Mobile navlist */}
         <div className={aside ? `navlist_mobile open` : "navlist_mobile"}>
           <div className="navlist_m_title flex flex-sb">
-            <h1>BMM Blog</h1>
+            <h2>BMM Blog</h2>
             <button onClick={asideClose}>
               <FaXmark />
             </button>
