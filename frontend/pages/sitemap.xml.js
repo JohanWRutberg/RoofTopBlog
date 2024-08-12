@@ -1,4 +1,4 @@
-import { getSortedPostsData } from "../pages/api";
+/* import { getSortedPostsData } from "../pages/api";
 
 const URL = "https://www.beatmastermind.com";
 
@@ -55,3 +55,4 @@ export async function getServerSideProps({ res }) {
 }
 
 export default function SiteMap() {}
+ */
