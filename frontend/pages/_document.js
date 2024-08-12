@@ -26,14 +26,6 @@ export default function Document() {
       </Head>
 
       <body>
-        {/* <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-T26PQD5S"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript> */}
         <Main />
         <NextScript />
       </body>

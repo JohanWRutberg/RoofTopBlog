@@ -16,7 +16,8 @@ export default function App({ Component, pageProps }) {
         <Aos>
           <Component {...pageProps} />
           <GoogleTagManager gtmId="GTM-T26PQD5S" />
-          <GoogleAnalytics gaId="G-8M8NYVR7PQ" />
+          <GoogleAnalytics gaId="G-ED0FRQVST7" />
+          {/* <GoogleAnalytics gaId="G-8M8NYVR7PQ" /> */}
         </Aos>
         <ScrollToTopBtn />
       </main>
