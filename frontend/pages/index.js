@@ -81,11 +81,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          {/* <div className="rightheader_img">
-            <div className="image_bg_top"></div>
-            <div className="image_bg_top2"></div>
-            <img src="/img/BEATMASTER_MIND3.png" alt="img" />
-          </div> */}
         </div>
       </section>
 
