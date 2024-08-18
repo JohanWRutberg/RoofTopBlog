@@ -62,7 +62,7 @@ export default function DisclaimerPage() {
                 <br />
                 <br />
                 If you have any questions or concerns about the use of AI-generated images on this blog, feel free to
-                <Link href="/contact">Contact</Link> us.
+                <Link href="/contact"> Contact</Link> us.
               </div>
             </>
           </div>
