@@ -18,7 +18,7 @@ export default function Footer() {
             <h3>Legal Stuff Links</h3>
             <ul>
               <li>
-                <Link href="/disclaimer">Affiliate Disclaimer</Link>
+                <Link href="/disclaimer">Disclaimer</Link>
               </li>
               <li>
                 <Link href="/">Cookie Policy</Link>

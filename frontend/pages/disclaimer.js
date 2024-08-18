@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function DisclaimerPage() {
   return (
     <>
@@ -6,7 +8,7 @@ export default function DisclaimerPage() {
           <div className="leftblog_data_markdown pb-5">
             <>
               <div className="w-100 blogcontent">
-                <h1>Affiliate Disclaimer</h1>
+                <h1>Disclaimer</h1>
                 <h2>How do we make money from our blog?</h2>
                 Some links on our blog are "affiliate links," which contain a special tracking code. <br />
                 This means if you click on an affiliate link and buy something, we get a commission at no extra cost to
@@ -46,6 +48,21 @@ export default function DisclaimerPage() {
                 about the products we review.
                 <br />
                 <br />
+                <h1>AI-images</h1>
+                <h2>Usage of images.</h2>
+                Some of the images featured on this blog may have been generated using artificial intelligence (AI)
+                tools. These AI-generated images are used to enhance the content and provide visual representation.
+                While efforts are made to ensure that these images are accurate and appropriate, they may not always
+                perfectly reflect reality or the subjects being depicted.
+                <br />
+                <br />
+                Please note that AI-generated images are created based on algorithms and may not be entirely original or
+                unique. They should not be interpreted as actual photographs or artistic works created by human artists
+                unless explicitly stated otherwise.
+                <br />
+                <br />
+                If you have any questions or concerns about the use of AI-generated images on this blog, feel free to
+                <Link href="/contact">Contact</Link> us.
               </div>
             </>
           </div>
