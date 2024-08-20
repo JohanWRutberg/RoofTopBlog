@@ -5,6 +5,13 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Start cookieyes banner */}
+        <script
+          id="cookieyes"
+          type="text/javascript"
+          src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
+        ></script>
+        {/* End cookieyes banner */}
         <scrip async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
         <script
           dangerouslySetInnerHTML={{

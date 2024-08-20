@@ -59,13 +59,6 @@ export default function Home() {
   return (
     <>
       <Head>
-        {/* Start cookieyes banner */}
-        <script
-          id="cookieyes"
-          type="text/javascript"
-          src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
-        ></script>
-        {/* End cookieyes banner */}
         <title>BeatMaster Mind Blog</title>
         <meta name="description" content="BeatMaster Mind Blog about Electronic drums and accessories." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
