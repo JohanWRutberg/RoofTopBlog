@@ -33,8 +33,8 @@ body.dark {
 
 .scrollToTop {
   position: fixed;
-  bottom: 2%;
-  right: 2%;
+  bottom: 1.3%;
+  right: 1.3%;
   width: 45px;
   height: 45px;
   display: flex;
@@ -50,7 +50,7 @@ body.dark {
 }
 
 .scrollToTop:hover {
-  background-color: #899ae2;
+  background-color: #8a9be8;
   color: #fff;
 }
 
@@ -1345,7 +1345,7 @@ a:hover .st_icon_amazon {
 }
 
 /* ================================================== */
-/*                  Footer Section                    */
+/*                                   Footer Section   */
 /* ================================================== */
 
 .footer {
@@ -1357,17 +1357,19 @@ a:hover .st_icon_amazon {
   background-color: #2d3748;
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.footer_logo,
-.q_links,
-.affiliate_disclaimer {
+.footer_logo {
   flex: 1 1 100%;
   max-width: 25%;
-  margin-bottom: 2rem;
+}
+
+.q_links {
+  flex: 1 1 100%;
+  max-width: 25%;
+}
+
+.affiliate_disclaimer {
+  flex: 1 1 100%;
+  max-width: 20%;
 }
 
 @media (max-width: 670px) {
@@ -1434,7 +1436,7 @@ a:hover .st_icon_amazon {
 }
 
 .q_links ul li:hover {
-  color: #a7bbdd;
+  color: #2b3a53;
 }
 
 .q_links p {
@@ -1447,7 +1449,7 @@ a:hover .st_icon_amazon {
 }
 
 /* ================================================== */
-/*                 Home Slug Page                     */
+/*                                Home Slug Page */
 /* ================================================== */
 
 .slugpage {
