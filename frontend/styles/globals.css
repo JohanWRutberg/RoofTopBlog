@@ -1345,7 +1345,7 @@ a:hover .st_icon_amazon {
 }
 
 /* ================================================== */
-/*                                   Footer Section   */
+/*                  Footer Section                    */
 /* ================================================== */
 
 .footer {
@@ -1357,19 +1357,26 @@ a:hover .st_icon_amazon {
   background-color: #2d3748;
 }
 
-.footer_logo {
-  flex: 1 1 100%;
-  max-width: 25%;
+.container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.q_links {
-  flex: 1 1 100%;
-  max-width: 25%;
-}
-
+.footer_logo,
+.q_links,
 .affiliate_disclaimer {
   flex: 1 1 100%;
-  max-width: 20%;
+  max-width: 25%;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 670px) {
+  .footer_logo,
+  .q_links,
+  .affiliate_disclaimer {
+    max-width: 100%;
+    margin-right: 0; /* Remove right margin to prevent horizontal spacing */
+  }
 }
 
 .footer_logo h2 {
@@ -1427,7 +1434,7 @@ a:hover .st_icon_amazon {
 }
 
 .q_links ul li:hover {
-  color: #2b3a53;
+  color: #a7bbdd;
 }
 
 .q_links p {
@@ -1440,7 +1447,7 @@ a:hover .st_icon_amazon {
 }
 
 /* ================================================== */
-/*                                Home Slug Page */
+/*                 Home Slug Page                     */
 /* ================================================== */
 
 .slugpage {
