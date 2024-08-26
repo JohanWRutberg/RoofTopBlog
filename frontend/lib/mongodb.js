@@ -24,11 +24,14 @@ if (process.env.NODE_ENV === "development") {
 }
 
 export async function connectToDatabase() {
+  // You should check if `clientPromise` already exists before trying to assign it.
   if (!clientPromise) {
     client = new MongoClient(uri, options);
     clientPromise = client.connect();
   }
-  const client = await clientPromise;
+
+  // Reuse the existing `client` variable instead of redeclaring it.
+  client = await clientPromise;
   const db = client.db(process.env.MONGODB_DB); // Replace with your actual database name
   return { client, db };
 }
