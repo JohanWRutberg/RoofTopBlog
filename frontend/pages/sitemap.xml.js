@@ -1,56 +1,40 @@
-import { getSortedPostsData } from "../lib/mongodb";
+import { connectToDatabase } from "../lib/mongodb";
 
-const URL = "https://www.beatmastermind.com";
+export default async function sitemap() {
+  const client = await connectToDatabase();
+  const db = client.db("blogdata");
+  const data = await db.collection("blogtest").find({}).toArray();
 
-function generateSiteMap(posts) {
-  return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <!-- Add the static URLs manually -->
-     <url>
-       <loc>${URL}</loc>
-     </url>
-     <url>
-       <loc>${URL}/contact</loc>
-     </url>
-     <url>
-       <loc>${URL}/disclaimer</loc>
-     </url>
-     <url>
-       <loc>${URL}/about</loc>
-     </url>
-     ${posts
-       .map(({ id }) => {
-         return `
-       <url>
-           <loc>${`${URL}/blog/${id}`}</loc>
-       </url>
-       <url>
-           <loc>${`${URL}/tag/${id}`}</loc>
-       </url>
-       <url>
-           <loc>${`${URL}/topics/${id}`}</loc>
-       </url>
-     `;
-       })
-       .join("")}
-   </urlset>
- `;
+  const blog = data.map((item) => ({
+    url: `${process.env.NEXT_WEBSITE_URL}/blog/${item.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly"
+  }));
+  return [
+    {
+      url: "https://www.beatmastermind.com",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: "1"
+    },
+    {
+      url: "https://www.beatmastermind.com/about",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: "1"
+    },
+    {
+      url: "https://www.beatmastermind.com/contact",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: "1"
+    },
+    {
+      url: "https://www.beatmastermind.com/disclaimer",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: "1"
+    },
+    ...blog
+  ];
 }
-
-export async function getServerSideProps({ res }) {
-  const posts = getSortedPostsData();
-
-  // Generate the XML sitemap with the blog data
-  const sitemap = generateSiteMap(posts);
-
-  res.setHeader("Content-Type", "text/xml");
-  // Send the XML to the browser
-  res.write(sitemap);
-  res.end();
-
-  return {
-    props: {}
-  };
-}
-
-export default function SiteMap() {}
