@@ -9,10 +9,15 @@ const nextConfig = {
         pathname: "**"
       }
     ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/sitemap.xml",
+        destination: "/api/sitemap.xml"
+      }
+    ];
   }
-  /* images: {
-    domains: ["m.media-amazon.com"]
-  } */
 };
 
 export default nextConfig;
