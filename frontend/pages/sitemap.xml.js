@@ -1,40 +1,51 @@
 import { connectToDatabase } from "../lib/mongodb";
 
-export default async function sitemap() {
-  const client = await connectToDatabase();
-  const db = client.db("blogdata");
-  const data = await db.collection("blogtest").find({}).toArray();
+const createSitemap = (posts) => {
+  const baseUrl = process.env.NEXT_WEBSITE_URL;
 
-  const blog = data.map((item) => ({
-    url: `${process.env.NEXT_WEBSITE_URL}/blog/${item.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly"
-  }));
-  return [
-    {
-      url: "https://www.beatmastermind.com",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: "1"
-    },
-    {
-      url: "https://www.beatmastermind.com/about",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: "1"
-    },
-    {
-      url: "https://www.beatmastermind.com/contact",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: "1"
-    },
-    {
-      url: "https://www.beatmastermind.com/disclaimer",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: "1"
-    },
-    ...blog
-  ];
+  let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>${baseUrl}</loc>
+        <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+      </url>
+  `;
+
+  posts.forEach((post) => {
+    sitemap += `
+      <url>
+        <loc>${baseUrl}/blog/${post.slug}</loc>
+        <lastmod>${new Date(post.updatedAt).toISOString().split("T")[0]}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+    `;
+  });
+
+  sitemap += `
+    </urlset>
+  `;
+
+  return sitemap;
+};
+
+export default async function SitemapXml(req, res) {
+  if (req.method === "GET") {
+    try {
+      const { db } = await connectToDatabase();
+      const posts = await db.collection("blogtest").find({}).toArray();
+      const sitemap = createSitemap(posts);
+      res.setHeader("Content-Type", "text/xml");
+      res.write(sitemap);
+      res.end();
+    } catch (error) {
+      console.error(error);
+      res.status(500).end();
+    }
+  } else {
+    res.setHeader("Allow", "GET");
+    res.status(405).end("Method Not Allowed");
+  }
 }
