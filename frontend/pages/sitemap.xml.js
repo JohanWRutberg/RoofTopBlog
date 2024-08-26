@@ -1,32 +1,34 @@
-const EXTERNAL_DATA_URL = "https://www.beatmastermind.com";
+import { getSortedPostsData } from "../lib/mongodb";
+
+const URL = "https://www.beatmastermind.com";
 
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <!--We manually set the two URLs we know already-->
+     <!-- Add the static URLs manually -->
      <url>
-       <loc>https://www.beatmastermind.com</loc>
+       <loc>${URL}</loc>
      </url>
      <url>
-       <loc>https://www.beatmastermind.com/contact</loc>
+       <loc>${URL}/contact</loc>
      </url>
      <url>
-       <loc>https://www.beatmastermind.com/disclaimer</loc>
+       <loc>${URL}/disclaimer</loc>
      </url>
      <url>
-       <loc>https://www.beatmastermind.com/about</loc>
+       <loc>${URL}/about</loc>
      </url>
      ${posts
        .map(({ id }) => {
          return `
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/blog/${id}`}</loc>
+           <loc>${`${URL}/blog/${id}`}</loc>
        </url>
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/tag/${id}`}</loc>
+           <loc>${`${URL}/tag/${id}`}</loc>
        </url>
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/topics/${id}`}</loc>
+           <loc>${`${URL}/topics/${id}`}</loc>
        </url>
      `;
        })
@@ -35,20 +37,14 @@ function generateSiteMap(posts) {
  `;
 }
 
-function SiteMap() {
-  // getServerSideProps will do the heavy lifting
-}
-
 export async function getServerSideProps({ res }) {
-  // We make an API call to gather the URLs for our site
-  const request = await fetch(EXTERNAL_DATA_URL);
-  const posts = await request.json();
+  const posts = getSortedPostsData();
 
-  // We generate the XML sitemap with the posts data
+  // Generate the XML sitemap with the blog data
   const sitemap = generateSiteMap(posts);
 
   res.setHeader("Content-Type", "text/xml");
-  // we send the XML to the browser
+  // Send the XML to the browser
   res.write(sitemap);
   res.end();
 
@@ -57,4 +53,4 @@ export async function getServerSideProps({ res }) {
   };
 }
 
-export default SiteMap;
+export default function SiteMap() {}
