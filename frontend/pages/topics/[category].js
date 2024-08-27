@@ -1,38 +1,12 @@
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function CategoryPage() {
-  const [loading, setLoading] = useState(true);
+export default function CategoryPage({ initialData, category }) {
+  const [loading, setLoading] = useState(!initialData);
   const [currentPage, setCurrentPage] = useState(1); // Page number
-  const [perPage] = useState(6); // Number of blogs per page
-  const [blog, setBlog] = useState([]);
-  const router = useRouter();
-
-  const { category } = router.query;
-
-  useEffect(() => {
-    // Function to fetch blog data
-    const fetchBlogdata = async () => {
-      try {
-        const res = await axios.get(`/api/getblog?blogcategory=${category}`);
-        const alldata = res.data;
-        setBlog(alldata);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching blog data", error);
-        setLoading(false);
-      }
-    };
-
-    // Fetch blog data only if category exists
-    if (category) {
-      fetchBlogdata();
-    } else {
-      router.push("/404");
-    }
-  }, [category]);
+  const [perPage] = useState(7); // Number of blogs per page
+  const [blog, setBlog] = useState(initialData || []);
 
   // Function to handle page change
   const paginate = (pageNumber) => {
@@ -47,7 +21,7 @@ export default function CategoryPage() {
 
   const pageNumbers = [];
 
-  for (let i = 1; i < Math.ceil(allblog / perPage); i++) {
+  for (let i = 1; i <= Math.ceil(allblog / perPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -55,11 +29,9 @@ export default function CategoryPage() {
   const publishedblogs = currentBlogs.filter((ab) => ab.status === "publish");
 
   function extractFirstImageUrl(markdownContent) {
-    // Check if markdowncontent is provided and non-empty
     if (!markdownContent || typeof markdownContent !== "string") {
       return null;
     }
-    // Regular expression to match the first image url in markdown format [alt text](imageurl)
     const regex = /!\[.*?\]\((.*?)\)/;
     const match = markdownContent.match(regex);
     return match ? match[1] : null;
@@ -87,10 +59,10 @@ export default function CategoryPage() {
                   Categories:
                   {loading ? (
                     <div>Loading...</div>
-                  ) : publishedblogs ? (
-                    publishedblogs && publishedblogs[0]?.blogcategory.join(" - ")
+                  ) : publishedblogs.length ? (
+                    publishedblogs[0]?.blogcategory.join(" - ")
                   ) : (
-                    publishedblogs && publishedblogs.blogcategory.join(" - ")
+                    category
                   )}
                 </h2>
                 <span>{loading ? <div>0</div> : publishedblogs.filter((blog) => blog.blogcategory).length}</span>
@@ -98,51 +70,45 @@ export default function CategoryPage() {
             </div>
             <div className="category_blogs mt-3">
               {loading ? (
-                <>
-                  <div className="wh-100 flex flex-center mt-2 pb-5">
-                    <div className="loader"></div>
-                  </div>
-                </>
+                <div className="wh-100 flex flex-center mt-2 pb-5">
+                  <div className="loader"></div>
+                </div>
               ) : (
-                <>
-                  {publishedblogs.map((item) => {
-                    // In the markdown content first image shows here
-                    const firstImageUrl = extractFirstImageUrl(item.description);
-                    return (
-                      <div className="cate_blog" key={item._id}>
-                        {/* If no image in markdown, show noimage */}
-                        <Link href={`/blog/${item.slug}`}>
-                          <img src={firstImageUrl || "/img/noimage.jpg"} alt={item.title} />
-                        </Link>
+                publishedblogs.map((item) => {
+                  const firstImageUrl = extractFirstImageUrl(item.description);
+                  return (
+                    <div className="cate_blog" key={item._id}>
+                      <Link href={`/blog/${item.slug}`}>
+                        <img src={firstImageUrl || "/img/noimage.jpg"} alt={item.title} />
+                      </Link>
 
-                        <div className="bloginfo mt-2">
-                          <Link href={`/tag/${item.tags[0]}`}>
-                            <div className="blogtag">{item.tags[0]}</div>
-                          </Link>
-                          <Link href={`/blog/${item.slug}`}>
-                            <h3>{item.title}</h3>
-                          </Link>
-                          <p>{getFirstWords(item.description)}</p>
-                          <div className="blogauthor flex gap-1">
-                            <div className="blogaimg">
-                              <img src="/img/Beat_Master.png" />
-                            </div>
-                            <div className="flex flex-col flex-left gap-05">
-                              <h5>BeatMasterMind</h5>
-                              <span>
-                                {new Date(item.createdAt).toLocaleDateString("en-US", {
-                                  month: "long",
-                                  day: "numeric",
-                                  year: "numeric"
-                                })}
-                              </span>
-                            </div>
+                      <div className="bloginfo mt-2">
+                        <Link href={`/tag/${item.tags[0]}`}>
+                          <div className="blogtag">{item.tags[0]}</div>
+                        </Link>
+                        <Link href={`/blog/${item.slug}`}>
+                          <h3>{item.title}</h3>
+                        </Link>
+                        <p>{getFirstWords(item.description)}</p>
+                        <div className="blogauthor flex gap-1">
+                          <div className="blogaimg">
+                            <img src="/img/Beat_Master.png" />
+                          </div>
+                          <div className="flex flex-col flex-left gap-05">
+                            <h5>BeatMasterMind</h5>
+                            <span>
+                              {new Date(item.createdAt).toLocaleDateString("en-US", {
+                                month: "long",
+                                day: "numeric",
+                                year: "numeric"
+                              })}
+                            </span>
                           </div>
                         </div>
                       </div>
-                    );
-                  })}
-                </>
+                    </div>
+                  );
+                })
               )}
             </div>
             <div className="blogpagination">
@@ -171,4 +137,24 @@ export default function CategoryPage() {
       </div>
     </>
   );
+}
+
+// Fetching data at the server side
+export async function getServerSideProps(context) {
+  const { category } = context.params;
+  let initialData = [];
+
+  try {
+    const res = await axios.get(`http://localhost:3000/api/getblog?blogcategory=${category}`);
+    initialData = res.data;
+  } catch (error) {
+    console.error("Error fetching blog data", error);
+  }
+
+  return {
+    props: {
+      initialData,
+      category
+    }
+  };
 }

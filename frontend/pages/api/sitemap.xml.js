@@ -11,7 +11,15 @@ export default async function handler(req, res) {
   const baseUrl = "https://www.beatmastermind.com";
 
   // URLs to include in sitemap
-  const staticPaths = [`${baseUrl}/`, `${baseUrl}/blog/`, `${baseUrl}/tag/`, `${baseUrl}/topics/`];
+  const staticPaths = [
+    `${baseUrl}/`,
+    `${baseUrl}/blog/`,
+    `${baseUrl}/tag/`,
+    `${baseUrl}/topics/`,
+    `${baseUrl}/contact`, // Add static URL for contact page
+    `${baseUrl}/disclaimer`, // Add static URL for disclaimer page
+    `${baseUrl}/about` // Add static URL for about page
+  ];
 
   // Dynamically generate blog URLs
   const blogPaths = blogs.map((blog) => `${baseUrl}/blog/${blog.slug}`);
