@@ -4,8 +4,8 @@ import { mongooseConnect } from "@/lib/mongoose";
 export default async function handler(req, res) {
   await mongooseConnect();
 
-  // Fetch all blog slugs
-  const blogs = await Blog.find({}, { slug: 1 });
+  // Fetch all blog slugs, tags, and categories
+  const blogs = await Blog.find({}, { slug: 1, tags: 1, blogcategory: 1 });
 
   // Base URL for your site
   const baseUrl = "https://www.beatmastermind.com";
@@ -24,8 +24,20 @@ export default async function handler(req, res) {
   // Dynamically generate blog URLs
   const blogPaths = blogs.map((blog) => `${baseUrl}/blog/${blog.slug}`);
 
+  // Collect all unique tags
+  const tags = [...new Set(blogs.flatMap((blog) => blog.tags))];
+
+  // Collect all unique categories
+  const categories = [...new Set(blogs.flatMap((blog) => blog.blogcategory))];
+
+  // Dynamically generate tag URLs
+  const tagPaths = tags.map((tag) => `${baseUrl}/tag/${tag}`);
+
+  // Dynamically generate category URLs
+  const categoryPaths = categories.map((category) => `${baseUrl}/topics/${category}`);
+
   // Combine all paths
-  const allPaths = [...staticPaths, ...blogPaths];
+  const allPaths = [...staticPaths, ...blogPaths, ...tagPaths, ...categoryPaths];
 
   // Generate XML content
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
