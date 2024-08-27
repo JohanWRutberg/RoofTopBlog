@@ -60,9 +60,9 @@ export default function Home() {
     <>
       <Head>
         {/* <title>BeatMaster Mind Blog</title>
-        <meta name="description" content="BeatMaster Mind Blog about Electronic drums and accessories." /> */}
+        <meta name="description" content="BeatMaster Mind Blog about Electronic drums and accessories." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
       <section className="header_data_section">
