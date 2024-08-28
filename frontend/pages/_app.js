@@ -11,11 +11,9 @@ import Head from "next/head";
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title>BeatMasterMind Blog</title>
-      </Head>
+      <Head>{/* <title>BeatMasterMind Blog</title> */}</Head>
       <Header />
-      <title>BeatMasterMind</title>
+
       <main>
         <TopLoadingLine />
         <Aos>
