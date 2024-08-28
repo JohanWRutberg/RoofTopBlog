@@ -11,6 +11,7 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
+import Head from "next/head"; // Import the next/head module
 
 export default function BlogPage() {
   const router = useRouter();
@@ -120,6 +121,17 @@ export default function BlogPage() {
 
   return (
     <>
+      {!loading && (
+        <Head>
+          <title>{blog[0].title} | Beat Master Mind</title>
+          <meta name="description" content={blog[0].description.slice(0, 150)} />
+          <meta property="og:title" content={blog[0].title} />
+          <meta property="og:description" content={blog[0].description.slice(0, 150)} />
+          <meta property="og:image" content={blog[0].image || "/default-image.png"} />
+          <meta property="og:url" content={`https://www.beatmastermind.com${router.asPath}`} />
+        </Head>
+      )}
+
       <div className="slugpage">
         <div className="container">
           <div className="topslug_titles">
