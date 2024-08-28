@@ -1,16 +1,17 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
         {/* Start cookieyes banner */}
-        <script
+        <Script
           id="cookieyes"
           type="text/javascript"
           src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
-        ></script>
+        ></Script>
         {/* End cookieyes banner */}
         {/* Character, robots, and OG image */}
         <meta charSet="UTF-8" />
