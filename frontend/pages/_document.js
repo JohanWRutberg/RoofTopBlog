@@ -20,8 +20,6 @@ export default function Document() {
           content="Electronic drums, Accessories for Electronic drums, Information about Electronic drums"
         />
 
-        <title>Beat Master Mind</title>
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
