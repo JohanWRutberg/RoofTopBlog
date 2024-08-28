@@ -63,6 +63,8 @@ export default function Document() {
       </Head>
 
       <body>
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -73,8 +75,7 @@ export default function Document() {
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+
         <Main />
         <NextScript />
       </body>
