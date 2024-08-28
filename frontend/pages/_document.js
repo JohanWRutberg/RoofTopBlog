@@ -11,6 +11,7 @@ export default function Document() {
           id="cookieyes"
           type="text/javascript"
           src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
+          strategy="beforeInteractive"
         ></Script>
         {/* End cookieyes banner */}
         {/* Character, robots, and OG image */}
