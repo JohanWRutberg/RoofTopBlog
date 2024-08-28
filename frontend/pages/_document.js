@@ -48,7 +48,7 @@ export default function Document() {
         {/* Site name and keywords */}
         <meta
           property="og:site_name"
-          content="Beat MasterMind - Blog about Electronic drums and accessories - Electronic drums - Drums - Drumsticks - Pads"
+          content="Beat MasterMind - Blog about Electronic drums, accessories and information - Electronic drums - Drums - Drumsticks - Pads"
         />
         <meta
           name="keywords"
