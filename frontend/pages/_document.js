@@ -5,6 +5,13 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Start cookieyes banner */}
+        <script
+          id="cookieyes"
+          type="text/javascript"
+          src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
+        ></script>
+        {/* End cookieyes banner */}
         {/* Character, robots, and OG image */}
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -39,14 +46,6 @@ export default function Document() {
               `
           }}
         />
-
-        {/* Start cookieyes banner */}
-        <script
-          id="cookieyes"
-          type="text/javascript"
-          src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
-        ></script>
-        {/* End cookieyes banner */}
       </Head>
 
       <body>
