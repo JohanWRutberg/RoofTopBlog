@@ -1,19 +1,10 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import Script from "next/script";
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Start cookieyes banner */}
-        <Script
-          id="cookieyes"
-          type="text/javascript"
-          src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
-          strategy="beforeInteractive"
-        ></Script>
-        {/* End cookieyes banner */}
         {/* Character, robots, and OG image */}
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -48,6 +39,14 @@ export default function Document() {
               `
           }}
         />
+
+        {/* Start cookieyes banner */}
+        <script
+          id="cookieyes"
+          type="text/javascript"
+          src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
+        ></script>
+        {/* End cookieyes banner */}
       </Head>
 
       <body>
