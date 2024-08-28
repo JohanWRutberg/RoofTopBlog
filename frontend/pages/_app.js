@@ -7,19 +7,11 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "@/styles/globals.css";
 import Head from "next/head";
-import Script from "next/script";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        {/* Start cookieyes banner */}
-        <Script
-          id="cookieyes"
-          type="text/javascript"
-          src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
-          strategy="beforeInteractive"
-        ></Script>
         <title>BeatMasterMind Blog</title>
         {/* <meta name="description" content="BeatMaster Mind Blog about Electronic drums and accessories." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
