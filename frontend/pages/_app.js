@@ -13,9 +13,6 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>BeatMasterMind Blog</title>
-        {/* <meta name="description" content="BeatMaster Mind Blog about Electronic drums and accessories." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <Header />
       <title>BeatMasterMind</title>
@@ -25,7 +22,6 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
-          {/* <GoogleAnalytics gaId="G-8M8NYVR7PQ" /> */}
         </Aos>
         <ScrollToTopBtn />
       </main>
