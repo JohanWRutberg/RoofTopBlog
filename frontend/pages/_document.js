@@ -63,7 +63,6 @@ export default function Document() {
         />
         <link rel="icon" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Beat MasterMind Blog</title>
 
         {/* <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} /> */}
       </Head>
