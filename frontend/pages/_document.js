@@ -10,7 +10,7 @@ export default function Document() {
         <Script
           id="cookieyes"
           type="text/javascript"
-          src="https://cdn-cookieyes.com/client_data/41d17cc816402d90e0dd2d65/script.js"
+          src={`https://cdn-cookieyes.com/client_data/${process.env.NEXT_PUBLIC_COOKIE_YES}/script.js`}
           strategy="beforeInteractive"
         ></Script>
         {/* End cookieyes banner */}
@@ -62,7 +62,6 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} /> */}
       </Head>
