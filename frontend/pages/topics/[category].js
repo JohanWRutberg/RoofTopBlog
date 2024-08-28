@@ -1,12 +1,36 @@
 import axios from "axios";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 export default function CategoryPage({ initialData, category }) {
   const [loading, setLoading] = useState(!initialData);
   const [currentPage, setCurrentPage] = useState(1); // Page number
   const [perPage] = useState(7); // Number of blogs per page
   const [blog, setBlog] = useState(initialData || []);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Function to fetch blog data
+    const fetchBlogdata = async () => {
+      try {
+        const res = await axios.get(`/api/getblog?blogcategory=${category}`);
+        const alldata = res.data;
+        setBlog(alldata);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching blog data", error);
+        setLoading(false);
+      }
+    };
+
+    // Fetch blog data only if category exists
+    if (category) {
+      fetchBlogdata();
+    } else {
+      router.push("/404");
+    }
+  }, [category]);
 
   // Function to handle page change
   const paginate = (pageNumber) => {
