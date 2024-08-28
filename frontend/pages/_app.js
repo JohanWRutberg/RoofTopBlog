@@ -23,8 +23,8 @@ export default function App({ Component, pageProps }) {
         <TopLoadingLine />
         <Aos>
           <Component {...pageProps} />
-          <GoogleTagManager gtmId="GTM-T26PQD5S" />
-          <GoogleAnalytics gaId="G-ED0FRQVST7" />
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
           {/* <GoogleAnalytics gaId="G-8M8NYVR7PQ" /> */}
         </Aos>
         <ScrollToTopBtn />

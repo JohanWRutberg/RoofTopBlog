@@ -46,7 +46,10 @@ export default function Document() {
         <meta property="og:image:height" content="470" />
 
         {/* Site name and keywords */}
-        <meta property="og:site_name" content="Beat Master Mind, Blog about Electronic drums and accessories." />
+        <meta
+          property="og:site_name"
+          content="Beat MasterMind - Blog about Electronic drums and accessories - Electronic drums - Drums - Drumsticks - Pads"
+        />
         <meta
           name="keywords"
           content="Electronic drums, Accessories for Electronic drums, Information about Electronic drums"
