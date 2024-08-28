@@ -25,18 +25,6 @@ export default function Document() {
         </Script>
         {/* End Google Tag Manager */}
 
-        <Script
-          dangerouslySetInnerHTML={{
-            __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                  page_path: window.location.pathname,});
-              `
-          }}
-        />
-
         {/* Character, robots, and OG image */}
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -60,11 +48,23 @@ export default function Document() {
         />
 
         {/* <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} /> */}
+
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                  page_path: window.location.pathname,});
+              `
+          }}
+        />
       </Head>
 
       <body>
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+        <GoogleTagManager gtmId="GTM-T26PQD5S" />
+        <GoogleAnalytics gaId="G-ED0FRQVST7" />
         <Main />
         <NextScript />
       </body>
