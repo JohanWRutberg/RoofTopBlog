@@ -12,6 +12,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
 import Head from "next/head"; // Import the next/head module
+import { RiArticleLine } from "react-icons/ri";
 
 export default function BlogPage() {
   const router = useRouter();
@@ -20,7 +21,9 @@ export default function BlogPage() {
   const [blog, setBlog] = useState([""]);
   const [loading, setLoading] = useState(true);
   const [linkDetails, setLinkDetails] = useState([]);
+  const [blogPostLinks, setBlogPostLinks] = useState([]); // New state for blog post links
 
+  // Fetch the specific blog post based on the slug
   useEffect(() => {
     if (slug) {
       axios
@@ -35,6 +38,24 @@ export default function BlogPage() {
         });
     }
   }, [slug]);
+
+  // Fetch all blog post titles for backlinks
+  useEffect(() => {
+    axios
+      .get("../api/getblog")
+      .then((res) => {
+        const blogPosts = res.data;
+        const postLinks = blogPosts.map((post) => ({
+          href: `/blog/${post.slug}`,
+          alt: post.title,
+          status: post.status
+        }));
+        setBlogPostLinks(postLinks);
+      })
+      .catch((error) => {
+        console.error("Error fetching all blog posts", error);
+      });
+  }, []);
 
   useEffect(() => {
     if (!loading) {
@@ -269,6 +290,35 @@ export default function BlogPage() {
                       <h3>Hot topics</h3>
                     </div>
                   </Link>
+                </div>
+              </div>
+
+              {/* Render blog post links as backlinks */}
+
+              <div className="slug_blog_links">
+                <h2>All Blog Posts</h2>
+                <br />
+                <div className="aff_container">
+                  <div className="aff_img">
+                    <ul>
+                      {blogPostLinks
+                        .filter((link) => link.status === "publish")
+                        .map((link, index) => (
+                          <li key={index}>
+                            <Link href={link.href} legacyBehavior>
+                              <a className="flex flex-left">
+                                <div className="social_talks">
+                                  <div className="st_icon_blog">
+                                    <RiArticleLine />
+                                  </div>
+                                </div>
+                                <span className="blog-link-alt">{link.alt}</span>
+                              </a>
+                            </Link>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

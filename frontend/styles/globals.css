@@ -1316,6 +1316,56 @@ button {
   background-color: #667eea;
 }
 
+/* st_icon_blog */
+
+.st_icon_blog {
+  display: inline-flex; /* Ensures inline alignment */
+  align-items: center;
+  justify-content: center;
+  background-color: #e2e8f0;
+  color: #000;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease; /* Smooth transition */
+
+  /* Add space between icon and text */
+  margin-right: 8px; /* Adjust as needed */
+}
+
+.st_icon_blog svg {
+  font-size: 22px;
+}
+
+.st_icon_blog:nth-child(2) svg {
+  color: #2baeff;
+}
+
+.st_icon_blog:nth-child(3) svg {
+  color: #c643e0;
+}
+
+.st_icon_blog:hover svg {
+  color: #fff;
+}
+
+.st_icon_blog:hover {
+  background-color: #667eea;
+}
+
+.blog-link-alt {
+  color: inherit; /* Inherit text color */
+  font-size: 12px;
+}
+
+/* Hover effect for the icon when either icon or text is hovered */
+a:hover .st_icon_blog {
+  background-color: #2baeff;
+}
+
+/* End st_icon_blog */
+/* st_icon_amazon */
+
 .st_icon_amazon {
   display: inline-flex; /* Ensures inline alignment */
   align-items: center;
@@ -1325,7 +1375,7 @@ button {
   padding: 1rem;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition */
+  transition: background-color 0.2s ease; /* Smooth transition */
 
   /* Add space between icon and text */
   margin-right: 8px; /* Adjust as needed */
@@ -1337,6 +1387,7 @@ button {
 
 .link-alt {
   color: inherit; /* Inherit text color */
+  font-size: 14px;
 }
 
 /* Hover effect for the icon when either icon or text is hovered */
@@ -1668,6 +1719,55 @@ a:hover .st_icon_amazon {
   border-bottom-left-radius: 20px;
   z-index: 2;
 }
+
+/* slug_blog_links */
+
+.slug_blog_links {
+  position: relative;
+  width: 100%;
+  border: 1px solid #cdcdcd;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.dark .slug_blog_links {
+  border: none;
+  background-color: #2d3748;
+}
+
+.slug_blog_links_sec {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slug_blog_links_img {
+  position: relative;
+  width: 100%;
+}
+
+/* .slug_blog_links_img {
+    position: relative;
+    width: 100px;
+  } */
+
+.slug_blog_links_img img {
+  width: 100%;
+  height: 100%;
+  margin-top: -10px;
+  object-fit: cover;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 20px;
+  z-index: 2;
+}
+
+/* End slug_blog_links */
 
 .slug_aff_img {
   position: relative;
