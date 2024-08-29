@@ -32,8 +32,8 @@ export default function Footer() {
           <p>
             As an Amazon Associate, we earn from qualifying purchases. <br />
             This means that if you click on a link to an Amazon product on this site and make a purchase, we may receive
-            a commission at no additional cost to you. <br />
-            This helps support the site and allows us to continue providing useful content. <br />
+            a commission at no additional cost to you. This helps support the site and allows us to continue providing
+            useful content. <br />
             <br />
             Thank you for your support!
           </p>

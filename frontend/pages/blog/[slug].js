@@ -246,9 +246,7 @@ export default function BlogPage() {
                   <p>
                     As an Amazon Associate, we earn from qualifying purchases. This means that if you click on a link to
                     an Amazon product on this site and make a purchase, we may receive a commission at no additional
-                    cost to you.
-                    <br />
-                    This helps support the site and allows us to continue providing useful content.
+                    cost to you. This helps support the site and allows us to continue providing useful content.
                     <br />
                     <br />
                     Thank you for your support!
@@ -294,30 +292,31 @@ export default function BlogPage() {
               </div>
 
               {/* Render blog post links as backlinks */}
-
-              <div className="slug_blog_links">
+              <div className="topics_sec mt-3">
                 <h2>All Blog Posts</h2>
-                <br />
-                <div className="aff_container">
-                  <div className="aff_img">
-                    <ul>
-                      {blogPostLinks
-                        .filter((link) => link.status === "publish")
-                        .map((link, index) => (
-                          <li key={index}>
-                            <Link href={link.href} legacyBehavior>
-                              <a className="flex flex-left">
-                                <div className="social_talks">
-                                  <div className="st_icon_blog">
-                                    <RiArticleLine />
+                <div className="slug_blog_links">
+                  <br />
+                  <div className="aff_container">
+                    <div className="aff_img">
+                      <ul>
+                        {blogPostLinks
+                          .filter((link) => link.status === "publish")
+                          .map((link, index) => (
+                            <li key={index}>
+                              <Link href={link.href} legacyBehavior>
+                                <a className="flex flex-left">
+                                  <div className="social_talks">
+                                    <div className="st_icon_blog">
+                                      <RiArticleLine />
+                                    </div>
                                   </div>
-                                </div>
-                                <span className="blog-link-alt">{link.alt}</span>
-                              </a>
-                            </Link>
-                          </li>
-                        ))}
-                    </ul>
+                                  <span className="blog-link-alt">{link.alt}</span>
+                                </a>
+                              </Link>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>

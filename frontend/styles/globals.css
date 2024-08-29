@@ -882,7 +882,7 @@ button {
 .leftblog_sec h2 {
   position: relative;
   font-size: 25px;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   padding-left: 30px;
   color: #2d3748;
 }
@@ -909,13 +909,13 @@ button {
   display: flex;
   width: 100%;
   align-items: center;
-  max-width: 750px;
+  max-width: 800px;
   gap: 2rem;
   border: 1px solid #d9d6d6;
   padding: 0.5rem;
   border-radius: 10px;
   transition: 0.3s ease-in-out;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .dark .blog {
@@ -1078,12 +1078,12 @@ button {
 .rightblog_info {
   position: sticky;
   top: 5%;
-  width: 350px;
+  width: 300px;
   height: auto;
 }
 
 .topics_sec h2 {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   text-align: center;
   position: relative;
   font-size: 25px;
@@ -1156,7 +1156,7 @@ button {
 .tags_sec h2 {
   text-align: center;
   color: #303136;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-size: 25px;
 }
 
@@ -1173,7 +1173,7 @@ button {
   gap: 3px;
   border: 1px solid #d4d4d4;
   border-radius: 10px;
-  padding: 2rem 3rem;
+  padding: 2rem 1.5rem;
   box-shadow: 1px 2px 5px #e7e7e7;
 }
 
@@ -1191,7 +1191,7 @@ button {
 }
 
 .tags_list a:hover {
-  background-color: #818a94;
+  background-color: #5045e1;
   color: #fff;
 }
 
@@ -1480,23 +1480,28 @@ a:hover .st_icon_amazon {
 .q_links ul li {
   color: #5e697c;
   margin-bottom: 1rem;
+  font-size: 12px;
 }
 
 .dark .q_links ul li {
   color: #929eb4;
+  font-size: 12px;
 }
 
 .q_links ul li:hover {
-  color: #2b3a53;
+  color: #a2afc7;
+  font-size: 12px;
 }
 
 .q_links p {
   color: #5e697c;
   margin-bottom: 1rem;
+  font-size: 12px;
 }
 
 .dark .q_links p {
   color: #929eb4;
+  font-size: 12px;
 }
 
 /* ================================================== */
@@ -1556,7 +1561,7 @@ a:hover .st_icon_amazon {
 
 .leftblog_data_markdown {
   position: relative;
-  width: 750px;
+  width: 800px;
 }
 
 .leftblog_data_markdown a {
@@ -1671,7 +1676,7 @@ a:hover .st_icon_amazon {
 .rightslug_data {
   position: sticky;
   top: 5%;
-  width: 350px;
+  width: 300px;
   height: auto;
   margin-top: 3rem;
 }
@@ -1682,7 +1687,7 @@ a:hover .st_icon_amazon {
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
-  padding: 2rem;
+  padding: 1.5rem;
   margin-bottom: 4rem;
   text-align: center;
 }
@@ -1728,7 +1733,7 @@ a:hover .st_icon_amazon {
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
-  padding: 2rem;
+  padding: 1rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
   text-align: center;
