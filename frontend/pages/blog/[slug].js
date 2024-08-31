@@ -14,6 +14,15 @@ import remarkGfm from "remark-gfm";
 import Head from "next/head"; // Import the next/head module
 import { RiArticleLine } from "react-icons/ri";
 
+function extractFirstImageUrl(markdownContent) {
+  if (!markdownContent || typeof markdownContent !== "string") {
+    return null;
+  }
+  const regex = /!\[.*?\]\((.*?)\)/;
+  const match = markdownContent.match(regex);
+  return match ? match[1] : null;
+}
+
 export default function BlogPage() {
   const router = useRouter();
   const { slug } = router.query;
@@ -30,7 +39,8 @@ export default function BlogPage() {
         .get(`/api/getblog?slug=${slug}`)
         .then((res) => {
           const alldata = res.data;
-          setBlog(alldata);
+          const firstImageUrl = extractFirstImageUrl(alldata[0].description);
+          setBlog([{ ...alldata[0], image: firstImageUrl }]);
           setLoading(false);
         })
         .catch((error) => {
@@ -39,7 +49,7 @@ export default function BlogPage() {
     }
   }, [slug]);
 
-  // Fetch all blog post titles for backlinks
+  // Fetch all blog post titles and images for backlinks
   useEffect(() => {
     axios
       .get("../api/getblog")
@@ -48,7 +58,9 @@ export default function BlogPage() {
         const postLinks = blogPosts.map((post) => ({
           href: `/blog/${post.slug}`,
           alt: post.title,
-          status: post.status
+          image: extractFirstImageUrl(post.description),
+          status: post.status,
+          createdAt: post.createdAt
         }));
         setBlogPostLinks(postLinks);
       })
@@ -293,7 +305,7 @@ export default function BlogPage() {
 
               {/* Render blog post links as backlinks */}
               <div className="topics_sec mt-3">
-                <h2>All Blog Posts</h2>
+                <h2>Last 5 Blog Posts</h2>
                 <div className="slug_blog_links">
                   <br />
                   <div className="aff_container">
@@ -301,13 +313,20 @@ export default function BlogPage() {
                       <ul>
                         {blogPostLinks
                           .filter((link) => link.status === "publish")
+                          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort by date, newest first
+                          .slice(0, 5) // Get the top 5 latest posts
                           .map((link, index) => (
                             <li key={index}>
                               <Link href={link.href} legacyBehavior>
                                 <a className="flex flex-left">
                                   <div className="social_talks">
                                     <div className="st_icon_blog">
-                                      <RiArticleLine />
+                                      <Image
+                                        src={link.image || "/img/noimage.jpg"}
+                                        alt={link.alt}
+                                        width={100}
+                                        height={100}
+                                      />
                                     </div>
                                   </div>
                                   <span className="blog-link-alt">{link.alt}</span>
