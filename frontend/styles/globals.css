@@ -1420,26 +1420,32 @@ a:hover .st_icon_amazon {
 
 .footer_logo {
   flex: 1 1 100%;
-  max-width: 25%;
+  max-width: 33%;
 }
 
 .q_links {
   flex: 1 1 100%;
-  max-width: 25%;
+  max-width: 33%;
 }
 
 .affiliate_disclaimer {
   flex: 1 1 100%;
-  max-width: 20%;
+  max-width: 33%;
 }
 
-@media (max-width: 670px) {
-  .footer_logo,
-  .q_links,
-  .affiliate_disclaimer {
-    max-width: 100%;
-    margin-right: 0; /* Remove right margin to prevent horizontal spacing */
-  }
+.footer .container {
+  width: 100%;
+  display: flex; /* Make sure the container is a flex container */
+  align-items: flex-start; /* Align children at the top */
+  justify-content: space-between; /* Adjust spacing between elements as needed */
+  text-align: left; /* Align text to the left within the divs */
+}
+
+.footer_logo,
+.q_links,
+.q_links.affiliate_disclaimer {
+  flex: 1; /* Ensure each item takes up space as needed */
+  padding: 10px; /* Add padding if needed */
 }
 
 .footer_logo h2 {
@@ -1475,6 +1481,50 @@ a:hover .st_icon_amazon {
 
 .dark .footer_logo span {
   color: #4f7fe0;
+}
+
+/* Styles for screens 1154px and wider */
+@media (min-width: 1154px) {
+  .footer .container {
+    display: flex; /* Make the container a flex container */
+    align-items: flex-start; /* Align children at the top */
+    justify-content: space-between; /* Distribute space between items */
+    text-align: left; /* Align text to the left within the divs */
+  }
+
+  .footer_logo,
+  .q_links,
+  .q_links.affiliate_disclaimer {
+    flex: 1; /* Ensure each item takes up space as needed */
+    padding: 10px; /* Add padding if needed */
+  }
+}
+
+/* Styles for screens 670px and narrower */
+@media (max-width: 670px) {
+  .footer .container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text alignment */
+    width: 100%; /* Ensure the container takes full width */
+  }
+
+  .footer_logo,
+  .q_links,
+  .q_links.affiliate_disclaimer {
+    width: 90%; /* Make each div 90% of the screen width */
+    margin: 10px 0; /* Add margin between stacked items */
+    padding: 10px 0; /* Add padding if needed */
+  }
+
+  .footer_logo h4,
+  .footer_logo h3,
+  .q_links h3,
+  .q_links.affiliate_disclaimer p {
+    width: 90%; /* Make text within divs 90% of the screen width */
+    margin: 0 auto; /* Center align text within its container */
+  }
 }
 
 .q_links h3 {
