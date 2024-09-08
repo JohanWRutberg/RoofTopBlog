@@ -6,7 +6,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>BeatMasterMind Blog</title>
         {/* Start cookieyes banner */}
         <Script
           id="cookieyes"
