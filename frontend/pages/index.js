@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Beat MasterMind Blog</title>
+        {/* <title>BeatMaster Mind Blog</title> */}
 
         <meta name="description" content="BeatMaster Mind Blog about Electronic drums and accessories." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,9 +70,9 @@ export default function Home() {
         <div className="container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
-              Explore <span>BeatMaster Mind</span>. <br />
+              Explore <span>BeatMasterMind</span>. <br />
             </h1>
-            <h3 data-aos="fade-right">Electronic drum enthusiasts</h3>
+            <h3 data-aos="fade-right">Electronic drum enthusiasts.</h3>
             <div className="flex gap-2">
               <Link href="/contact">
                 <button>Contact</button>

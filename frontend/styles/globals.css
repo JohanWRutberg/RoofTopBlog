@@ -1412,120 +1412,84 @@ a:hover .st_icon_amazon {
 .footer {
   padding: 5rem 0;
   position: relative;
+  width: 100%;
 }
 
 .dark .footer {
   background-color: #2d3748;
 }
 
-.footer_logo {
-  flex: 1 1 100%;
-  max-width: 33%;
-}
-
-.q_links {
-  flex: 1 1 100%;
-  max-width: 33%;
-}
-
-.affiliate_disclaimer {
-  flex: 1 1 100%;
-  max-width: 33%;
+.footer_logo,
+.q_links,
+.q_links.affiliate_disclaimer {
+  padding: 10px; /* Consistent padding for all divs */
 }
 
 .footer .container {
   width: 100%;
-  display: flex; /* Make sure the container is a flex container */
+  display: flex;
   align-items: flex-start; /* Align children at the top */
   justify-content: space-between; /* Adjust spacing between elements as needed */
   text-align: left; /* Align text to the left within the divs */
 }
 
-.footer_logo,
-.q_links,
-.q_links.affiliate_disclaimer {
-  flex: 1; /* Ensure each item takes up space as needed */
-  padding: 10px; /* Add padding if needed */
-}
-
-.footer_logo h2 {
-  font-size: 30px;
-  color: #667eea;
-  margin-bottom: 1rem;
-}
-
-.footer_logo h4 {
-  font-size: 17px;
-  color: #555;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-}
-
-.dark .footer_logo h4 {
-  color: #999;
-}
-
-.footer_logo h3 {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 1.5rem;
-}
-
-.dark .footer_logo h3 {
-  color: #6d95b7;
-}
-
-.footer_logo span {
-  color: #5e75a4;
-}
-
-.dark .footer_logo span {
-  color: #4f7fe0;
-}
-
 /* Styles for screens 1154px and wider */
 @media (min-width: 1154px) {
   .footer .container {
-    display: flex; /* Make the container a flex container */
-    align-items: flex-start; /* Align children at the top */
-    justify-content: space-between; /* Distribute space between items */
-    text-align: left; /* Align text to the left within the divs */
+    justify-content: space-between;
   }
 
   .footer_logo,
   .q_links,
   .q_links.affiliate_disclaimer {
-    flex: 1; /* Ensure each item takes up space as needed */
-    padding: 10px; /* Add padding if needed */
+    flex: 1;
+    padding: 10px;
   }
 }
 
 /* Styles for screens 670px and narrower */
 @media (max-width: 670px) {
   .footer .container {
-    display: flex;
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center the elements */
     text-align: center; /* Center text alignment */
-    width: 100%; /* Ensure the container takes full width */
+    width: 100vw; /* Ensure container spans full viewport width */
+    gap: 1rem; /* Add space between the items */
   }
 
   .footer_logo,
   .q_links,
   .q_links.affiliate_disclaimer {
-    width: 90%; /* Make each div 90% of the screen width */
-    margin: 10px 0; /* Add margin between stacked items */
-    padding: 10px 0; /* Add padding if needed */
+    width: 100vw; /* Make each div take the full viewport width */
+    padding: 10px 0; /* Consistent padding */
+    text-align: center; /* Center content inside each div */
   }
 
   .footer_logo h4,
   .footer_logo h3,
   .q_links h3,
   .q_links.affiliate_disclaimer p {
-    width: 90%; /* Make text within divs 90% of the screen width */
-    margin: 0 auto; /* Center align text within its container */
+    width: 100%; /* Make text within divs take full width */
+    margin: 0 auto; /* Center text within its container */
   }
 }
+
+@media screen and (max-width: 1245px) {
+  .footer {
+    padding: 5rem 1rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .footer {
+    padding: 3rem 1rem;
+  }
+}
+
+/* ================================================== */
+/*                               End Footer Section   */
+/* ================================================== */
 
 .q_links h3 {
   font-size: 22px;
@@ -2014,9 +1978,9 @@ a:hover .st_icon_amazon {
     padding: 3rem 1rem;
   }
 
-  .footer {
+  /* .footer {
     padding: 5rem 1rem;
-  }
+  } */
 
   .slugpage {
     padding: 0 1rem;
@@ -2150,7 +2114,7 @@ a:hover .st_icon_amazon {
     height: auto;
   }
 
-  .footer {
+  /* .footer {
     padding: 3rem 1rem;
   }
 
@@ -2163,7 +2127,7 @@ a:hover .st_icon_amazon {
     align-items: center;
     justify-content: center;
     text-align: center;
-  }
+  } */
 
   .slugpage {
     padding-top: 3rem;

@@ -334,6 +334,9 @@ export default function BlogPage() {
                               </Link>
                             </li>
                           ))}
+                        <li>
+                          <Link href="/">All blog posts</Link>
+                        </li>
                       </ul>
                     </div>
                   </div>
