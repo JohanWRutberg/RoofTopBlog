@@ -21,7 +21,7 @@ export default function Addblog() {
     return (
       <div className="loadingdata flex flex-col flex-center wh_100">
         <Loading />
-        <h1>Loading...</h1>
+        <h2>Loading...</h2>
       </div>
     );
   }

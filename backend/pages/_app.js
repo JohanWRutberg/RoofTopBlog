@@ -15,7 +15,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
         {loading ? (
           <div className="flex flex-col flex-center wh-100">
             <Loading />
-            <h1>Loading...</h1>
+            <h2>Loading...</h2>
           </div>
         ) : (
           <>

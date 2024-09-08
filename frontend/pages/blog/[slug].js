@@ -168,7 +168,15 @@ export default function BlogPage() {
       <div className="slugpage">
         <div className="container">
           <div className="topslug_titles">
-            <h1 className="slugtitle">{loading ? <div>Loading...</div> : blog && blog[0]?.title}</h1>
+            <h1 className="slugtitle">
+              {loading ? (
+                <div>
+                  <h2>Loading...</h2>
+                </div>
+              ) : (
+                blog && blog[0]?.title
+              )}
+            </h1>
             <h5>
               By <span>BeatMaster</span>. Published in{" "}
               <span>{loading ? <div>Loading...</div> : blog && blog[0]?.blogcategory.join(" - ")}</span>.{" "}
