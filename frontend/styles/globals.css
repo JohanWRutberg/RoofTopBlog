@@ -985,8 +985,8 @@ button {
 .blogaimg {
   background-color: #e2e8f0;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -997,7 +997,7 @@ button {
 }
 
 .blogaimg img {
-  width: 33px;
+  width: 40px;
   object-fit: cover;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -1304,12 +1304,16 @@ button {
   font-size: 24px;
 }
 
+.st_icon:nth-child(1) svg {
+  color: #de3fac;
+}
+
 .st_icon:nth-child(2) svg {
-  color: #2baeff;
+  color: #e60023;
 }
 
 .st_icon:nth-child(3) svg {
-  color: #c643e0;
+  color: #0866ff;
 }
 
 .st_icon:hover svg {

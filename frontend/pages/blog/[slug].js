@@ -184,7 +184,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
           <div className="topslug_titles">
             <h1 className="slugtitle">{blog.title || "Untitled Post"}</h1>
             <h5>
-              By <span>BeatMaster</span>. Published in{" "}
+              By <span>Beat MasterMind</span>. Published in{" "}
               <span>{blog.blogcategory ? blog.blogcategory.join(" - ") : "Uncategorized"}</span>.{" "}
               {blog.createdAt
                 ? new Date(blog.createdAt).toLocaleDateString("en-US", {
