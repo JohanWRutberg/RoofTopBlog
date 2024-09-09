@@ -12,7 +12,6 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
 import Head from "next/head"; // Import the next/head module
-import { RiArticleLine } from "react-icons/ri";
 
 function extractFirstImageUrl(markdownContent) {
   if (!markdownContent || typeof markdownContent !== "string") {
@@ -23,54 +22,67 @@ function extractFirstImageUrl(markdownContent) {
   return match ? match[1] : null;
 }
 
-export default function BlogPage() {
-  const router = useRouter();
-  const { slug } = router.query;
+// Fetch the blog data on the server side
+export async function getServerSideProps(context) {
+  const { slug } = context.params;
 
-  const [blog, setBlog] = useState([""]);
-  const [loading, setLoading] = useState(true);
-  const [linkDetails, setLinkDetails] = useState([]);
-  const [blogPostLinks, setBlogPostLinks] = useState([]); // New state for blog post links
+  try {
+    // Fetch the specific blog post based on the slug
+    const res = await axios.get(`${process.env.NEXT_WEBSITE_URL}/api/getblog?slug=${slug}`);
+    const alldata = res.data;
 
-  // Fetch the specific blog post based on the slug
-  useEffect(() => {
-    if (slug) {
-      axios
-        .get(`/api/getblog?slug=${slug}`)
-        .then((res) => {
-          const alldata = res.data;
-          const firstImageUrl = extractFirstImageUrl(alldata[0].description);
-          setBlog([{ ...alldata[0], image: firstImageUrl }]);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching blog", error);
-        });
+    if (!alldata || alldata.length === 0) {
+      // If no blog found, return notFound to show 404 page
+      return { notFound: true };
     }
-  }, [slug]);
 
-  // Fetch all blog post titles and images for backlinks
-  useEffect(() => {
-    axios
-      .get("../api/getblog")
-      .then((res) => {
-        const blogPosts = res.data;
-        const postLinks = blogPosts.map((post) => ({
-          href: `/blog/${post.slug}`,
-          alt: post.title,
-          image: extractFirstImageUrl(post.description),
-          status: post.status,
-          createdAt: post.createdAt
-        }));
-        setBlogPostLinks(postLinks);
-      })
-      .catch((error) => {
-        console.error("Error fetching all blog posts", error);
-      });
-  }, []);
+    const firstImageUrl = extractFirstImageUrl(alldata[0].description);
+    const blog = { ...alldata[0], image: firstImageUrl };
 
+    // Fetch all blog posts for backlinks
+    const resAllBlogs = await axios.get(`${process.env.NEXT_WEBSITE_URL}/api/getblog`);
+    const blogPosts = resAllBlogs.data;
+    const blogPostLinks = blogPosts.map((post) => ({
+      href: `/blog/${post.slug}`,
+      alt: post.title,
+      image: extractFirstImageUrl(post.description),
+      status: post.status,
+      createdAt: post.createdAt
+    }));
+
+    return {
+      props: {
+        blog,
+        blogPostLinks
+      }
+    };
+  } catch (error) {
+    console.error("Error fetching blog", error);
+    return { notFound: true };
+  }
+}
+
+export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
+  const router = useRouter();
+
+  // Handle the loading state if the page is not yet generated
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
+  // Function to calculate reading time
+  function calculateReadingTime(text) {
+    const wordsPerMinute = 200;
+    const words = text.trim().split(/\s+/).length;
+    return Math.ceil(words / wordsPerMinute);
+  }
+
+  const readingTime = blog.description ? calculateReadingTime(blog.description) : 1;
+
+  // Collect Amazon affiliate links
+  const [linkDetails, setLinkDetails] = useState([]);
   useEffect(() => {
-    if (!loading) {
+    if (blog.description) {
       const links = document.querySelectorAll(".observed-link");
       const details = Array.from(links)
         .map((link) => ({
@@ -80,17 +92,7 @@ export default function BlogPage() {
         .filter((link) => link.href.includes("https://amzn"));
       setLinkDetails(details);
     }
-  }, [loading, blog]);
-
-  // Calculate reading time
-  const calculateReadingTime = (text) => {
-    const wordsPerMinute = 200; // Average reading speed
-    const words = text.split(/\s+/).length;
-    const minutes = Math.ceil(words / wordsPerMinute);
-    return minutes;
-  };
-
-  const readingTime = blog[0].description ? calculateReadingTime(blog[0].description) : 1;
+  }, [blog]);
 
   // Markdown code highlighter
   const Code = ({ node, inline, className, children, ...props }) => {
@@ -154,80 +156,74 @@ export default function BlogPage() {
 
   return (
     <>
-      {!loading && blog[0] && (
-        <Head>
-          <title>{`${blog[0].title} | Beat Master Mind`}</title>
-          <meta name="description" content={blog[0].description.slice(0, 150) || "Blog post on Beat Master Mind"} />
-          <meta name="keywords" content={blog[0].title} /> {/* Using title as meta keyword */}
-          <meta property="og:title" content={blog[0].title} />
-          <meta
-            property="og:description"
-            content={blog[0].description.slice(0, 150) || "Blog post on Beat Master Mind"}
-          />
-          <meta property="og:image" content={blog[0].image || "/default-image.png"} />
-          <meta property="og:url" content={`https://www.beatmastermind.com${router.asPath}`} />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={blog[0].title} />
-          <meta
-            name="twitter:description"
-            content={blog[0].description.slice(0, 150) || "Blog post on Beat Master Mind"}
-          />
-          <meta name="twitter:image" content={blog[0].image || "/default-image.png"} />
-        </Head>
-      )}
+      <Head key={router.asPath}>
+        <title>{`${blog.title || "Blog Post"} | Beat Master Mind`}</title>
+        <meta
+          name="description"
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat Master Mind"}
+        />
+        <meta name="keywords" content={blog.title || "blog post"} />
+        <meta property="og:title" content={blog.title || "Blog Post"} />
+        <meta
+          property="og:description"
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat Master Mind"}
+        />
+        <meta property="og:image" content={blog.image || "/default-image.png"} />
+        <meta property="og:url" content={`https://www.beatmastermind.com${router.asPath}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={blog.title || "Blog Post"} />
+        <meta
+          name="twitter:description"
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat Master Mind"}
+        />
+        <meta name="twitter:image" content={blog.image || "/default-image.png"} />
+      </Head>
 
       <div className="slugpage">
         <div className="container">
           <div className="topslug_titles">
-            <h1 className="slugtitle">{loading ? <h2>Loading...</h2> : blog && blog[0]?.title}</h1>
+            <h1 className="slugtitle">{blog.title || "Untitled Post"}</h1>
             <h5>
               By <span>BeatMaster</span>. Published in{" "}
-              <span>{loading ? <h2>Loading...</h2> : blog && blog[0]?.blogcategory.join(" - ")}</span>.{" "}
-              {blog &&
-                new Date(blog[0].createdAt).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric"
-                })}{" "}
-              -<span> {readingTime} min read</span>
+              <span>{blog.blogcategory ? blog.blogcategory.join(" - ") : "Uncategorized"}</span>.{" "}
+              {blog.createdAt
+                ? new Date(blog.createdAt).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric"
+                  })
+                : "Unknown Date"}{" "}
+              - <span>{readingTime} min read</span>
             </h5>
           </div>
 
           {/* Blog data section */}
           <div className="flex flex-sb flex-left pb-5 flex-wrap">
             <div className="leftblog_data_markdown">
-              {loading ? (
-                <div className="wh-100 flex flex-center mt-3">
-                  <div className="loader"></div>
-                </div>
-              ) : (
-                <>
-                  <div className="w-100 blogcontent">
-                    <ReactMarkdown
-                      remarkPlugins={[remarkGfm]}
-                      components={{
-                        a: ({ href, children }) => {
-                          const isAmazonLink = href.startsWith("https://amzn");
-                          return (
-                            <a
-                              href={href}
-                              className="observed-link"
-                              alt={children}
-                              target={isAmazonLink ? "_blank" : "_self"}
-                              rel={isAmazonLink ? "noopener noreferrer" : undefined}
-                            >
-                              {children}
-                            </a>
-                          );
-                        },
-                        code: Code
-                      }}
-                    >
-                      {blog[0].description}
-                    </ReactMarkdown>
-                  </div>
-                </>
-              )}
+              <div className="w-100 blogcontent">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    a: ({ href, children }) => {
+                      const isAmazonLink = href.startsWith("https://amzn");
+                      return (
+                        <a
+                          href={href}
+                          className="observed-link"
+                          alt={children}
+                          target={isAmazonLink ? "_blank" : "_self"}
+                          rel={isAmazonLink ? "noopener noreferrer" : undefined}
+                        >
+                          {children}
+                        </a>
+                      );
+                    },
+                    code: Code
+                  }}
+                >
+                  {blog.description}
+                </ReactMarkdown>
+              </div>
             </div>
             <div className="rightslug_data">
               <div className="slug_profile_info">
@@ -357,6 +353,17 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
+
+      {/* Optional: If you have client-side navigation and want to ensure meta tags update */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          if (typeof window !== "undefined") {
+            window.history.pushState({}, '', '${router.asPath}');
+          }
+        `
+        }}
+      />
     </>
   );
 }
