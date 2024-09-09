@@ -59,9 +59,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>BeatMasterMind Blog</title>
+        <title>Beat MasterMind Blog</title>
 
-        <meta name="description" content="BeatMaster Mind Blog about Electronic drums and accessories." />
+        <meta
+          name="description"
+          content="Beat MasterMind - Blog about electronic drums and accessories. Your guide to the world of rhythm, in silence!"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
@@ -70,7 +73,7 @@ export default function Home() {
         <div className="container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
-              Explore <span>BeatMasterMind</span>. <br />
+              Explore <span>Beat MasterMind</span>. <br />
             </h1>
             <h3 data-aos="fade-right">Electronic drum enthusiasts.</h3>
             <div className="flex gap-2">
@@ -223,7 +226,7 @@ export default function Home() {
                 <Link href="/tag/kids">#Kids</Link>
               </div>
             </div>
-            {/* <div className="letstalk_sec mt-3">
+            <div className="letstalk_sec mt-3">
               <h2>Let's Talk</h2>
               <div className="talk_sec">
                 <h4>Visit us on our Social Media platforms!</h4>
@@ -239,7 +242,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>

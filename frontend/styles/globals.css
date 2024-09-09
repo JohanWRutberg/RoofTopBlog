@@ -1082,6 +1082,10 @@ button {
   height: auto;
 }
 
+.topics_sec {
+  margin-bottom: 4rem;
+}
+
 .topics_sec h2 {
   margin-bottom: 2rem;
   text-align: center;
@@ -1203,7 +1207,7 @@ button {
 .letstalk_sec h2 {
   text-align: center;
   color: #303136;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-size: 25px;
 }
 
@@ -1297,7 +1301,7 @@ button {
 }
 
 .st_icon svg {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .st_icon:nth-child(2) svg {
@@ -1403,6 +1407,7 @@ a:hover .st_icon_blog {
 /* Hover effect for the icon when either icon or text is hovered */
 a:hover .st_icon_amazon {
   background-color: #f68f3d;
+  color: #fff;
 }
 
 /* ================================================== */
@@ -1758,7 +1763,7 @@ a:hover .st_icon_amazon {
   border-radius: 10px;
   overflow: hidden;
   padding: 1rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-bottom: 4rem;
   text-align: center;
 }

@@ -160,13 +160,13 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
         <title>{`${blog.title || "Blog Post"} | Beat Master Mind`}</title>
         <meta
           name="description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat Master Mind"}
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat MasterMind"}
         />
         <meta name="keywords" content={blog.title || "blog post"} />
         <meta property="og:title" content={blog.title || "Blog Post"} />
         <meta
           property="og:description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat Master Mind"}
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat MasterMind"}
         />
         <meta property="og:image" content={blog.image || "/default-image.png"} />
         <meta property="og:url" content={`https://www.beatmastermind.com${router.asPath}`} />
@@ -174,7 +174,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
         <meta name="twitter:title" content={blog.title || "Blog Post"} />
         <meta
           name="twitter:description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat Master Mind"}
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat MasterMind"}
         />
         <meta name="twitter:image" content={blog.image || "/default-image.png"} />
       </Head>
@@ -311,8 +311,8 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
               </div>
 
               {/* Render blog post links as backlinks */}
-              <div className="topics_sec mt-3">
-                <h2>Last 5 Blog Posts</h2>
+              <div className="topics_sec">
+                <h2>Latest Blog Posts</h2>
                 <div className="slug_blog_links">
                   <br />
                   <div className="aff_container">
@@ -341,7 +341,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                               </Link>
                             </li>
                           ))}
-                        <li>
+                        <li className="">
                           <Link href="/">All blog posts</Link>
                         </li>
                       </ul>

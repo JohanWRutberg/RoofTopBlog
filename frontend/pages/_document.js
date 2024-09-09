@@ -41,11 +41,14 @@ export default function Document() {
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:locale" content="en_US" />
-        <meta name="author" content="Beat Master Mind" />
+        <meta name="author" content="Beat MasterMind" />
         <meta property="og:image:width" content="920" />
         <meta property="og:image:height" content="470" />
-        <meta name="title" content="Beat Master Mind Blog" />
-        <meta name="description" content="BeatMasterMind Blog. About Electronic drums and accessories." />
+        <meta name="title" content="Beat MasterMind Blog" />
+        <meta
+          name="description"
+          content="Beat MasterMind - Blog about electronic drums and accessories. Your guide to the world of rhythm, in silence!"
+        />
 
         {/* Site name and keywords */}
         <meta
