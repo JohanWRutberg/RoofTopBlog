@@ -44,7 +44,7 @@ export default function Document() {
         <meta name="author" content="Beat Master Mind" />
         <meta property="og:image:width" content="920" />
         <meta property="og:image:height" content="470" />
-
+        <meta name="title" content="Beat Master Mind Blog" />
         <meta name="description" content="BeatMasterMind Blog. About Electronic drums and accessories." />
 
         {/* Site name and keywords */}

@@ -154,32 +154,35 @@ export default function BlogPage() {
 
   return (
     <>
-      {!loading && (
+      {!loading && blog[0] && (
         <Head>
-          <title>{blog[0].title} | Beat Master Mind</title>
-          <meta name="description" content={blog[0].description.slice(0, 150)} />
+          <title>{`${blog[0].title} | Beat Master Mind`}</title>
+          <meta name="description" content={blog[0].description.slice(0, 150) || "Blog post on Beat Master Mind"} />
+          <meta name="keywords" content={blog[0].title} /> {/* Using title as meta keyword */}
           <meta property="og:title" content={blog[0].title} />
-          <meta property="og:description" content={blog[0].description.slice(0, 150)} />
+          <meta
+            property="og:description"
+            content={blog[0].description.slice(0, 150) || "Blog post on Beat Master Mind"}
+          />
           <meta property="og:image" content={blog[0].image || "/default-image.png"} />
           <meta property="og:url" content={`https://www.beatmastermind.com${router.asPath}`} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={blog[0].title} />
+          <meta
+            name="twitter:description"
+            content={blog[0].description.slice(0, 150) || "Blog post on Beat Master Mind"}
+          />
+          <meta name="twitter:image" content={blog[0].image || "/default-image.png"} />
         </Head>
       )}
 
       <div className="slugpage">
         <div className="container">
           <div className="topslug_titles">
-            <h1 className="slugtitle">
-              {loading ? (
-                <div>
-                  <h2>Loading...</h2>
-                </div>
-              ) : (
-                blog && blog[0]?.title
-              )}
-            </h1>
+            <h1 className="slugtitle">{loading ? <h2>Loading...</h2> : blog && blog[0]?.title}</h1>
             <h5>
               By <span>BeatMaster</span>. Published in{" "}
-              <span>{loading ? <div>Loading...</div> : blog && blog[0]?.blogcategory.join(" - ")}</span>.{" "}
+              <span>{loading ? <h2>Loading...</h2> : blog && blog[0]?.blogcategory.join(" - ")}</span>.{" "}
               {blog &&
                 new Date(blog[0].createdAt).toLocaleDateString("en-US", {
                   month: "long",
