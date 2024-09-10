@@ -251,12 +251,16 @@ export default function Home() {
               <div className="talk_sec">
                 <h4>Visit us on our Social Media platforms!</h4>
                 <div className="social_talks flex flex-center gap-1 mt-2">
-                  <div className="st_icon">
-                    <FaInstagram />
-                  </div>
-                  <div className="st_icon">
-                    <FaPinterest />
-                  </div>
+                  <Link href="https://www.instagram.com/beatmastermind/" target="_blank">
+                    <div className="st_icon">
+                      <FaInstagram />
+                    </div>
+                  </Link>
+                  <Link href="https://pinterest.com/beatmastermindaff/" target="_blank">
+                    <div className="st_icon">
+                      <FaPinterest />
+                    </div>
+                  </Link>
                   <div className="st_icon">
                     <FaFacebook />
                   </div>
