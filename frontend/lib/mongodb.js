@@ -25,9 +25,14 @@ export async function getSortedPostsData() {
     const db = client.db("blogdata");
     const collection = db.collection("blogtest");
 
-    // Fetch posts with the slug field
-    const posts = await collection.find({}, { projection: { slug: 1 } }).toArray();
-    const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // Fetch posts with the createdAt field
+    const posts = await collection.find({}, { projection: { slug: 1, createdAt: 1 } }).toArray();
+
+    // Log the posts to check the createdAt field
+    console.log(posts);
+
+    // Sort posts by createdAt
+    const sortedPosts = posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     return sortedPosts;
   } catch (error) {
