@@ -184,8 +184,9 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
           <div className="topslug_titles">
             <h1 className="slugtitle">{blog.title || "Untitled Post"}</h1>
             <h5>
-              By <span>Beat MasterMind</span>. Published in{" "}
-              <span>{blog.blogcategory ? blog.blogcategory.join(" - ") : "Uncategorized"}</span>.{" "}
+              By <span>Beat MasterMind</span>.{" "}
+              {/* Published in{" "}
+              <span>{blog.blogcategory ? blog.blogcategory.join(" - ") : "Uncategorized"}</span>.{" "} */}
               {blog.createdAt
                 ? new Date(blog.createdAt).toLocaleDateString("en-US", {
                     month: "long",
@@ -226,6 +227,45 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
               </div>
             </div>
             <div className="rightslug_data">
+              {/* Latest blog posts section */}
+              <div className="topics_sec">
+                <h2>Latest Blog Posts</h2>
+                <div className="slug_blog_links">
+                  <br />
+                  <div className="aff_container">
+                    <div className="aff_img">
+                      <ul>
+                        {blogPostLinks
+                          .filter((link) => link.status === "publish")
+                          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort by date, newest first
+                          .slice(0, 5) // Get the top 5 latest posts
+                          .map((link, index) => (
+                            <li key={index}>
+                              <Link href={link.href} legacyBehavior>
+                                <a className="flex flex-left">
+                                  <div className="social_talks">
+                                    <div className="st_icon_blog">
+                                      <Image
+                                        src={link.image || "/img/noimage.jpg"}
+                                        alt={link.alt}
+                                        width={100}
+                                        height={100}
+                                      />
+                                    </div>
+                                  </div>
+                                  <span className="blog-link-alt">{link.alt}</span>
+                                </a>
+                              </Link>
+                            </li>
+                          ))}
+                        <li className="">
+                          <Link href="/">All blog posts</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div className="slug_profile_info">
                 <div className="slugprofile_sec">
                   <div className="slug_aff_img">
@@ -272,6 +312,8 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   </p>
                 </div>
               </div>
+
+              {/* Topics section */}
               <div className="topics_sec">
                 <h2>Topics</h2>
                 <div className="topics_list">
@@ -307,46 +349,6 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                       <h3>Hot topics</h3>
                     </div>
                   </Link>
-                </div>
-              </div>
-
-              {/* Render blog post links as backlinks */}
-              <div className="topics_sec">
-                <h2>Latest Blog Posts</h2>
-                <div className="slug_blog_links">
-                  <br />
-                  <div className="aff_container">
-                    <div className="aff_img">
-                      <ul>
-                        {blogPostLinks
-                          .filter((link) => link.status === "publish")
-                          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort by date, newest first
-                          .slice(0, 5) // Get the top 5 latest posts
-                          .map((link, index) => (
-                            <li key={index}>
-                              <Link href={link.href} legacyBehavior>
-                                <a className="flex flex-left">
-                                  <div className="social_talks">
-                                    <div className="st_icon_blog">
-                                      <Image
-                                        src={link.image || "/img/noimage.jpg"}
-                                        alt={link.alt}
-                                        width={100}
-                                        height={100}
-                                      />
-                                    </div>
-                                  </div>
-                                  <span className="blog-link-alt">{link.alt}</span>
-                                </a>
-                              </Link>
-                            </li>
-                          ))}
-                        <li className="">
-                          <Link href="/">All blog posts</Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

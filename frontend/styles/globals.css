@@ -1304,20 +1304,23 @@ button {
   font-size: 24px;
 }
 
-.st_icon:nth-child(1) svg {
-  color: #de3fac;
+/* Target the first Link (Instagram) */
+.social_talks a:nth-child(1) .st_icon svg {
+  color: #de3fac; /* Instagram icon */
 }
 
-.st_icon:nth-child(2) svg {
-  color: #e60023;
+/* Target the second Link (Pinterest) */
+.social_talks a:nth-child(2) .st_icon svg {
+  color: #e60023; /* Pinterest icon */
 }
 
-.st_icon:nth-child(3) svg {
-  color: #0866ff;
+/* Directly target the third .st_icon (Facebook) */
+.social_talks > div:nth-child(3) svg {
+  color: #0866ff; /* Facebook icon */
 }
 
 .st_icon:hover svg {
-  color: #fff;
+  color: #fff; /* Hover effect for all icons */
 }
 
 .st_icon:hover {
@@ -1432,6 +1435,11 @@ a:hover .st_icon_amazon {
 .q_links,
 .q_links.affiliate_disclaimer {
   padding: 10px; /* Consistent padding for all divs */
+}
+
+.footer_logo h4,
+.footer_logo h3 {
+  color: #818a94;
 }
 
 .footer .container {
@@ -1589,7 +1597,7 @@ a:hover .st_icon_amazon {
 }
 
 .topslug_titles h5 span:last-child {
-  color: #e74717;
+  color: #14880e;
 }
 
 .leftblog_data_markdown {
