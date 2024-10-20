@@ -1195,7 +1195,7 @@ button {
 }
 
 .tags_list a:hover {
-  background-color: #5045e1;
+  background-color: #8099ab;
   color: #fff;
 }
 
@@ -1324,7 +1324,7 @@ button {
 }
 
 .st_icon:hover {
-  background-color: #667eea;
+  background-color: #bec4e1;
 }
 
 /* st_icon_blog */
@@ -1606,7 +1606,7 @@ a:hover .st_icon_amazon {
 }
 
 .leftblog_data_markdown a {
-  color: #667eea;
+  color: #8495e2;
 }
 
 .leftblog_data_markdown a:hover {

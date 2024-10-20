@@ -3,14 +3,10 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { GiDrumKit, GiDrum } from "react-icons/gi";
-import { ImHeadphones } from "react-icons/im";
-import { DiCodeigniter } from "react-icons/di";
-import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); // Page number
-  const [perPage] = useState(9); // Number of blogs per page
+  const [perPage] = useState(8); // Number of blogs per page
 
   const { alldata, loading } = useFetchData("/api/getblog");
 
@@ -25,21 +21,23 @@ export default function Home() {
 
   const allblog = alldata.length;
 
-  // Filter published blogs
-  const publishedblogs = currentBlogs.filter((ab) => ab.status === "publish");
+  // Filter published blogs from all blogs
+  const publishedblogs = alldata.filter((ab) => ab.status === "publish");
+
+  const totalPublishedBlogs = publishedblogs.length;
+
+  // Paginate based on published blogs count
+  const totalPages = Math.ceil(totalPublishedBlogs / perPage);
 
   const pageNumbers = [];
-
-  for (let i = 1; i < Math.ceil(allblog / perPage); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
 
   function extractFirstImageUrl(markdownContent) {
-    // Check if markdowncontent is provided and non-empty
     if (!markdownContent || typeof markdownContent !== "string") {
       return null;
     }
-    // Regular expression to match the first image url in markdown format [alt text](imageurl)
     const regex = /!\[.*?\]\((.*?)\)/;
     const match = markdownContent.match(regex);
     return match ? match[1] : null;
@@ -60,7 +58,6 @@ export default function Home() {
     <>
       <Head>
         <title>Beat MasterMind Blog</title>
-
         <meta
           name="description"
           content="Beat MasterMind - Blog about electronic drums and accessories. Your guide to the world of rhythm, in silence!"
@@ -119,14 +116,11 @@ export default function Home() {
                 </div>
               ) : (
                 <>
-                  {publishedblogs.map((blog) => {
-                    // In the markdown content first image shows here
+                  {publishedblogs.slice(indexOfFirstblog, indexOfLastblog).map((blog) => {
                     const firstImageUrl = extractFirstImageUrl(blog.description);
                     return (
                       <div className="blog flex" key={blog._id}>
-                        {/* Displays the first image in blog */}
                         <div className="blogimg">
-                          {/* If no image in markdown, show noimage */}
                           <Link href={`/blog/${blog.slug}`}>
                             <Image
                               src={firstImageUrl || "/img/noimage.jpg"}
@@ -136,18 +130,14 @@ export default function Home() {
                             />
                           </Link>
                         </div>
-                        {/* Get the first tag in blog */}
                         <div className="bloginfo">
                           <Link href={`/tag/${blog.tags[0]}`}>
                             <div className="blogtag">{blog.tags[0]}</div>
                           </Link>
-                          {/* Get the title of blog */}
                           <Link href={`/blog/${blog.slug}`}>
                             <h3>{blog.title}</h3>
                           </Link>
-                          {/* Display the first 10 words from blog */}
                           <p>{getFirstWords(blog.description)}</p>
-                          {/* Display blog author */}
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
                               <img src="/img/Beat_Master.PNG" alt="logo" />
@@ -170,104 +160,31 @@ export default function Home() {
                 </>
               )}
             </div>
+
+            {/* Pagination */}
             <div className="blogpagination">
-              <div className="blogpagination">
-                <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
-                  Previous
+              <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+                Previous
+              </button>
+              {pageNumbers.map((number) => (
+                <button
+                  key={number}
+                  onClick={() => paginate(number)}
+                  className={currentPage === number ? "active" : ""}
+                >
+                  {number}
                 </button>
-                {pageNumbers
-                  .slice(Math.max(currentPage - 3, 0), Math.min(currentPage + 2, pageNumbers.length))
-                  .map((number) => (
-                    <button
-                      key={number}
-                      onClick={() => paginate(number)}
-                      className={currentPage === number ? "active" : ""}
-                    >
-                      {number}
-                    </button>
-                  ))}
-                <button onClick={() => paginate(currentPage + 1)} disabled={currentBlogs.length < perPage}>
-                  Next
-                </button>
-              </div>
+              ))}
+              <button
+                onClick={() => paginate(currentPage + 1)}
+                disabled={currentPage === totalPages || publishedblogs.length < perPage}
+              >
+                Next
+              </button>
             </div>
           </div>
-          <div className="rightblog_info">
-            <div className="topics_sec">
-              <h2>Topics</h2>
-              <div className="topics_list">
-                <Link href="/topics/drumsets">
-                  <div className="topics">
-                    <div className="flex flex-center topics_svg">
-                      <GiDrumKit />
-                    </div>
-                    <h3>Drum Sets</h3>
-                  </div>
-                </Link>
-                <Link href="/topics/accessories">
-                  <div className="topics">
-                    <div className="flex flex-center topics_svg">
-                      <GiDrum />
-                    </div>
-                    <h3>Accessories</h3>
-                  </div>
-                </Link>
-                <Link href="/topics/sound">
-                  <div className="topics">
-                    <div className="flex flex-center topics_svg">
-                      <ImHeadphones />
-                    </div>
-                    <h3>Sound</h3>
-                  </div>
-                </Link>
-                <Link href="/topics/hot">
-                  <div className="topics">
-                    <div className="flex flex-center topics_svg">
-                      <DiCodeigniter />
-                    </div>
-                    <h3>Hot topics</h3>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="tags_sec mt-3">
-              <h2>Tags</h2>
-              <div className="tags_list">
-                <Link href="/tag/edrums">#Edrums</Link>
-                <Link href="/tag/drums">#Drums</Link>
-                <Link href="/tag/drumkit">#Drumkit</Link>
-                <Link href="/tag/pads">#Pads</Link>
-                <Link href="/tag/cymbals">#Cymbals</Link>
-                <Link href="/tag/beat">#Beat</Link>
-                <Link href="/tag/sound">#Sound</Link>
-                <Link href="/tag/electronic">#Electronic</Link>
-                <Link href="/tag/sets">#Sets</Link>
-                <Link href="/tag/drumsticks">#Drumsticks</Link>
-                <Link href="/tag/kids">#Kids</Link>
-              </div>
-            </div>
-            <div className="letstalk_sec mt-3">
-              <h2>Let's Talk</h2>
-              <div className="talk_sec">
-                <h4>Visit us on our Social Media platforms!</h4>
-                <div className="social_talks flex flex-center gap-1 mt-2">
-                  <Link href="https://www.instagram.com/beatmastermind/" target="_blank">
-                    <div className="st_icon">
-                      <FaInstagram />
-                    </div>
-                  </Link>
-                  <Link href="https://pinterest.com/beatmastermindaff/" target="_blank">
-                    <div className="st_icon">
-                      <FaPinterest />
-                    </div>
-                  </Link>
-                  <div className="st_icon">
-                    <FaFacebook />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
+          <div className="rightblog_info">{/* Other sections */}</div>
         </div>
       </section>
     </>
