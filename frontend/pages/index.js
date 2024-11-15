@@ -57,22 +57,22 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Crystal H2O Zone</title>
-        <meta name="description" content="Crystal H2O Zone - Blog about Water filters!" />
+        <title>Beat Master Mind</title>
+        <meta name="description" content="Beat Master Mind - Blog about Electronic drums and accessories!" />
         {/* Facebook Meta Tags */}
-        <meta property="og:url" content="https://www.crystalh2ozone.com/" />
+        <meta property="og:url" content="https://www.beatmastermind.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Beat MasterMind Blog" />
-        <meta property="og:description" content="Crystal H2O Zone - Blog about Water filters!" />
-        <meta property="og:image" content="https://crystalh2ozone.comnull" />
+        <meta property="og:description" content="Beat Master Mind - Blog about Electronic drums and accessories!" />
+        <meta property="og:image" content="https://beatmastermind.comnull" />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="crystalh2ozone.com" />
-        <meta property="twitter:url" content="https://www.crystalh2ozone.com/" />
-        <meta name="twitter:title" content="Crystal H2O Zone" />
-        <meta name="twitter:description" content="Crystal H2O Zone - Blog about Water filters!" />
-        <meta name="twitter:image" content="https://crystalh2ozone.comnull"></meta>
+        <meta property="twitter:domain" content="beatmastermind.com" />
+        <meta property="twitter:url" content="https://www.beatmastermind.com/" />
+        <meta name="twitter:title" content="Beat Master Mind" />
+        <meta name="twitter:description" content="Beat Master Mind - Blog about Electronic drums and accessories!" />
+        <meta name="twitter:image" content="https://beatmastermind.comnull"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
@@ -83,7 +83,7 @@ export default function Home() {
             <h1 data-aos="fade-right">
               Explore <span>Beat MasterMind!</span>. <br />
             </h1>
-            <h3 data-aos="fade-right">Your water filter expert</h3>
+            <h3 data-aos="fade-right">Your electronic drums expert</h3>
             <div className="flex gap-2">
               <Link href="/contact">
                 <button>Contact</button>
