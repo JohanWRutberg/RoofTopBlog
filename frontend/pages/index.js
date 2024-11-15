@@ -57,31 +57,22 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Beat MasterMind Blog</title>
-        <meta
-          name="description"
-          content="Beat MasterMind - Blog about electronic drums and accessories. Your guide to the world of rhythm, in silence!"
-        />
+        <title>Crystal H2O Zone</title>
+        <meta name="description" content="Crystal H2O Zone - Blog about Water filters!" />
         {/* Facebook Meta Tags */}
-        <meta property="og:url" content="https://www.beatmastermind.com/" />
+        <meta property="og:url" content="https://www.crystalh2ozone.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Beat MasterMind Blog" />
-        <meta
-          property="og:description"
-          content="Beat MasterMind - Blog about electronic drums and accessories. Your guide to the world of rhythm, in silence!"
-        />
-        <meta property="og:image" content="https://beatmastermind.comnull" />
+        <meta property="og:description" content="Crystal H2O Zone - Blog about Water filters!" />
+        <meta property="og:image" content="https://crystalh2ozone.comnull" />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="beatmastermind.com" />
-        <meta property="twitter:url" content="https://www.beatmastermind.com/" />
-        <meta name="twitter:title" content="Beat MasterMind Blog" />
-        <meta
-          name="twitter:description"
-          content="Beat MasterMind - Blog about electronic drums and accessories. Your guide to the world of rhythm, in silence!"
-        />
-        <meta name="twitter:image" content="https://beatmastermind.comnull"></meta>
+        <meta property="twitter:domain" content="crystalh2ozone.com" />
+        <meta property="twitter:url" content="https://www.crystalh2ozone.com/" />
+        <meta name="twitter:title" content="Crystal H2O Zone" />
+        <meta name="twitter:description" content="Crystal H2O Zone - Blog about Water filters!" />
+        <meta name="twitter:image" content="https://crystalh2ozone.comnull"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
@@ -90,9 +81,9 @@ export default function Home() {
         <div className="container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
-              Explore <span>Beat MasterMind</span>. <br />
+              Explore <span>Crystal H2O Zone</span>. <br />
             </h1>
-            <h3 data-aos="fade-right">Electronic drum enthusiasts.</h3>
+            <h3 data-aos="fade-right">Your water filter expert</h3>
             <div className="flex gap-2">
               <Link href="/contact">
                 <button>Contact</button>
@@ -143,7 +134,7 @@ export default function Home() {
                               <img src="/img/Beat_Master.PNG" alt="logo" />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
-                              <h4>BeatMaster Mind</h4>
+                              <h4>Crystal H2O Zone</h4>
                               <span>
                                 {new Date(blog.createdAt).toLocaleDateString("en-US", {
                                   month: "long",
