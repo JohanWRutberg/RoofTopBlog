@@ -134,7 +134,7 @@ export default function Home() {
                               <img src="/img/Beat_Master.PNG" alt="logo" />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
-                              <h4>Crystal H2O Zone</h4>
+                              <h4>Beat Master Mind</h4>
                               <span>
                                 {new Date(blog.createdAt).toLocaleDateString("en-US", {
                                   month: "long",
