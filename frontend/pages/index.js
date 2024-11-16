@@ -81,7 +81,7 @@ export default function Home() {
         <div className="container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
-              Explore <span>Beat MasterMind!</span>. <br />
+              Explore <span>Beat MasterMind</span>. <br />
             </h1>
             <h3 data-aos="fade-right">Your electronic drums expert</h3>
             <div className="flex gap-2">

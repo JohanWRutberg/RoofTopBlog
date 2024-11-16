@@ -866,7 +866,7 @@ button {
 
 .main_blog_section {
   position: relative;
-  background-color: #f4f4f4;
+  background-color: #edf1fe;
   padding: 3rem 0;
 }
 
@@ -908,6 +908,7 @@ button {
 .blog {
   display: flex;
   width: 100%;
+  background-color: #ffffff;
   align-items: center;
   max-width: 800px;
   gap: 2rem;
