@@ -866,7 +866,7 @@ button {
 
 .main_blog_section {
   position: relative;
-  background-color: #edf1fe;
+  background-color: #e8eeff;
   padding: 3rem 0;
 }
 
@@ -1109,11 +1109,12 @@ button {
   display: flex;
   align-items: center;
   width: 100%;
+  background-color: #ffffff;
   border: 1px solid #d1d1d1;
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
   box-shadow: 1px 2px 5px #e7e7e7;
 }
 
@@ -1553,7 +1554,7 @@ a:hover .st_icon_amazon {
 .slugpage {
   position: relative;
   padding-top: 5rem;
-  background-color: #eeeeee65;
+  background-color: #e8eeff;
   font-family: "Nunito", sans-serif;
 }
 
@@ -1726,6 +1727,7 @@ a:hover .st_icon_amazon {
 .slug_profile_info {
   position: relative;
   width: 100%;
+  background-color: #ffffff;
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
@@ -1772,6 +1774,7 @@ a:hover .st_icon_amazon {
 .slug_blog_links {
   position: relative;
   width: 100%;
+  background-color: #ffffff;
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
