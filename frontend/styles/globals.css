@@ -910,12 +910,12 @@ button {
   width: 100%;
   background-color: #ffffff;
   align-items: center;
-  max-width: 800px;
+  max-width: 1000px;
   gap: 2rem;
   border: 1px solid #d9d6d6;
   padding: 0.5rem;
   border-radius: 10px;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
   margin-bottom: 1.5rem;
 }
 
@@ -925,12 +925,12 @@ button {
 }
 
 .blog:hover {
-  box-shadow: 0 5px 10px #c3c3c3;
-  transform: translateY(-10px);
+  box-shadow: 0 5px 5px #959595;
+  transform: translateY(-5px);
 }
 
 .dark .blog:hover {
-  box-shadow: 0 5px 10px #475060;
+  box-shadow: 0 5px 5px #181818;
 }
 /* .blog:hover {
   box-shadow: 0 5px 10px #999;
@@ -942,7 +942,7 @@ button {
 } */
 
 .blogimg {
-  width: 50%;
+  width: 40%;
   height: auto;
   border-radius: 10px;
   overflow: hidden;
