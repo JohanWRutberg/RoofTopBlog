@@ -4,6 +4,7 @@ import { useState } from "react";
 import MarkdownEditor from "react-markdown-editor-lite";
 import ReactMarkdown from "react-markdown";
 import "react-markdown-editor-lite/lib/index.css";
+import rehypeRaw from "rehype-raw";
 
 export default function Blog({
   _id,
@@ -101,6 +102,7 @@ export default function Blog({
             style={{ width: "100%", height: "800px" }} //Adjust the height as wanted
             renderHTML={(text) => (
               <ReactMarkdown
+                rehypePlugins={[rehypeRaw]}
                 components={{
                   code: ({ node, inline, className, children, ...props }) => {
                     const match = /language-(\w+)/.exec(className || "");
