@@ -925,6 +925,10 @@ button {
   background-color: #4efa6b;
 }
 
+a.custom-button {
+  text-decoration: none;
+  display: inline-block;
+}
 /* ********************************************** */
 /* *******************************  SETTING PAGE */
 /* ********************************************** */

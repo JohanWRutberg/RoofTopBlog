@@ -1565,6 +1565,11 @@ a:hover .st_icon_amazon {
   background-color: #4efa6b;
 }
 
+a.custom-button {
+  text-decoration: none;
+  display: inline-block;
+}
+
 /* ================================================== */
 /*                                Home Slug Page */
 /* ================================================== */

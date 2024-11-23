@@ -104,9 +104,10 @@ export default function Blog({
             renderHTML={(text) => (
               <ReactMarkdown
                 rehypePlugins={[rehypeRaw]}
-                children={DOMPurify.sanitize(description)}
+                children={DOMPurify.sanitize(description, { ALLOWED_TAGS: ["a", "button", "span"] })} // Allow specific tags like button
                 components={{
                   a: ({ node, ...props }) => <a {...props} />,
+                  button: ({ node, ...props }) => <button {...props} />,
                   code: ({ node, inline, className, children, ...props }) => {
                     const match = /language-(\w+)/.exec(className || "");
                     if (inline) {
