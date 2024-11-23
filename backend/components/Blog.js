@@ -2,7 +2,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import MarkdownEditor from "react-markdown-editor-lite";
+import ReactMarkdown from "react-markdown";
 import "react-markdown-editor-lite/lib/index.css";
+import rehypeRaw from "rehype-raw";
 import DOMPurify from "dompurify";
 
 export default function Blog({
@@ -42,11 +44,12 @@ export default function Blog({
     router.push("/");
     return null;
   }
-
-  // Converts spaces in the slug to dashes
+  // Makes every blank space to be a -
   const handleSlugChange = (ev) => {
     const inputValue = ev.target.value;
+
     const newSlug = inputValue.replace(/\s+/g, "-");
+
     setSlug(newSlug);
   };
 
@@ -91,25 +94,53 @@ export default function Blog({
             {Array.isArray(existingBlogcategory) && existingBlogcategory.map((category) => <span>{category}</span>)}
           </p>
         </div>
-
-        {/* Markdown description content */}
+        {/* Markdown description content. No animation here! */}
         <div className="description w-100 flex flex-col flex-left mb-2">
           <label htmlFor="description">Blogg Innehåll</label>
           <MarkdownEditor
             value={description}
             onChange={(ev) => setDescription(ev.text)}
-            style={{ width: "100%", height: "800px" }} // Adjust the height as needed
+            style={{ width: "100%", height: "800px" }} //Adjust the height as wanted
             renderHTML={(text) => (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(text) // Sanitize the input
+              <ReactMarkdown
+                rehypePlugins={[rehypeRaw]}
+                children={DOMPurify.sanitize(description)}
+                components={{
+                  a: ({ node, ...props }) => <a {...props} />,
+                  code: ({ node, inline, className, children, ...props }) => {
+                    const match = /language-(\w+)/.exec(className || "");
+                    if (inline) {
+                      return <code>{children}</code>;
+                    } else if (match) {
+                      return (
+                        <div style={{ position: "relative" }}>
+                          <pre
+                            style={{ padding: "0", borderRadius: "5px", overflowX: "auto", whiteSpace: "pre-wrap" }}
+                            {...props}
+                          >
+                            <code>{children}</code>
+                          </pre>
+                          <button
+                            style={{ position: "absolute", top: "0", right: "0", zIndex: "1" }}
+                            onClick={() => navigator.clipboard.writeText(children)}
+                          >
+                            Copy code
+                          </button>
+                        </div>
+                      );
+                    } else {
+                      return <code {...props}>{children}</code>;
+                    }
+                  }
                 }}
-              />
+              >
+                {text}
+              </ReactMarkdown>
             )}
           />
         </div>
 
-        {/* Tags */}
+        {/* tags */}
         <div className="w-100 flex flex-col flex-left mb-2" data-aos="fade-up">
           <label htmlFor="tags">Taggar</label>
           <select
@@ -148,7 +179,6 @@ export default function Blog({
             Vald: <span>{existingStatus}</span>
           </p>
         </div>
-
         {/* Save button */}
         <div className="w-100 mb-2">
           <button type="submit" className="w-100 addwebbtn flex flex-center">
