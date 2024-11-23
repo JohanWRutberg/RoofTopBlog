@@ -5,6 +5,7 @@ import MarkdownEditor from "react-markdown-editor-lite";
 import ReactMarkdown from "react-markdown";
 import "react-markdown-editor-lite/lib/index.css";
 import rehypeRaw from "rehype-raw";
+import DOMPurify from "dompurify";
 
 export default function Blog({
   _id,
@@ -103,6 +104,7 @@ export default function Blog({
             renderHTML={(text) => (
               <ReactMarkdown
                 rehypePlugins={[rehypeRaw]}
+                children={DOMPurify.sanitize(description)}
                 components={{
                   a: ({ node, ...props }) => <a {...props} />,
                   code: ({ node, inline, className, children, ...props }) => {
