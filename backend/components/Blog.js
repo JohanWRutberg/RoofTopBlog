@@ -44,14 +44,17 @@ export default function Blog({
     router.push("/");
     return null;
   }
-  // Makes every blank space to be a -
+
   const handleSlugChange = (ev) => {
     const inputValue = ev.target.value;
-
     const newSlug = inputValue.replace(/\s+/g, "-");
-
     setSlug(newSlug);
   };
+
+  const sanitizedDescription = DOMPurify.sanitize(description, {
+    ALLOWED_TAGS: ["a", "button", "span"],
+    ALLOWED_ATTR: ["href", "class"]
+  });
 
   return (
     <>
@@ -91,57 +94,77 @@ export default function Blog({
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Selected:{" "}
-            {Array.isArray(existingBlogcategory) && existingBlogcategory.map((category) => <span>{category}</span>)}
+            {Array.isArray(existingBlogcategory) &&
+              existingBlogcategory.map((category) => <span key={category}>{category}</span>)}
           </p>
         </div>
-        {/* Markdown description content. No animation here! */}
+
+        {/* Markdown description content */}
         <div className="description w-100 flex flex-col flex-left mb-2">
           <label htmlFor="description">Blogg Innehåll</label>
           <MarkdownEditor
             value={description}
             onChange={(ev) => setDescription(ev.text)}
-            style={{ width: "100%", height: "800px" }} //Adjust the height as wanted
-            renderHTML={(text) => (
-              <ReactMarkdown
-                rehypePlugins={[rehypeRaw]}
-                children={DOMPurify.sanitize(description, { ALLOWED_TAGS: ["a", "button", "span"] })} // Allow specific tags like button
-                components={{
-                  a: ({ node, ...props }) => <a {...props} />,
-                  button: ({ node, ...props }) => <button {...props} />,
-                  code: ({ node, inline, className, children, ...props }) => {
-                    const match = /language-(\w+)/.exec(className || "");
-                    if (inline) {
-                      return <code>{children}</code>;
-                    } else if (match) {
-                      return (
-                        <div style={{ position: "relative" }}>
-                          <pre
-                            style={{ padding: "0", borderRadius: "5px", overflowX: "auto", whiteSpace: "pre-wrap" }}
-                            {...props}
-                          >
-                            <code>{children}</code>
-                          </pre>
-                          <button
-                            style={{ position: "absolute", top: "0", right: "0", zIndex: "1" }}
-                            onClick={() => navigator.clipboard.writeText(children)}
-                          >
-                            Copy code
-                          </button>
-                        </div>
-                      );
-                    } else {
-                      return <code {...props}>{children}</code>;
+            style={{ width: "100%", height: "800px" }} // Adjust the height as needed
+            renderHTML={(text) => {
+              // Pass the sanitized content to ReactMarkdown
+              const sanitizedText = DOMPurify.sanitize(text, {
+                ALLOWED_TAGS: ["a", "button", "span"],
+                ALLOWED_ATTR: ["href", "class"]
+              });
+
+              return (
+                <ReactMarkdown
+                  rehypePlugins={[rehypeRaw]} // Allow raw HTML
+                  children={sanitizedText} // Pass sanitized HTML content
+                  components={{
+                    a: ({ node, ...props }) => (
+                      <a {...props} className="custom-button" /> // Apply your button styles
+                    ),
+                    button: ({ node, ...props }) => <button {...props} className="custom-button" />,
+                    code: ({ node, inline, className, children, ...props }) => {
+                      const match = /language-(\w+)/.exec(className || "");
+                      if (inline) {
+                        return <code>{children}</code>;
+                      } else if (match) {
+                        return (
+                          <div style={{ position: "relative" }}>
+                            <pre
+                              style={{
+                                padding: "0",
+                                borderRadius: "5px",
+                                overflowX: "auto",
+                                whiteSpace: "pre-wrap"
+                              }}
+                              {...props}
+                            >
+                              <code>{children}</code>
+                            </pre>
+                            <button
+                              style={{
+                                position: "absolute",
+                                top: "0",
+                                right: "0",
+                                zIndex: "1"
+                              }}
+                              onClick={() => navigator.clipboard.writeText(children)}
+                            >
+                              Copy code
+                            </button>
+                          </div>
+                        );
+                      } else {
+                        return <code {...props}>{children}</code>;
+                      }
                     }
-                  }
-                }}
-              >
-                {text}
-              </ReactMarkdown>
-            )}
+                  }}
+                />
+              );
+            }}
           />
         </div>
 
-        {/* tags */}
+        {/* Tags */}
         <div className="w-100 flex flex-col flex-left mb-2" data-aos="fade-up">
           <label htmlFor="tags">Taggar</label>
           <select
@@ -164,7 +187,8 @@ export default function Blog({
             <option value="kids">kids</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
-            Vald: {Array.isArray(existingTags) && existingTags.map((category) => <span>{category}</span>)}
+            Vald:{" "}
+            {Array.isArray(existingTags) && existingTags.map((category) => <span key={category}>{category}</span>)}
           </p>
         </div>
 
@@ -180,6 +204,7 @@ export default function Blog({
             Vald: <span>{existingStatus}</span>
           </p>
         </div>
+
         {/* Save button */}
         <div className="w-100 mb-2">
           <button type="submit" className="w-100 addwebbtn flex flex-center">
