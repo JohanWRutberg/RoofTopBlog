@@ -22,11 +22,14 @@ export default function ContactPage() {
       <main>
         <div className="slugpage">
           <div className="container">
-            <div className="leftblog_data_markdown pb-5">
+            <div className="leftblog_data_markdown pb-5 full-h">
               <>
                 <div className="w-100 blogcontent">
                   <h1>Contact us</h1>
+                  <h2>Feel free to reach out to us.</h2>
                   <h3>Coming soon...</h3>
+                  <br />
+                  <br />
                 </div>
               </>
             </div>
