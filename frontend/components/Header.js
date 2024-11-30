@@ -107,13 +107,19 @@ export default function Header() {
           <div className="nav_list_dark">
             <ul>
               <li>
-                <Link href="/">Home</Link>
+                <Link className="nav_list_link" href="/">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link href="/about">About</Link>
+                <Link className="nav_list_link" href="/about">
+                  About
+                </Link>
               </li>
               <li>
-                <Link href="/contact">Contact</Link>
+                <Link className="nav_list_link" href="/contact">
+                  Contact
+                </Link>
               </li>
             </ul>
             {/* For mobile devices */}
