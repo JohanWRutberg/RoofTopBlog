@@ -19,8 +19,8 @@ body.dark {
   position: fixed;
   top: 0;
   left: 0;
-  height: 4px;
-  background-color: #667eea;
+  height: 5px;
+  background-color: #08e242;
   /* Customize the color as needed */
   transition: width 0.3s ease-in-out;
   z-index: 999999999999;
@@ -40,7 +40,7 @@ body.dark {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #667eea;
+  background-color: #617fe7;
   border-radius: 50%;
   box-shadow: 0 5px 10px #5e75a4;
   color: #fff;
@@ -1381,6 +1381,14 @@ button {
   font-size: 12px;
 }
 
+a:hover .blog-link-alt {
+  color: #000; /* Change text color when hovered */
+}
+
+.dark a:hover .blog-link-alt {
+  color: #fff; /* Change text color when hovered */
+}
+
 /* Hover effect for the icon when either icon or text is hovered */
 a:hover .st_icon_blog {
   background-color: #2baeff;
@@ -1411,6 +1419,14 @@ a:hover .st_icon_blog {
 .link-alt {
   color: inherit; /* Inherit text color */
   font-size: 14px;
+}
+
+a:hover .link-alt {
+  color: #000; /* Change text color when hovered */
+}
+
+.dark a:hover .link-alt {
+  color: #fff; /* Change text color when hovered */
 }
 
 /* Hover effect for the icon when either icon or text is hovered */
@@ -1660,6 +1676,7 @@ a.custom-button {
 
 .dark .blogcontent {
   background-color: #2d3748;
+  border: 2px solid #151921;
   color: #e2e8f0;
 }
 
@@ -1678,7 +1695,7 @@ a.custom-button {
 
 .blogcontent {
   /* padding: 2rem; */
-  border: none;
+  /*  border: none; */
 }
 
 .blogcontent h2 {
