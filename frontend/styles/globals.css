@@ -866,7 +866,7 @@ button {
 
 .main_blog_section {
   position: relative;
-  background-color: #e8eeff;
+  background-color: #edf3ff;
   padding: 3rem 0;
 }
 
@@ -1593,7 +1593,7 @@ a.custom-button {
 .slugpage {
   position: relative;
   padding-top: 5rem;
-  background-color: #e8eeff;
+  background-color: #edf3ff;
   font-family: "Nunito", sans-serif;
 }
 
@@ -2023,7 +2023,7 @@ a.custom-button {
 }
 
 /* *************************************************************************** */
-/* ***************************************************** MEDIA QUERY RESPONSIVE WEBSITE */
+/* ******************************************** MEDIA QUERY RESPONSIVE WEBSITE */
 /* *************************************************************************** */
 
 @media screen and (max-width: 1245px) {
@@ -2073,7 +2073,7 @@ a.custom-button {
 
   .leftheader_info {
     width: 100%;
-    align-items: center;
+    align-items: left;
   }
 
   .leftblog_sec {
@@ -2093,7 +2093,7 @@ a.custom-button {
   }
 }
 
-@media screen and (max-width: 1043px) {
+@media screen and (max-width: 967px) {
   .navlist_mobile_ul {
     display: flex;
   }
@@ -2109,11 +2109,13 @@ a.custom-button {
   .darkmode {
     display: none;
   }
-}
-
-@media screen and (max-width: 800px) {
   .blogpage .cate_blog {
     width: 100%;
+  }
+  .leftheader_info {
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
   .cate_blog a img {
     height: auto;
@@ -2134,6 +2136,9 @@ a.custom-button {
   }
 }
 
+@media screen and (max-width: 800px) {
+}
+
 @media screen and (max-width: 670px) {
   .navlist_mobile {
     min-width: 345px;
@@ -2148,6 +2153,12 @@ a.custom-button {
     width: 40px;
     height: 40px;
     font-size: 22px;
+  }
+
+  .leftheader_info {
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
   .leftheader_info h1 {

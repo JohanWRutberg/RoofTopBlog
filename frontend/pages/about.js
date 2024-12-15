@@ -27,7 +27,32 @@ export default function AboutPage() {
                 <div className="w-100 blogcontent">
                   <h1>About us</h1>
                   <h2>Who we are and what we do.</h2>
-                  <h3>Coming soon...</h3>
+                  <p>
+                    Welcome to <b>Beat Mastermind</b>, your go-to resource for everything related to electronic drums
+                    and their essential accessories. Whether you're a seasoned drummer or just starting your rhythm
+                    journey, we’re here to guide you with tips, reviews, and insights to elevate your drumming
+                    experience.
+                    <br />
+                    <br />
+                    The team behind Beat Mastermind brings together a unique blend of expertise and passion: <br />
+                    <b>Johan</b> is a software developer and test engineer with deep roots in music. Having spent years
+                    behind the drum kit, he combines his technical knowledge with hands-on experience to provide
+                    reliable advice and product recommendations. <br />
+                    <b>Pernilla</b> is a skilled writer and communication specialist who ensures our content is engaging
+                    and easy to understand. Her love for storytelling brings clarity and connection to every article.{" "}
+                    <br />
+                    <br />
+                    At Beat Mastermind, we believe electronic drums are more than just instruments—they’re tools for
+                    creativity, self-expression, and endless possibilities. Our mission is to share valuable knowledge
+                    and empower drummers of all levels to make informed decisions, enhance their setups, and stay
+                    inspired. <br />
+                    <br />
+                    Thank you for joining us on this journey. Let’s make every beat count!
+                  </p>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
                   <br />
                   <br />
                 </div>

@@ -80,7 +80,7 @@ export default function Home() {
       <section className="header_data_section">
         <div className="container flex flex-sb w-100">
           <div className="leftheader_info">
-            <h1 data-aos="fade-right">
+            <h1 data-aos="fade-right" className="">
               Explore <span>Beat MasterMind</span>. <br />
             </h1>
             <h3 data-aos="fade-right">Your electronic drums expert</h3>

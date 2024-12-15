@@ -30,6 +30,10 @@ export default function ContactPage() {
                   <h3>Coming soon...</h3>
                   <br />
                   <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
                 </div>
               </>
             </div>
