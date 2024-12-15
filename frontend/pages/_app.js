@@ -11,7 +11,7 @@ import Head from "next/head";
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Head>{/* <title>BeatMasterMind Blog</title> */}</Head>
+      <Head>{/* <title>Beat MasterMind Blog</title> */}</Head>
       <Header />
 
       <main>

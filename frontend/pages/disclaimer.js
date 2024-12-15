@@ -5,18 +5,18 @@ export default function DisclaimerPage() {
   return (
     <>
       <Head>
-        <title>Disclaimer | BeatMasterMind</title>
-        <meta name="description" content="Learn more about BeatMasterMind and our mission." />
+        <title>Disclaimer | Beat MasterMind</title>
+        <meta name="description" content="Learn more about Beat MasterMind and our mission." />
 
         {/* Open Graph Metadata */}
-        <meta property="og:title" content="Disclaimer | BeatMasterMind" />
-        <meta property="og:description" content="Learn more about BeatMasterMind and our mission." />
+        <meta property="og:title" content="Disclaimer | Beat MasterMind" />
+        <meta property="og:description" content="Learn more about Beat MasterMind and our mission." />
         <meta property="og:image" content="/img/disclaimer-og-image.jpg" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Metadata */}
-        <meta name="twitter:title" content="Disclaimer | BeatMasterMind" />
-        <meta name="twitter:description" content="Learn more about BeatMasterMind and our mission." />
+        <meta name="twitter:title" content="Disclaimer | Beat MasterMind" />
+        <meta name="twitter:description" content="Learn more about Beat MasterMind and our mission." />
         <meta name="twitter:image" content="/img/disclaimer-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
@@ -32,14 +32,14 @@ export default function DisclaimerPage() {
                   This means if you click on an affiliate link and buy something, we get a commission at no extra cost
                   to you. The price is the same whether you use an affiliate link or not.
                   <h2>What are affiliate links?</h2>
-                  When you click an affiliate link on BeatMasterMind.com and buy something, you buy it directly from the
-                  seller (not from BeatMasterMind). We may get a small commission from Amazon or other companies for
-                  sending customers to their websites. The price is the same for you whether you use an affiliate link
-                  or not.
+                  When you click an affiliate link on Beat MasterMind.com and buy something, you buy it directly from
+                  the seller (not from Beat MasterMind). We may get a small commission from Amazon or other companies
+                  for sending customers to their websites. The price is the same for you whether you use an affiliate
+                  link or not.
                   <br />
                   Clicking an affiliate link doesn’t change the price or anything else for you.{" "}
                   <h3>Amazon affiliate links</h3>
-                  BeatMasterMind.com is part of the Amazon Services LLC Associates Program, an affiliate advertising
+                  Beat MasterMind.com is part of the Amazon Services LLC Associates Program, an affiliate advertising
                   program designed to let sites earn fees by linking to Amazon.com and related sites.
                   <br />
                   If you click a product affiliate link and buy the product, we get a percentage of the sale or some
@@ -54,8 +54,8 @@ export default function DisclaimerPage() {
                   <br />
                   These rules make sure readers know if a blogger or publisher is sponsored or partnered with a company.
                   Readers need to know if the publisher makes money from sharing a link or product. Following FTC
-                  guidelines, please assume this about links and posts on this site: Some or all links on
-                  BeatMasterMind.com are affiliate links, which means we earn a small commission from sales.
+                  guidelines, please assume this about links and posts on this site: Some or all links on Beat
+                  MasterMind.com are affiliate links, which means we earn a small commission from sales.
                   <br />
                   <br />
                   <h1>AI-images</h1>

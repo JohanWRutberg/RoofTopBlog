@@ -110,7 +110,7 @@ export default function CategoryPage({ initialData, tag }) {
                           <img src="/img/Beat_Master.png" />
                         </div>
                         <div className="flex flex-col flex-left gap-05">
-                          <h4>BeatMasterMind</h4>
+                          <h4>Beat MasterMind</h4>
                           <span>
                             {new Date(item.createdAt).toLocaleDateString("en-US", {
                               month: "long",

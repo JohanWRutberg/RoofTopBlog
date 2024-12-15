@@ -4,18 +4,18 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-        <title>About Us | BeatMasterMind</title>
-        <meta name="description" content="Learn more about BeatMasterMind and our mission." />
+        <title>About Us | Beat MasterMind</title>
+        <meta name="description" content="Learn more about Beat MasterMind and our mission." />
 
         {/* Open Graph Metadata */}
-        <meta property="og:title" content="About Us | BeatMasterMind" />
-        <meta property="og:description" content="Learn more about BeatMasterMind and our mission." />
+        <meta property="og:title" content="About Us | Beat MasterMind" />
+        <meta property="og:description" content="Learn more about Beat MasterMind and our mission." />
         <meta property="og:image" content="/img/about-og-image.jpg" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Metadata */}
-        <meta name="twitter:title" content="About Us | BeatMasterMind" />
-        <meta name="twitter:description" content="Learn more about BeatMasterMind and our mission." />
+        <meta name="twitter:title" content="About Us | Beat MasterMind" />
+        <meta name="twitter:description" content="Learn more about Beat MasterMind and our mission." />
         <meta name="twitter:image" content="/img/about-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>

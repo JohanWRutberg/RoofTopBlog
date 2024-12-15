@@ -157,12 +157,12 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
   return (
     <>
       <Head key={router.asPath}>
-        <title>{`${blog.title || "Blog Post"} | Beat Master Mind`}</title>
+        <title>{`${blog.title || "Blog Post"} | Beat MasterMind`}</title>
         <meta
           name="description"
           content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat MasterMind"}
         />
-        <meta name="keywords" content={blog.title || "blog post"} />
+        <meta name="keywords" content={blog.title || "Blog post"} />
         <meta property="og:title" content={blog.title || "Blog Post"} />
         <meta
           property="og:description"
