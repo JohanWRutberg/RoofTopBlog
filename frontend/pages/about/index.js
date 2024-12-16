@@ -25,7 +25,7 @@ export default function AboutPage() {
             <div className="leftblog_data_markdown pb-5 full-h">
               <>
                 <div className="w-100 blogcontent">
-                  <h1>About us</h1>
+                  <h1 className="text-5xl">About us</h1>
                   <h2>Who we are and what we do.</h2>
                   <p>
                     Welcome to <b>Beat Mastermind</b>, your go-to resource for everything related to electronic drums
@@ -49,6 +49,10 @@ export default function AboutPage() {
                     <br />
                     Thank you for joining us on this journey. Let’s make every beat count!
                   </p>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
                   <br />
                   <br />
                   <br />

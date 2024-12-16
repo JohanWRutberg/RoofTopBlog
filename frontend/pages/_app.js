@@ -16,11 +16,13 @@ export default function App({ Component, pageProps }) {
 
       <main>
         <TopLoadingLine />
+
         <Aos>
           <Component {...pageProps} />
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         </Aos>
+
         <ScrollToTopBtn />
       </main>
       <Footer />
