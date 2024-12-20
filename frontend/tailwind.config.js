@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,7 +9,36 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
-    extend: {}
+    container: {
+      padding: {
+        DEFAULT: "15px"
+      }
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "960px",
+      xl: "1200px"
+    },
+    extend: {
+      colors: {
+        accent: "#08e242", // Your primary accent color
+        "accent-dark": "#067b2e" // A darker shade for hover
+      },
+
+      animation: {
+        "spin-slow": "spin 6s linear infinite"
+      },
+      fontFamily: {
+        poppins: [`var(--font-poppins)`, "sans-serif"],
+        sora: [`var(--font-sora)`, "sans-serif"]
+      }
+    }
   },
-  plugins: []
+  container: {
+    padding: {
+      DEFAULT: "15px"
+    }
+  }
+  /* plugins: [require("tailwind-scrollbar")] */
 };

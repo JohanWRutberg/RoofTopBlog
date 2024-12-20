@@ -2,9 +2,9 @@ import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { namn, email, amne, meddelande } = req.body;
+    const { name, email, subject, message } = req.body;
 
-    console.log("Form data received:", { namn, email, amne, meddelande });
+    /* console.log("Form data received:", { name, email, subject, message }); */
 
     // Konfigurera Nodemailer
     const transporter = nodemailer.createTransport({
@@ -18,19 +18,19 @@ export default async function handler(req, res) {
     // E-postinnehåll
     const mailOptions = {
       from: email,
-      to: "beatmastermind.aff@gmail.com",
-      subject: amne,
-      text: `Namn: ${namn}\nE-post: ${email}\nÄmne: ${amne}\nMeddelande: ${meddelande}`
+      to: process.env.GMAIL_ADDRESS,
+      subject: subject,
+      text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`
     };
 
     try {
       // Skicka e-post
       await transporter.sendMail(mailOptions);
-      console.log("Email sent successfully");
-      res.status(200).json({ message: "E-post skickad framgångsrikt" });
+      /* console.log("Email sent successfully"); */
+      res.status(200).json({ message: "Email sent successfully" });
     } catch (error) {
       console.error("Error sending email:", error); // Logga felet till konsolen
-      res.status(500).json({ error: "Något gick fel" });
+      res.status(500).json({ error: "Error sending email" });
     }
   } else {
     res.setHeader("Allow", ["POST"]);

@@ -1444,85 +1444,113 @@ a:hover .st_icon_amazon {
 /* ================================================== */
 
 .footer {
-  padding: 5rem 0;
+  padding: 4rem 1rem; /* Initial padding */
+  background-color: #2d3748; /* Unified background color for dark mode */
+  color: #818a94; /* Default text color */
   position: relative;
   width: 100%;
 }
 
-.dark .footer {
-  background-color: #2d3748;
+.footer .container {
+  display: flex;
+  flex-wrap: wrap; /* Enables wrapping for better responsiveness */
+  justify-content: space-between; /* Space between items */
+  gap: 2rem; /* Add spacing between elements */
+  max-width: 1200px; /* Limit max width for readability */
+  margin: 0 auto; /* Center container */
 }
 
 .footer_logo,
 .q_links,
 .q_links.affiliate_disclaimer {
-  padding: 10px; /* Consistent padding for all divs */
+  flex: 1 1 calc(33.333% - 2rem); /* Flexible width with space for gap */
+  padding: 1rem;
+  text-align: left;
+}
+
+.footer_logo img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem; /* Spacing below logo */
 }
 
 .footer_logo h4,
-.footer_logo h3 {
+.footer_logo h3,
+.q_links h3,
+.q_links.affiliate_disclaimer p {
+  margin: 0.5rem 0;
+}
+
+.q_links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.q_links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.q_links ul li a {
   color: #818a94;
+  text-decoration: none;
 }
 
-.footer .container {
-  width: 100%;
-  display: flex;
-  align-items: flex-start; /* Align children at the top */
-  justify-content: space-between; /* Adjust spacing between elements as needed */
-  text-align: left; /* Align text to the left within the divs */
+.q_links ul li a:hover {
+  color: #ffffff;
 }
 
-/* Styles for screens 1154px and wider */
-@media (min-width: 1154px) {
-  .footer .container {
-    justify-content: space-between;
-  }
+/* Responsive Styles */
 
+/* Medium screens (max-width: 1154px) */
+@media (max-width: 1154px) {
   .footer_logo,
   .q_links,
   .q_links.affiliate_disclaimer {
-    flex: 1;
-    padding: 10px;
+    flex: 1 1 calc(50% - 2rem); /* Two items per row */
+    text-align: center; /* Center content */
+  }
+
+  .footer_logo img {
+    margin: 0 auto; /* Center image */
   }
 }
 
-/* Styles for screens 670px and narrower */
+/* Small screens (max-width: 670px) */
 @media (max-width: 670px) {
   .footer .container {
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center the elements */
-    text-align: center; /* Center text alignment */
-    width: 100vw; /* Ensure container spans full viewport width */
-    gap: 1rem; /* Add space between the items */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+    text-align: center; /* Center text */
   }
 
   .footer_logo,
   .q_links,
   .q_links.affiliate_disclaimer {
-    width: 100vw; /* Make each div take the full viewport width */
-    padding: 10px 0; /* Consistent padding */
-    text-align: center; /* Center content inside each div */
+    flex: 1 1 100%; /* Full width for each item */
+    padding: 1rem 0; /* Adjust padding */
   }
 
-  .footer_logo h4,
-  .footer_logo h3,
-  .q_links h3,
-  .q_links.affiliate_disclaimer p {
-    width: 100%; /* Make text within divs take full width */
-    margin: 0 auto; /* Center text within its container */
+  .footer_logo img {
+    width: 80px; /* Scale logo for small screens */
   }
-}
 
-@media screen and (max-width: 1245px) {
-  .footer {
-    padding: 5rem 1rem;
+  .q_links ul li {
+    margin-bottom: 0.75rem; /* Adjust spacing for smaller screens */
   }
 }
 
-@media screen and (max-width: 800px) {
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
   .footer {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .footer_logo img {
+    width: 70px; /* Smaller logo */
+  }
+
+  .q_links ul li a {
+    font-size: 0.9rem; /* Smaller font for links */
   }
 }
 
@@ -1589,9 +1617,39 @@ a.custom-button {
   text-decoration: none;
   display: inline-block;
 } */
+/* ================================================== */
+/*                 Home Contact Page                  */
+/* ================================================== */
+
+.mailform {
+  background-color: #ffffff;
+}
+
+.dark .mailform {
+  background-color: #2d3748;
+}
+
+.mailform h2 {
+  font-size: 2.5rem;
+  color: #2d3748;
+}
+
+.dark .mailform h2 {
+  color: #799fe2;
+}
+
+.mailform button {
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  color: #ff0818;
+}
+
+.dark .mailform button {
+  color: #a5bbe1;
+}
 
 /* ================================================== */
-/*                                Home Slug Page */
+/*                 Home Slug Page                     */
 /* ================================================== */
 
 .slugpage {
