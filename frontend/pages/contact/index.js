@@ -91,12 +91,10 @@ const Contact = () => {
         setFormMessage("Something went wrong, please try again.");
       }
 
-      // Clear the message after 5 seconds
       setTimeout(() => {
-        setFormMessage(""); // Clear the form message
+        setFormMessage("");
       }, 5000);
 
-      // Clear form data after submission
       setFormData({
         name: "",
         email: "",
@@ -112,7 +110,7 @@ const Contact = () => {
     } catch (error) {
       setFormMessage("An error occurred. Please try again later.");
       setTimeout(() => {
-        setFormMessage(""); // Clear the form message after 5 seconds
+        setFormMessage("");
       }, 5000);
     }
   };
@@ -151,7 +149,9 @@ const Contact = () => {
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="input bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5"
+                    className={`input bg-gray-50 border ${
+                      errors.name ? "border-red-500" : formData.name ? "border-green-500" : "border-gray-300"
+                    } text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5`}
                   />
                   {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                 </div>
@@ -162,7 +162,9 @@ const Contact = () => {
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="input bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5"
+                    className={`input bg-gray-50 border ${
+                      errors.email ? "border-red-500" : formData.email ? "border-green-500" : "border-gray-300"
+                    } text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5`}
                   />
                   {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                 </div>
@@ -174,7 +176,9 @@ const Contact = () => {
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="input bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5"
+                  className={`input bg-gray-50 border ${
+                    errors.subject ? "border-red-500" : formData.subject ? "border-green-500" : "border-gray-300"
+                  } text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5`}
                 />
                 {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
               </div>
@@ -184,7 +188,9 @@ const Contact = () => {
                   placeholder="Message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="textarea bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 h-32 resize-none"
+                  className={`textarea bg-gray-50 border ${
+                    errors.message ? "border-red-500" : formData.message ? "border-green-500" : "border-gray-300"
+                  } text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 h-32 resize-none`}
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
@@ -211,7 +217,7 @@ const Contact = () => {
                     } transition-all duration-300 absolute text-[22px]`}
                   />
                 </button>
-                {formMessage && <p className="text-gray-800 text-sm ml-4">{formMessage}</p>}
+                {formMessage && <p className="text-green-500 text-sm ml-4">{formMessage}</p>}
               </div>
             </motion.form>
           </div>
