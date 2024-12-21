@@ -133,7 +133,7 @@ const Contact = () => {
               exit="hidden"
               className="text-2xl font-semibold text-center text-gray-800 mb-6"
             >
-              Let’s <span className="text-accent">connect.</span>
+              <span className="text-accent">Connect </span>with us.
             </motion.h2>
             <motion.form
               onSubmit={handleSubmit}
@@ -148,7 +148,7 @@ const Contact = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Name"
+                    placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
                     className="input bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5"
@@ -159,7 +159,7 @@ const Contact = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
                     className="input bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5"
