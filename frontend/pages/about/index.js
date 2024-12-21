@@ -6,17 +6,26 @@ export default function AboutPage() {
     <>
       <Head>
         <title>About Us | Beat MasterMind</title>
-        <meta name="description" content="Learn more about Beat MasterMind and our mission." />
+        <meta
+          name="description"
+          content="Learn about Beat Mastermind, the ultimate resource for drummers seeking expert advice on electronic drums and accessories."
+        />
 
         {/* Open Graph Metadata */}
         <meta property="og:title" content="About Us | Beat MasterMind" />
-        <meta property="og:description" content="Learn more about Beat MasterMind and our mission." />
+        <meta
+          property="og:description"
+          content="Learn about Beat Mastermind, the ultimate resource for drummers seeking expert advice on electronic drums and accessories."
+        />
         <meta property="og:image" content="/img/about-og-image.jpg" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Metadata */}
         <meta name="twitter:title" content="About Us | Beat MasterMind" />
-        <meta name="twitter:description" content="Learn more about Beat MasterMind and our mission." />
+        <meta
+          name="twitter:description"
+          content="Learn about Beat Mastermind, the ultimate resource for drummers seeking expert advice on electronic drums and accessories."
+        />
         <meta name="twitter:image" content="/img/about-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>

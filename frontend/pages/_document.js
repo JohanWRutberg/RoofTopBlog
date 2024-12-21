@@ -6,14 +6,13 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Start cookieyes banner */}
+        {/* CookieYes banner */}
         <Script
           id="cookieyes"
           type="text/javascript"
           src={`https://cdn-cookieyes.com/client_data/${process.env.NEXT_PUBLIC_COOKIE_YES}/script.js`}
           strategy="beforeInteractive"
         ></Script>
-        {/* End cookieyes banner */}
 
         {/* Google Tag Manager */}
         <Script id="gtm" strategy="afterInteractive">
@@ -23,57 +22,64 @@ export default function Document() {
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}');`}
         </Script>
-        {/* End Google Tag Manager */}
 
+        {/* Google Analytics */}
         <Script
+          id="ga"
           dangerouslySetInnerHTML={{
             __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                  page_path: window.location.pathname,});
-              `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                page_path: window.location.pathname,
+              });
+            `
           }}
         />
 
-        {/* Character, robots, and OG image */}
+        {/* Essential Meta Tags */}
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta property="og:locale" content="en_US" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Beat MasterMind" />
-        <meta property="og:image:width" content="920" />
-        <meta property="og:image:height" content="470" />
-        <meta name="title" content="Beat MasterMind Blog" />
         <meta
           name="description"
-          content="Beat MasterMind - Blog about electronic drums and accessories. Your guide to the world of rhythm, in silence!"
+          content="Discover expert insights, reviews, and guides on electronic drums and accessories at Beat Mastermind. Your ultimate resource for all things electronic drumming."
         />
 
-        {/* Site name and keywords */}
+        {/* Open Graph Meta Tags */}
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Beat MasterMind Blog - Electronic Drums & Accessories" />
         <meta
-          property="og:site_name"
-          content="Beat MasterMind - Blog about Electronic drums, accessories and information - Electronic drums - Drums - Drumsticks - Pads"
+          property="og:description"
+          content="Discover expert insights, reviews, and guides on electronic drums and accessories at Beat Mastermind. Your ultimate resource for all things electronic drumming."
         />
-        <meta
-          name="keywords"
-          content="Electronic drums, Accessories for Electronic drums, Information about Electronic drums"
-        />
+        <meta property="og:image" content="https://www.beatmastermind.com/og-image.jpg" />
+        <meta property="og:image:width" content="920" />
+        <meta property="og:image:height" content="470" />
+        <meta property="og:site_name" content="Beat MasterMind" />
 
+        {/* Preconnect for Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
           rel="stylesheet"
         />
+
+        {/* Favicon */}
         <link rel="icon" href="/favicon.png" />
 
-        {/* <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} /> */}
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.beatmastermind.com" />
       </Head>
 
       <body>
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -83,7 +89,6 @@ export default function Document() {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
 
         <Main />
         <NextScript />

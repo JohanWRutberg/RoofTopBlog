@@ -119,7 +119,10 @@ const Contact = () => {
     <>
       <Head>
         <title>Contact Us | Beat MasterMind</title>
-        <meta name="description" content="Learn more about Beat MasterMind and our mission." />
+        <meta
+          name="description"
+          content="Have questions about electronic drums or accessories? Get in touch with the experts at Beat Mastermind today!"
+        />
       </Head>
       <div className="slugpage min-h-screen flex flex-col">
         <div className="container px-4">
@@ -207,7 +210,7 @@ const Contact = () => {
                       isFormValid() ? "group-hover:-translate-y-[120%] group-hover:opacity-0" : ""
                     } transition-all duration-500`}
                   >
-                    Let´s talk
+                    Let´s drum
                   </span>
                   <BsArrowRight
                     className={`${

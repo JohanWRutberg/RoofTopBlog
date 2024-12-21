@@ -160,7 +160,11 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
         <title>{`${blog.title || "Blog Post"} | Beat MasterMind`}</title>
         <meta
           name="description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat MasterMind"}
+          content={
+            blog.description
+              ? blog.description.slice(0, 150)
+              : "Stay updated with the latest tips, tricks, and news on electronic drums and accessories. Dive into the Beat Mastermind blog for expert advice."
+          }
         />
         <meta name="keywords" content={blog.title || "Blog post"} />
         <meta property="og:title" content={blog.title || "Blog Post"} />
@@ -185,8 +189,6 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
             <h1 className="slugtitle">{blog.title || "Untitled Post"}</h1>
             <h5>
               By <span>Beat MasterMind</span>.{" "}
-              {/* Published in{" "}
-              <span>{blog.blogcategory ? blog.blogcategory.join(" - ") : "Uncategorized"}</span>.{" "} */}
               {blog.createdAt
                 ? new Date(blog.createdAt).toLocaleDateString("en-US", {
                     month: "long",
@@ -198,7 +200,6 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
             </h5>
           </div>
 
-          {/* Blog data section */}
           <div className="flex flex-sb flex-left pb-5 flex-wrap">
             <div className="leftblog_data_markdown">
               <div className="w-100 blogcontent">
@@ -227,7 +228,6 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
               </div>
             </div>
             <div className="rightslug_data">
-              {/* Latest blog posts section */}
               <div className="topics_sec">
                 <h2>Latest Blog Posts</h2>
                 <div className="slug_blog_links">
@@ -237,8 +237,8 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                       <ul>
                         {blogPostLinks
                           .filter((link) => link.status === "publish")
-                          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort by date, newest first
-                          .slice(0, 5) // Get the top 5 latest posts
+                          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                          .slice(0, 5)
                           .map((link, index) => (
                             <li key={index}>
                               <Link href={link.href} legacyBehavior>
@@ -312,7 +312,6 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   </p>
                 </div>
               </div>
-
               {/* Topics section */}
               <div className="topics_sec">
                 <h2>Topics</h2>
