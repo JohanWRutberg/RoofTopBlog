@@ -1445,10 +1445,18 @@ a:hover .st_icon_amazon {
 
 .footer {
   padding: 4rem 1rem; /* Initial padding */
-  background-color: #2d3748; /* Unified background color for dark mode */
+  background-color: #ffffff; /* Unified background color for dark mode */
   color: #818a94; /* Default text color */
   position: relative;
   width: 100%;
+}
+
+.dark .footer {
+  background-color: #2d3748;
+}
+
+.footer a:hover {
+  color: #000;
 }
 
 .footer .container {
@@ -1496,6 +1504,10 @@ a:hover .st_icon_amazon {
 }
 
 .q_links ul li a:hover {
+  color: #000;
+}
+
+.dark .q_links ul li a:hover {
   color: #ffffff;
 }
 
