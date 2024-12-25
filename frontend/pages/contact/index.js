@@ -134,7 +134,7 @@ const Contact = () => {
               exit="hidden"
               className="text-2xl font-semibold text-center text-gray-800 mb-6"
             >
-              <span className="text-accent">Connect </span>with us.
+              <span className="text-accent">Connect </span>with us
             </motion.h2>
             <motion.form
               onSubmit={handleSubmit}

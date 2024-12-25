@@ -36,7 +36,7 @@ export default function AboutPage() {
               <>
                 <div className="w-100 blogcontent">
                   <h1>About us</h1>
-                  <h2>Who we are and what we do.</h2>
+                  <h2>Who we are and what we do</h2>
                   <p>
                     Welcome to <b>Beat Mastermind</b>, your go-to resource for everything related to electronic drums
                     and their essential accessories. Whether you're a seasoned drummer or just starting your rhythm
