@@ -32,7 +32,7 @@ export default function AboutPage() {
       <main>
         <div className="slugpage">
           <div className="container">
-            <div className="leftblog_data_markdown pb-5 full-h">
+            <div className="leftblog_data_markdown pb-5">
               <>
                 <div className="w-100 blogcontent">
                   <h1>About us</h1>
@@ -59,16 +59,6 @@ export default function AboutPage() {
                     <br />
                     Thank you for joining us on this journey. Let’s make every beat count!
                   </p>
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
                 </div>
               </>
             </div>
