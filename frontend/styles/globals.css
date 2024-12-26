@@ -1422,7 +1422,7 @@ a:hover .st_icon_blog {
 
 .link-alt {
   color: inherit; /* Inherit text color */
-  font-size: 14px;
+  font-size: 12px;
 }
 
 a:hover .link-alt {
@@ -1690,8 +1690,8 @@ a.custom-button {
 
 .topslug_titles h5 {
   margin-top: 1rem;
-  font-size: 18px;
-  color: #8d9aae;
+  font-size: 15px;
+  color: #2d3748;
   font-weight: 400;
 }
 
@@ -1700,19 +1700,23 @@ a.custom-button {
 }
 
 .topslug_titles h5 span {
-  color: #61728a;
-  font-weight: 500;
+  color: #2d3748;
+  font-weight: 600;
   text-transform: capitalize;
 }
 
 .dark .topslug_titles h5 span {
-  color: #edf2f7;
-  font-weight: 500;
+  color: #aec2dd;
+  font-weight: 600;
   text-transform: capitalize;
 }
 
 .topslug_titles h5 span:last-child {
-  color: #14880e;
+  color: #2d3748;
+}
+
+.dark .topslug_titles h5 span:last-child {
+  color: #aec2dd;
 }
 
 .leftblog_data_markdown {
