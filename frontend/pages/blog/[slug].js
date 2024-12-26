@@ -228,6 +228,52 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
               </div>
             </div>
             <div className="rightslug_data">
+              <div className="slug_profile_info">
+                <div className="slugprofile_sec">
+                  <div className="slug_aff_img">
+                    <Image
+                      src="/img/vecteezy_amazon-logo-png-amazon-icon-transparent-png_19766240.png"
+                      alt="brand"
+                      width={300}
+                      height={150}
+                    />
+
+                    <br />
+                    <h5>Buy the products featured in blog post</h5>
+                    <br />
+                  </div>
+                </div>
+                <div className="aff_container">
+                  <div className="aff_img">
+                    <ul>
+                      {linkDetails.map((link, index) => (
+                        <li key={index}>
+                          <Link href={link.href} legacyBehavior>
+                            <a className="flex flex-left" target="_blank" rel="noopener noreferrer">
+                              <div className="social_talks">
+                                <div className="st_icon_amazon">
+                                  <BsAmazon />
+                                </div>
+                              </div>
+                              <span className="link-alt">{link.alt}</span>
+                            </a>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="slug_aff_img mt-15">
+                  <p>
+                    As an Amazon Associate, we earn from qualifying purchases. This means that if you click on a link to
+                    an Amazon product on this site and make a purchase, we may receive a commission at no additional
+                    cost to you. This helps support the site and allows us to continue providing useful content.
+                    <br />
+                    <br />
+                    Thank you for your support!
+                  </p>
+                </div>
+              </div>
               <div className="topics_sec">
                 <h2>Latest Blog Posts</h2>
                 <div className="slug_blog_links">
@@ -266,52 +312,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   </div>
                 </div>
               </div>
-              <div className="slug_profile_info">
-                <div className="slugprofile_sec">
-                  <div className="slug_aff_img">
-                    <Image
-                      src="/img/vecteezy_amazon-logo-png-amazon-icon-transparent-png_19766240.png"
-                      alt="brand"
-                      width={500}
-                      height={200}
-                    />
 
-                    <br />
-                    <p>Buy the products featured in the blog post here:</p>
-                    <br />
-                  </div>
-                </div>
-                <div className="aff_container">
-                  <div className="aff_img">
-                    <ul>
-                      {linkDetails.map((link, index) => (
-                        <li key={index}>
-                          <Link href={link.href} legacyBehavior>
-                            <a className="flex flex-left" target="_blank" rel="noopener noreferrer">
-                              <div className="social_talks">
-                                <div className="st_icon_amazon">
-                                  <BsAmazon />
-                                </div>
-                              </div>
-                              <span className="link-alt">{link.alt}</span>
-                            </a>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <div className="slug_aff_img mt-15">
-                  <p>
-                    As an Amazon Associate, we earn from qualifying purchases. This means that if you click on a link to
-                    an Amazon product on this site and make a purchase, we may receive a commission at no additional
-                    cost to you. This helps support the site and allows us to continue providing useful content.
-                    <br />
-                    <br />
-                    Thank you for your support!
-                  </p>
-                </div>
-              </div>
               {/* Topics section */}
               <div className="topics_sec">
                 <h2>Topics</h2>

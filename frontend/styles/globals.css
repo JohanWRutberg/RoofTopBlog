@@ -1758,7 +1758,7 @@ a.custom-button {
   color: #e2e8f0;
 }
 
-.blogh1 {
+.blog h1 {
   font-size: 45px;
 }
 
@@ -1771,9 +1771,10 @@ a.custom-button {
   border-bottom: 1px solid #888;
 }
 
-.blogcontent {
-  /* padding: 2rem; */
-  /*  border: none; */
+.blogcontent a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f68f3d;
 }
 
 .blogcontent h2 {
@@ -1942,15 +1943,27 @@ a.custom-button {
   width: 100%;
 }
 .slug_aff_img p {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 200;
   color: #818a94;
 }
 
 .dark .slug_aff_img p {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 200;
   color: #c1c1c1;
+}
+
+.slug_aff_img h5 {
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dark .slug_aff_img h5 {
+  color: #c1c1c1;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .slug_aff_img img {
