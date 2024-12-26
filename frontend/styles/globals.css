@@ -449,8 +449,8 @@ button {
 
 .navlist_mobile ul li a {
   display: block;
-  font-size: 18px;
-  padding: 1rem 0;
+  font-size: 16px;
+  padding: 0.5rem 0;
   font-weight: 400;
 }
 

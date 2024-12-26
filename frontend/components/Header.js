@@ -189,38 +189,52 @@ export default function Header() {
         {/* Mobile navlist */}
         <div className={aside ? `navlist_mobile open` : "navlist_mobile"}>
           <div className="navlist_m_title flex flex-sb">
-            <h2>BMM Blog</h2>
+            <h2 className="mt-1 text-xl text-[#667EEA]">Beat MasterMind Blog</h2>
             <button onClick={asideClose}>
               <FaXmark />
             </button>
           </div>
           <hr />
-          <h3 className="mt-3">Main Menu</h3>
+          <h3 className="mt-2 text-xl text-[#667EEA]">Main Menu</h3>
           <ul onClick={handleLinkClick}>
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/" className="text-md hover:text-[#667EEA]">
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/about" className="text-md hover:text-[#667EEA]">
+                About
+              </Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact" className="text-md hover:text-[#667EEA]">
+                Contact
+              </Link>
             </li>
           </ul>
           <hr />
-          <h3 className="mt-3">Topics</h3>
+          <h3 className="mt-2 text-xl text-[#667EEA]">Topics</h3>
           <ul onClick={handleLinkClick}>
             <li>
-              <Link href="/topics/drumsets">Drum Sets</Link>
+              <Link href="/topics/drumsets" className="text-md hover:text-[#667EEA]">
+                Drum Sets
+              </Link>
             </li>
             <li>
-              <Link href="/topics/accessories">Accessories</Link>
+              <Link href="/topics/accessories" className="text-md hover:text-[#667EEA]">
+                Accessories
+              </Link>
             </li>
             <li>
-              <Link href="/topics/sound">Sound</Link>
+              <Link href="/topics/sound" className="text-md hover:text-[#667EEA]">
+                Sound
+              </Link>
             </li>
             <li>
-              <Link href="/topics/hot">Hot Topics</Link>
+              <Link href="/topics/hot" className="text-md hover:text-[#667EEA]">
+                Hot Topics
+              </Link>
             </li>
           </ul>
         </div>

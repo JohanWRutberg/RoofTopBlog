@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Beat Master Mind</title>
+        <title>Beat MasterMind</title>
         <meta name="description" content="Beat Master Mind - Blog about Electronic drums and accessories!" />
         {/* Facebook Meta Tags */}
         <meta property="og:url" content="https://www.beatmastermind.com/" />

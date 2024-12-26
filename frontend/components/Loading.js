@@ -1,4 +1,4 @@
-export default function Loading() {
+/* export default function Loading() {
   return (
     <>
       <svg class="pl" viewBox="0 0 160 160" width="160px" height="160px" xmlns="http://www.w3.org/2000/svg">
@@ -199,3 +199,4 @@ export default function Loading() {
     </>
   );
 }
+ */
