@@ -25,8 +25,8 @@ const Contact = () => {
     let error = "";
     switch (name) {
       case "name":
-        if (value.length < 3 || value.length > 30) {
-          error = "Name must be between 3 and 30 characters.";
+        if (value.length < 2 || value.length > 30) {
+          error = "Name must be between 2 and 30 characters.";
         }
         break;
       case "email":
