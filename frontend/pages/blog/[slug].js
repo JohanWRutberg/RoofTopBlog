@@ -211,11 +211,16 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                       return (
                         <a
                           href={href}
-                          className="observed-link"
+                          className={`observed-link ${isAmazonLink ? "amazon-link" : ""}`}
                           alt={children}
                           target={isAmazonLink ? "_blank" : "_self"}
                           rel={isAmazonLink ? "noopener noreferrer" : undefined}
                         >
+                          {isAmazonLink && (
+                            <span className="st_icon_amazon">
+                              <BsAmazon />
+                            </span>
+                          )}
                           {children}
                         </a>
                       );

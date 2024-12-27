@@ -1433,11 +1433,17 @@ a:hover .link-alt {
   color: #fff; /* Change text color when hovered */
 }
 
-/* Hover effect for the icon when either icon or text is hovered */
-a:hover .st_icon_amazon {
+a:hover .st_icon_amazon,
+.st_icon_amazon:hover {
   background-color: #f68f3d;
   color: #fff;
 }
+
+/* Hover effect for the icon when either icon or text is hovered */
+/* a:hover .st_icon_amazon {
+  background-color: #f68f3d;
+  color: #fff;
+} */
 
 /* ================================================== */
 /*                                   Footer Section   */
