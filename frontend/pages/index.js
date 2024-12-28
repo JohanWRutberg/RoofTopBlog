@@ -78,10 +78,14 @@ export default function Home() {
       </Head>
 
       <section className="header_data_section">
-        <div className="container flex flex-sb w-100">
+        <video autoPlay loop muted playsInline className="background-video opacity-90">
+          <source src="/Beat_MasterMind.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="header-container flex flex-sb w-100">
           <div className="leftheader_info">
-            <h1 data-aos="fade-right" className="">
-              Explore <span>Beat MasterMind</span>. <br />
+            <h1 data-aos="fade-right">
+              <span>Beat MasterMind</span> Blog<span>.</span> <br />
             </h1>
             <h3 data-aos="fade-right">Your electronic drums expert</h3>
             <div className="flex gap-2">

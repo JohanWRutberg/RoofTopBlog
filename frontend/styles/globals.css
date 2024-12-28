@@ -682,16 +682,41 @@ button {
 
 .header_data_section {
   position: relative;
+  display: flex;
+  align-items: center;
   padding: 4rem 0;
+  overflow: hidden; /* Prevent content from overflowing the section */
+  height: 600px; /* Match the video height */
 }
 
 .dark .header_data_section {
-  background: #2d3748;
+  /* background: #2d3748; */
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Sends video behind other content */
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px; /* Adjust to the desired height */
+  object-fit: cover; /* Ensure the video covers the area proportionally */
+  z-index: -1; /* Keep the video behind other content */
 }
 
 .leftheader_info {
   position: relative;
   display: flex;
+  padding-left: 30px;
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
@@ -699,9 +724,9 @@ button {
 
 .leftheader_info h1 {
   font-family: "Inter", sans-serif;
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 900;
-  color: #2d3748;
+  color: #edf2f7; /* #2d3748 */
 }
 
 .dark .leftheader_info h1 {
@@ -713,17 +738,29 @@ button {
 }
 
 .leftheader_info h3 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 900;
-  color: #777;
+  color: #cbd5e0; /* #777 */
 }
 
 .dark .leftheader_info h3 {
   color: #cbd5e0;
 }
 
+.leftheader_info h1,
+.leftheader_info h3 {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* Better text visibility */
+}
+
+.header-container {
+  position: relative;
+  z-index: 1; /* Ensure the content appears above the video */
+  text-align: center; /* Optional: Center align text */
+}
+
 .leftheader_info button {
   font-size: 1.2rem;
+  padding-left: 30px;
   padding: 15px;
   border-radius: 30px 50px;
   background-color: transparent;
@@ -811,6 +848,23 @@ button {
 
 .dark .image_bg_top2 {
   box-shadow: 0.7rem 1.4rem #797b85;
+}
+
+@media (max-width: 768px) {
+  .header_data_section {
+    padding-left: 30px; /* height: 100vh; */ /* Keep full height for smaller screens */
+  }
+
+  .leftheader_info {
+  }
+
+  .leftheader_info h1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  .leftheader_info h3 {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
 }
 
 /* ================================================== */
