@@ -157,28 +157,28 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
   return (
     <>
       <Head key={router.asPath}>
-        <title>{`${blog.title || "Blog Post"} | Beat MasterMind`}</title>
+        <title>{`${blog.title || "Blog Post"} | TopGear Tents`}</title>
         <meta
           name="description"
           content={
             blog.description
               ? blog.description.slice(0, 150)
-              : "Stay updated with the latest tips, tricks, and news on electronic drums and accessories. Dive into the Beat Mastermind blog for expert advice."
+              : "Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
           }
         />
         <meta name="keywords" content={blog.title || "Blog post"} />
         <meta property="og:title" content={blog.title || "Blog Post"} />
         <meta
           property="og:description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat MasterMind"}
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
         />
         <meta property="og:image" content={blog.image || "/default-image.png"} />
-        <meta property="og:url" content={`https://www.beatmastermind.com${router.asPath}`} />
+        <meta property="og:url" content={`https://www.TopGearTents.com${router.asPath}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={blog.title || "Blog Post"} />
         <meta
           name="twitter:description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Beat MasterMind"}
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
         />
         <meta name="twitter:image" content={blog.image || "/default-image.png"} />
       </Head>
@@ -188,7 +188,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
           <div className="topslug_titles">
             <h1 className="slugtitle">{blog.title || "Untitled Post"}</h1>
             <h5>
-              By <span>Beat MasterMind</span>.{" "}
+              By <span>TopGear Tents</span>.{" "}
               {blog.createdAt
                 ? new Date(blog.createdAt).toLocaleDateString("en-US", {
                     month: "long",

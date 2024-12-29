@@ -36,7 +36,7 @@ export default function Login() {
           <Image src="/img/Beat_Master.png" width={250} height={250} />
           <h1>Welcome Admin to the blog!</h1>
           <p>
-            Visit the main website <a href="https://www.beatmastermind.com">BMM</a>
+            Visit the main website <a href="https://www.topgeartents.com">BMM</a>
           </p>
 
           <button onClick={login} className="mt-2">

@@ -42,24 +42,27 @@ export default function Document() {
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="Beat MasterMind" />
+        <meta name="author" content="TopGear Tents" />
         <meta
           name="description"
-          content="Discover expert insights, reviews, and guides on electronic drums and accessories at Beat Mastermind. Your ultimate resource for all things electronic drumming."
+          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
         />
 
         {/* Open Graph Meta Tags */}
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Beat MasterMind Blog - Electronic Drums & Accessories" />
+        <meta
+          property="og:title"
+          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
+        />
         <meta
           property="og:description"
-          content="Discover expert insights, reviews, and guides on electronic drums and accessories at Beat Mastermind. Your ultimate resource for all things electronic drumming."
+          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
         />
-        <meta property="og:image" content="https://www.beatmastermind.com/og-image.jpg" />
+        <meta property="og:image" content="https://www.TopGearTents.com/og-image.jpg" />
         <meta property="og:image:width" content="920" />
         <meta property="og:image:height" content="470" />
-        <meta property="og:site_name" content="Beat MasterMind" />
+        <meta property="og:site_name" content="TopGear Tents" />
 
         {/* Preconnect for Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -73,7 +76,7 @@ export default function Document() {
         <link rel="icon" href="/favicon.png" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://www.beatmastermind.com" />
+        <link rel="canonical" href="https://www.TopGearTents.com" />
       </Head>
 
       <body>

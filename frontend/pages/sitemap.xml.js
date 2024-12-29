@@ -1,6 +1,6 @@
 import { getSortedPostsData } from "../lib/mongodb";
 
-const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://www.beatmastermind.com";
+const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://www.TopGeartents.com";
 
 function formatDate(date) {
   const d = new Date(date);

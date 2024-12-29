@@ -18,18 +18,31 @@ import Loading from "@/components/Loading";
 
 export default function Home() {
   const { data: session, status } = useSession();
-
   const router = useRouter();
-  // check if there is no active session and redirect to login page
+
+  // Move hooks to the top level
+  const [blogsData, setBlogsData] = useState([]);
+
   useEffect(() => {
-    // check if there is no active session and redirect to login page
     if (!session) {
       router.push("/login");
     }
   }, [session, router]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/blogapi");
+        const data = await response.json();
+        setBlogsData(data); // Assuming data is an array of blog objects
+      } catch (error) {
+        console.error("Error fetching data.", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   if (status === "loading") {
-    // loading state, loader or any other indicator
     return (
       <div className="loadingdata flex flex-col flex-center wh_100">
         <Loading />
@@ -40,10 +53,6 @@ export default function Home() {
 
   ChartJS.register(CategoryScale, LineController, LinearScale, BarElement, Title, Tooltip, Legend);
 
-  // Use this on top for render error
-  const [blogsData, setBlogsData] = useState([]);
-
-  // Define options within the component
   const options = {
     responsive: true,
     plugins: {
@@ -130,7 +139,7 @@ export default function Home() {
     return (
       <>
         <Head>
-          <title>Admin Dashboard BMM</title>
+          <title>Admin Dashboard TopGear Tents</title>
           <meta name="description" content="admin dashboard next app" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
@@ -141,7 +150,7 @@ export default function Home() {
           <div className="titledashboard flex flex-sb">
             <div data-aos="fade-right">
               <h2>
-                Blogs <span>Dashboard</span>
+                TopGear Tents Blogs <span>Dashboard</span>
               </h2>
               <h3>ADMIN PANEL</h3>
             </div>

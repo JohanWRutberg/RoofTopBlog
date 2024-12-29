@@ -57,37 +57,43 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Beat MasterMind</title>
-        <meta name="description" content="Beat Master Mind - Blog about Electronic drums and accessories!" />
+        <title>TopGear tents</title>
+        <meta
+          name="description"
+          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
+        />
         {/* Facebook Meta Tags */}
-        <meta property="og:url" content="https://www.beatmastermind.com/" />
+        <meta property="og:url" content="https://www.topgeartents.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Beat MasterMind Blog" />
-        <meta property="og:description" content="Beat Master Mind - Blog about Electronic drums and accessories!" />
-        <meta property="og:image" content="https://beatmastermind.comnull" />
+        <meta property="og:title" content="TopGear tents Blog" />
+        <meta
+          property="og:description"
+          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
+        />
+        <meta property="og:image" content="https://topgeartents.comnull" />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="beatmastermind.com" />
-        <meta property="twitter:url" content="https://www.beatmastermind.com/" />
-        <meta name="twitter:title" content="Beat Master Mind" />
-        <meta name="twitter:description" content="Beat Master Mind - Blog about Electronic drums and accessories!" />
-        <meta name="twitter:image" content="https://beatmastermind.comnull"></meta>
+        <meta property="twitter:domain" content="topgeartents.com" />
+        <meta property="twitter:url" content="https://www.topgeartents.com/" />
+        <meta name="twitter:title" content="TopGear tents" />
+        <meta
+          name="twitter:description"
+          content="Explore our Blog about Rooftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
+        />
+        <meta name="twitter:image" content="https://topgeartents.comnull"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
 
       <section className="header_data_section">
-        <video autoPlay loop muted playsInline className="background-video opacity-90">
-          <source src="/Beat_MasterMind.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <img src="/img/TopGearTent.jpeg" alt="Background" className="background-image opacity-90" />
         <div className="header-container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
-              <span>Beat MasterMind</span> Blog<span>.</span> <br />
+              <span>TopGear tents</span> Blog<span>.</span> <br />
             </h1>
-            <h3 data-aos="fade-right">Your electronic drums expert</h3>
+            <h3 data-aos="fade-right">Your rooftop camping expert</h3>
             <div className="flex gap-2">
               <Link href="/contact">
                 <button>Contact</button>

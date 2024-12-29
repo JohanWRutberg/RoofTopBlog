@@ -189,7 +189,7 @@ export default function Header() {
         {/* Mobile navlist */}
         <div className={aside ? `navlist_mobile open` : "navlist_mobile"}>
           <div className="navlist_m_title flex flex-sb">
-            <h2 className="mt-1 text-xl text-[#667EEA]">Beat MasterMind Blog</h2>
+            <h2 className="mt-1 text-xl text-[#667EEA]">TopGear Tents Blog</h2>
             <button onClick={asideClose}>
               <FaXmark />
             </button>

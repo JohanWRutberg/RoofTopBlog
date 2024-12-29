@@ -118,10 +118,10 @@ const Contact = () => {
   return (
     <>
       <Head>
-        <title>Contact Us | Beat MasterMind</title>
+        <title>Contact Us | TopGear Tents</title>
         <meta
           name="description"
-          content="Have questions about electronic drums or accessories? Get in touch with the experts at Beat Mastermind today!"
+          content="Have questions about electronic drums or accessories? Get in touch with the experts at TopGear Tents today!"
         />
       </Head>
       <div className="slugpage min-h-screen flex flex-col">
@@ -202,8 +202,10 @@ const Contact = () => {
                   type="submit"
                   disabled={!isFormValid()}
                   className={`btn rounded-full border border-white/50 max-w-[170px]
-    px-8 transition-all duration-300 flex items-center justify-center
-    overflow-hidden ${isFormValid() ? "hover:border-green-500 group" : "opacity-50 cursor-not-allowed"}`}
+                    px-8 transition-all duration-300 flex items-center justify-center
+                    overflow-hidden ${
+                      isFormValid() ? "hover:border-green-500 group" : "opacity-50 cursor-not-allowed"
+                    }`}
                 >
                   <span
                     className={`${
