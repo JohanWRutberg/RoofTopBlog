@@ -87,10 +87,11 @@ export default function Blog({
             onChange={(e) => setBlogcategory(Array.from(e.target.selectedOptions, (option) => option.value))}
             multiple
           >
-            <option value="drumsets">Drum sets</option>
+            <option value="rooftop">Rooftop Tents</option>
+            <option value="awning">Awning Tents</option>
+            <option value="hitch">Hitch-Mounted Tents</option>
+            <option value="popup">Pop-Up Tents for Cars</option>
             <option value="accessories">Accessories</option>
-            <option value="sound">Sound</option>
-            <option value="hot">Hot topics</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Selected:{" "}
@@ -174,17 +175,49 @@ export default function Blog({
             onChange={(e) => setTags(Array.from(e.target.selectedOptions, (option) => option.value))}
             multiple
           >
-            <option value="edrums">edrums</option>
-            <option value="drums">drums</option>
-            <option value="electronic">electronic</option>
-            <option value="pads">pads</option>
-            <option value="cymbals">cymbals</option>
-            <option value="sets">sets</option>
-            <option value="sound">sound</option>
-            <option value="drumkit">drumkit</option>
-            <option value="beat">beat</option>
-            <option value="drumsticks">drumsticks</option>
-            <option value="kids">kids</option>
+            <option value="accessories">Accessories</option>
+            <option value="bed">Bed</option>
+            <option value="brand">Brand</option>
+            <option value="budget">Budget</option>
+            <option value="camping">Camping</option>
+            <option value="canopy">Canopy</option>
+            <option value="car">Car</option>
+            <option value="cover">Cover</option>
+            <option value="destination">Destination</option>
+            <option value="guide">Guide</option>
+            <option value="hardshell">Hardshell</option>
+            <option value="jeep">Jeep</option>
+            <option value="premium">Premium</option>
+            <option value="rooftop">Rooftop</option>
+            <option value="setup">Setup</option>
+            <option value="shell">Shell</option>
+            <option value="summer">Summer</option>
+            <option value="suv">SUV</option>
+            <option value="tent">Tent</option>
+            <option value="tentbox">Tentbox</option>
+            <option value="truck">Truck</option>
+            <option value="vehicle">Vehicle</option>
+
+            {/* <option value="rooftents">RoofTents</option>
+            <option value="cartents">CarTents</option>
+            <option value="awninggear">AwningGear</option>
+            <option value="popuptent">PopUpTent</option>
+            <option value="hitchtents">HitchTents</option>
+            <option value="tentsetup">TentSetup</option>
+            <option value="campgear">CampGear</option>
+            <option value="rooftopcamping">RooftopCamping</option>
+            <option value="tentaccessories">TentAccessories</option>
+            <option value="overlandtent">OverlandTent</option>
+            <option value="tentshelter">TentShelter</option>
+            <option value="carcamp">CarCamp</option>
+            <option value="offroadtent">OffRoadTent</option>
+            <option value="campingtent">CampingTent</option>
+            <option value="awningsetup">AwningSetup</option>
+            <option value="tentmount">TentMount</option>
+            <option value="popupcamp">PopUpCamp</option>
+            <option value="tentrack">TentRack</option>
+            <option value="gearbox">GearBox</option>
+            <option value="camptools">CampTools</option> */}
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Vald:{" "}

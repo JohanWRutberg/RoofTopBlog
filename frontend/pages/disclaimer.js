@@ -60,8 +60,8 @@ export default function DisclaimerPage() {
                   <br />
                   These rules make sure readers know if a blogger or publisher is sponsored or partnered with a company.
                   Readers need to know if the publisher makes money from sharing a link or product. Following FTC
-                  guidelines, please assume this about links and posts on this site: Some or all links on Beat
-                  MasterMind.com are affiliate links, which means we earn a small commission from sales.
+                  guidelines, please assume this about links and posts on this site: Some or all links on
+                  TopGearTent.com are affiliate links, which means we earn a small commission from sales.
                   <br />
                   <br />
                   <h1>AI-images</h1>

@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>TopGear tents</title>
+        <title>TopGear Tents</title>
         <meta
           name="description"
           content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
@@ -65,7 +65,7 @@ export default function Home() {
         {/* Facebook Meta Tags */}
         <meta property="og:url" content="https://www.topgeartents.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="TopGear tents Blog" />
+        <meta property="og:title" content="TopGear Tents Blog" />
         <meta
           property="og:description"
           content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
@@ -91,7 +91,7 @@ export default function Home() {
         <div className="header-container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
-              <span>TopGear tents</span> Blog<span>.</span> <br />
+              <span>TopGear Tents</span> Blog<span>.</span> <br />
             </h1>
             <h3 data-aos="fade-right">Your rooftop camping expert</h3>
             <div className="flex gap-2">
@@ -144,7 +144,7 @@ export default function Home() {
                               <img src="/img/Beat_Master.PNG" alt="logo" />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
-                              <h4>Beat Master Mind</h4>
+                              <h4>TopGear Tents</h4>
                               <span>
                                 {new Date(blog.createdAt).toLocaleDateString("en-US", {
                                   month: "long",

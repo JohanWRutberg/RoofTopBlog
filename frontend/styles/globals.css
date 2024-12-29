@@ -319,7 +319,7 @@ button {
 }
 
 .dark .header_sec {
-  background-color: #2d3748;
+  background-color: #303e38;
 }
 
 /* .header_logo {
@@ -734,7 +734,7 @@ button {
 }
 
 .leftheader_info span {
-  color: #667eea;
+  color: #d99605;
 }
 
 .leftheader_info h3 {
@@ -769,9 +769,9 @@ button {
 }
 
 .leftheader_info a:nth-child(1) button {
-  background-color: #667eea;
+  background-color: #d99605;
   color: #fff;
-  border: 3px solid #667eea;
+  border: 3px solid #d99605;
 }
 
 .leftheader_info a:nth-child(2) button {
@@ -924,12 +924,12 @@ button {
 
 .main_blog_section {
   position: relative;
-  background-color: #edf3ff;
+  background-color: #f1f8e9;
   padding: 3rem 0;
 }
 
 .dark .main_blog_section {
-  background-color: #1a202c;
+  background-color: #1b1f1d; /* 303e38 */
 }
 
 .leftblog_sec {
@@ -1512,7 +1512,7 @@ a:hover .st_icon_amazon,
 }
 
 .dark .footer {
-  background-color: #2d3748;
+  background-color: #303e38;
 }
 
 .footer a:hover {

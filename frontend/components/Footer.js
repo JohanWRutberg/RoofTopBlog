@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container flex flex-wrap">
         <div className="footer_logo">
           <Link href="/">
-            <img src="/img/Logo/BeatMaster_3.PNG" alt="logo" width={100} height={100} />
+            <img src="/img/Logo/TopGearTent_Logo_Text.png" alt="logo" width={100} height={100} />
           </Link>
           <h4>&copy; 2024 All Rights Reserved.</h4>
           <h3>
