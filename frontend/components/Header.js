@@ -189,51 +189,56 @@ export default function Header() {
         {/* Mobile navlist */}
         <div className={aside ? `navlist_mobile open` : "navlist_mobile"}>
           <div className="navlist_m_title flex flex-sb">
-            <h2 className="mt-1 text-xl text-[#667EEA]">TopGear Tents Blog</h2>
+            <h2 className="mt-1 text-xl text-[#d99605]">TopGear Tents Blog</h2>
             <button onClick={asideClose}>
               <FaXmark />
             </button>
           </div>
           <hr />
-          <h3 className="mt-2 text-xl text-[#667EEA]">Main Menu</h3>
+          <h3 className="mt-2 text-xl text-[#d99605]">Main Menu</h3>
           <ul onClick={handleLinkClick}>
             <li>
-              <Link href="/" className="text-md hover:text-[#667EEA]">
+              <Link href="/" className="text-md hover:text-[#d99605]">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="text-md hover:text-[#667EEA]">
+              <Link href="/about" className="text-md hover:text-[#d99605]">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="text-md hover:text-[#667EEA]">
+              <Link href="/contact" className="text-md hover:text-[#d99605]">
                 Contact
               </Link>
             </li>
           </ul>
           <hr />
-          <h3 className="mt-2 text-xl text-[#667EEA]">Topics</h3>
+          <h3 className="mt-2 text-xl text-[#d99605]">Topics</h3>
           <ul onClick={handleLinkClick}>
             <li>
-              <Link href="/topics/drumsets" className="text-md hover:text-[#667EEA]">
-                Drum Sets
+              <Link href="/topics/rooftop" className="text-md hover:text-[#d99605]">
+                Rooftop Tents
               </Link>
             </li>
             <li>
-              <Link href="/topics/accessories" className="text-md hover:text-[#667EEA]">
+              <Link href="/topics/awning" className="text-md hover:text-[#d99605]">
+                Awning Tents
+              </Link>
+            </li>
+            <li>
+              <Link href="/topics/hitch" className="text-md hover:text-[#d99605]">
+                Hitch-Mounted Tents
+              </Link>
+            </li>
+            <li>
+              <Link href="/topics/popup" className="text-md hover:text-[#d99605]">
+                Pop-Up Tents for Cars
+              </Link>
+            </li>
+            <li>
+              <Link href="/topics/accessories" className="text-md hover:text-[#d99605]">
                 Accessories
-              </Link>
-            </li>
-            <li>
-              <Link href="/topics/sound" className="text-md hover:text-[#667EEA]">
-                Sound
-              </Link>
-            </li>
-            <li>
-              <Link href="/topics/hot" className="text-md hover:text-[#667EEA]">
-                Hot Topics
               </Link>
             </li>
           </ul>

@@ -322,36 +322,44 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
               <div className="topics_sec">
                 <h2>Topics</h2>
                 <div className="topics_list">
-                  <Link href="/topics/drumsets">
+                  <Link href="/topics/rooftop">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
                         <GiDrumKit />
                       </div>
-                      <h3>Drum Sets</h3>
+                      <h3>Rooftop Tents</h3>
+                    </div>
+                  </Link>
+                  <Link href="/topics/awning">
+                    <div className="topics">
+                      <div className="flex flex-center topics_svg">
+                        <GiDrum />
+                      </div>
+                      <h3>Awning Tents</h3>
+                    </div>
+                  </Link>
+                  <Link href="/topics/hitch">
+                    <div className="topics">
+                      <div className="flex flex-center topics_svg">
+                        <ImHeadphones />
+                      </div>
+                      <h3>Hitch-Mounted Tents</h3>
+                    </div>
+                  </Link>
+                  <Link href="/topics/popup">
+                    <div className="topics">
+                      <div className="flex flex-center topics_svg">
+                        <DiCodeigniter />
+                      </div>
+                      <h3>Pop-Up Tents for Cars</h3>
                     </div>
                   </Link>
                   <Link href="/topics/accessories">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <GiDrum />
-                      </div>
-                      <h3>Accessories</h3>
-                    </div>
-                  </Link>
-                  <Link href="/topics/sound">
-                    <div className="topics">
-                      <div className="flex flex-center topics_svg">
-                        <ImHeadphones />
-                      </div>
-                      <h3>Sound</h3>
-                    </div>
-                  </Link>
-                  <Link href="/topics/hot">
-                    <div className="topics">
-                      <div className="flex flex-center topics_svg">
                         <DiCodeigniter />
                       </div>
-                      <h3>Hot topics</h3>
+                      <h3>Accessories</h3>
                     </div>
                   </Link>
                 </div>
