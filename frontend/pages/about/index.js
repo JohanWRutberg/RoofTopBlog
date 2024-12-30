@@ -38,29 +38,34 @@ export default function AboutPage() {
                   <h1>About us</h1>
                   <h2>Who we are and what we do</h2>
                   <p>
-                    Welcome to <b>TopGear Tents</b>, your ultimate resource for everything related to rooftop tents and
-                    vehicle-based camping. Whether you’re a seasoned adventurer or new to the world of overlanding,
-                    we’re here to guide you with tips, reviews, and insights to elevate your outdoor experiences.
+                    Welcome to <b>TopGear Tents</b>, your ultimate resource for everything related to vehicle-based
+                    camping and tent solutions. From rooftop tents to hitch-mounted awnings, pop-up tents, and all the
+                    accessories that make camping more comfortable, we’re here to inspire and equip adventurers of all
+                    levels.
                     <br />
+                    Whether you’re a seasoned overlander or just starting to explore the joys of vehicle camping, our
+                    goal is to guide you with expert tips, detailed reviews, and insightful advice to enhance your
+                    outdoor experiences.
                     <br />
-                    The team behind TopGear Tents brings together a unique blend of expertise and passion: <br />
+                    The team behind TopGear Tents is united by a shared passion for adventure and expertise in their
+                    fields: <br />
                     <br />
-                    <b>Johan</b> is a software developer and test engineer with a deep love for the outdoors. As a
-                    rooftop tent enthusiast, he combines his technical knowledge with hands-on experience to provide
-                    reliable advice and product recommendations. <br />
+                    &#9750; <b>Johan,</b> a software developer and test engineer, pairs his technical knowledge with
+                    years of outdoor experience. His enthusiasm for rooftop and vehicle tents drives him to deliver
+                    accurate and practical recommendations. <br />
                     <br />
-                    <b>Pernilla</b> is a skilled writer and communication specialist who ensures our content is engaging
-                    and easy to understand. Her love for storytelling brings clarity and connection to every article.{" "}
+                    &#9750; <b>Pernilla,</b> a talented writer and communication specialist, crafts engaging and
+                    informative content. Her storytelling skills help connect readers to the excitement and
+                    possibilities of vehicle camping. <br />
                     <br />
-                    <br />
-                    At TopGear Tents, we believe rooftop tents are more than just camping gear. They’re gateways to
-                    adventure, freedom, and unforgettable memories. Our mission is to share valuable knowledge and
-                    empower outdoor enthusiasts of all levels to make informed decisions, enhance their setups, and stay
-                    inspired. <br />
+                    At TopGear Tents, we believe that vehicle tents are more than just camping gear. They’re gateways to
+                    adventure, freedom, and unforgettable memories. Whether you’re looking for the perfect rooftop tent,
+                    exploring innovative accessories, or seeking advice to enhance your camping setup, we’re here to
+                    help. <br />
                     <br />
                     Thank you for joining us on this journey. <br />
                     <br />
-                    Let’s make every adventure count!
+                    Together, let’s make every adventure unforgettable!
                   </p>
                 </div>
               </>

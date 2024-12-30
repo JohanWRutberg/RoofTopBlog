@@ -3,6 +3,15 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { GiDrumKit, GiDrum } from "react-icons/gi";
+import { ImHeadphones } from "react-icons/im";
+import { DiCodeigniter } from "react-icons/di";
+import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa";
+import { LuTentTree, LuTent } from "react-icons/lu";
+import { TbTent } from "react-icons/tb";
+import { FaTent } from "react-icons/fa6";
+import { GiCampingTent } from "react-icons/gi";
+import { LuTrees } from "react-icons/lu";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); // Page number
@@ -19,7 +28,7 @@ export default function Home() {
   const indexOfFirstblog = indexOfLastblog - perPage;
   const currentBlogs = alldata.slice(indexOfFirstblog, indexOfLastblog);
 
-  const allblog = alldata.length;
+  /* const allblog = alldata.length; */
 
   // Filter published blogs from all blogs
   const publishedblogs = alldata.filter((ab) => ab.status === "publish");
@@ -107,7 +116,7 @@ export default function Home() {
       </section>
 
       <section className="main_blog_section">
-        <div className="container flex flex-sb flex-left flex-wrap">
+        <div className="right-container flex flex-sb flex-start flex-wrap">
           <div className="leftblog_sec">
             <h2>Recently Published</h2>
             <div className="blogs_sec">
@@ -161,8 +170,6 @@ export default function Home() {
                 </>
               )}
             </div>
-
-            {/* Pagination */}
             <div className="blogpagination">
               <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
                 Previous
@@ -184,8 +191,82 @@ export default function Home() {
               </button>
             </div>
           </div>
-
-          <div className="rightblog_info">{/* Other sections */}</div>
+          <div className="rightblog_info">
+            <div className="topics_sec">
+              <h2>Topics</h2>
+              <div className="topics_list">
+                <Link href="/topics/rooftop">
+                  <div className="topics">
+                    <div className="flex flex-center topics_svg">
+                      <LuTentTree />
+                    </div>
+                    <h3>Rooftop Tents</h3>
+                  </div>
+                </Link>
+                <Link href="/topics/awning">
+                  <div className="topics">
+                    <div className="flex flex-center topics_svg">
+                      <LuTent />
+                    </div>
+                    <h3>Awning Tents</h3>
+                  </div>
+                </Link>
+                <Link href="/topics/hitch">
+                  <div className="topics">
+                    <div className="flex flex-center topics_svg">
+                      <GiCampingTent />
+                    </div>
+                    <h3>Hitch-Mounted Tents</h3>
+                  </div>
+                </Link>
+                <Link href="/topics/popup">
+                  <div className="topics">
+                    <div className="flex flex-center topics_svg">
+                      <FaTent />
+                    </div>
+                    <h3>Pop-Up Tents for Cars</h3>
+                  </div>
+                </Link>
+                <Link href="/topics/accessories">
+                  <div className="topics">
+                    <div className="flex flex-center topics_svg">
+                      <LuTrees />
+                    </div>
+                    <h3>Accessories</h3>
+                  </div>
+                </Link>
+                {/* Add other topics */}
+              </div>
+            </div>
+            <div className="tags_sec mt-3">
+              <h2>Tags</h2>
+              <div className="tags_list">
+                <Link href="/tag/accessories">#Accessories</Link>
+                <Link href="/tag/bed">#Bed</Link>
+                <Link href="/tag/brand">#Brand</Link>
+                <Link href="/tag/budget">#Budget</Link>
+                <Link href="/tag/camping">#Camping</Link>
+                <Link href="/tag/canopy">#Canopy</Link>
+                <Link href="/tag/car">#Car</Link>
+                <Link href="/tag/cover">#Cover</Link>
+                <Link href="/tag/destination">#Destination</Link>
+                <Link href="/tag/guide">#Guide</Link>
+                <Link href="/tag/hardshell">#Hardshell</Link>
+                <Link href="/tag/jeep">#Jeep</Link>
+                <Link href="/tag/premium">#Premium</Link>
+                <Link href="/tag/rooftop">#Rooftop</Link>
+                <Link href="/tag/setup">#Setup</Link>
+                <Link href="/tag/shell">#Shell</Link>
+                <Link href="/tag/summer">#Summer</Link>
+                <Link href="/tag/suv">#SUV</Link>
+                <Link href="/tag/tent">#Tent</Link>
+                <Link href="/tag/tentbox">#Tentbox</Link>
+                <Link href="/tag/truck">#Truck</Link>
+                <Link href="/tag/vehicle">#Vehicle</Link>
+                {/* Add other tags */}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

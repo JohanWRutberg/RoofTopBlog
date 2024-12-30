@@ -314,12 +314,27 @@ button {
 
 .header_sec {
   position: relative;
-  /* background-color: #2d3748; */
   background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06), inset 0 -3px 5px rgba(217, 150, 5, 0.3);
+  z-index: 10;
 }
 
 .dark .header_sec {
   background-color: #303e38;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 -3px 5px rgba(255, 193, 7, 0.2);
+}
+
+.header_sec::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #d99605, #ff8c00, #ff0080);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 /* .header_logo {
@@ -948,7 +963,8 @@ button {
 
 .leftblog_sec {
   position: relative;
-  /* width: 50%; */
+  max-width: 800px; /* Optional: Control max width for responsiveness */
+  flex: 1; /* Allow to grow within available space */
 }
 
 .leftblog_sec h2 {
@@ -1148,11 +1164,20 @@ button {
   cursor: not-allowed;
 }
 
+.right-container {
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+  align-items: flex-start; /* Align the items at the top */
+  gap: 50px; /* Padding/space between leftblog_sec and rightblog_info */
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
 .rightblog_info {
   position: sticky;
   top: 5%;
   width: 300px;
   height: auto;
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .topics_sec {
@@ -1244,11 +1269,12 @@ button {
 
 .tags_list {
   width: 100%;
-  overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 3px;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: space-evenly; /* Evenly distribute items horizontally */
+  align-items: center; /* Align items vertically in the center */
+  gap: 10px; /* Spacing between items */
+  background-color: #fff;
   border: 1px solid #d4d4d4;
   border-radius: 10px;
   padding: 2rem 1.5rem;
@@ -1257,7 +1283,7 @@ button {
 
 .dark .tags_list {
   border: none;
-  background-color: #2d3748;
+  background-color: #303e38;
   box-shadow: none;
 }
 
