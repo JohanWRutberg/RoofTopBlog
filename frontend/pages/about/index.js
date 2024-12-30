@@ -50,11 +50,11 @@ export default function AboutPage() {
                     The team behind TopGear Tents is united by a shared passion for adventure and expertise in their
                     fields: <br />
                     <br />
-                    &#9750; <b>Johan,</b> a software developer and test engineer, pairs his technical knowledge with
+                    &#187; <b>Johan,</b> a software developer and test engineer, pairs his technical knowledge with
                     years of outdoor experience. His enthusiasm for rooftop and vehicle tents drives him to deliver
                     accurate and practical recommendations. <br />
                     <br />
-                    &#9750; <b>Pernilla,</b> a talented writer and communication specialist, crafts engaging and
+                    &#187; <b>Pernilla,</b> a talented writer and communication specialist, crafts engaging and
                     informative content. Her storytelling skills help connect readers to the excitement and
                     possibilities of vehicle camping. <br />
                     <br />
