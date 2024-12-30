@@ -96,7 +96,7 @@ export default function Home() {
       </Head>
 
       <section className="header_data_section">
-        <img src="/img/TopGearTent.jpeg" alt="Background" className="background-image opacity-90" />
+        <img src="/img/TopGearTent.jpg" alt="Background" className="background-image opacity-90" />
         <div className="header-container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
