@@ -2103,7 +2103,7 @@ a.custom-button {
 .profile_imgbg {
   width: 100%;
   height: 100%;
-  background-image: url("/img/Beat_Master.png");
+  background-image: url("/img/");
   background-size: 8rem;
   position: absolute;
   opacity: 0.15;

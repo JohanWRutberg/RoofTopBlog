@@ -39,6 +39,7 @@ export default function Home() {
   const totalPages = Math.ceil(totalPublishedBlogs / perPage);
 
   const pageNumbers = [];
+
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
@@ -102,7 +103,7 @@ export default function Home() {
             <h1 data-aos="fade-right">
               <span>TopGear Tents</span> Blog<span>.</span> <br />
             </h1>
-            <h3 data-aos="fade-right">Your rooftop camping expert</h3>
+            <h3 data-aos="fade-right">Your vehicle camping expert</h3>
             <div className="flex gap-2">
               <Link href="/contact">
                 <button>Contact</button>
@@ -170,6 +171,8 @@ export default function Home() {
                 </>
               )}
             </div>
+
+            {/* Pagination */}
             <div className="blogpagination">
               <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
                 Previous
