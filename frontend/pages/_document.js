@@ -76,7 +76,7 @@ export default function Document() {
         <link rel="icon" href="/favicon.png" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://www.TopGearTents.com" />
+        <link rel="canonical" href="https://www.topgeartents.com" />
       </Head>
 
       <body>
