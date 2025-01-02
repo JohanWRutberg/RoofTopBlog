@@ -4,9 +4,10 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BsAmazon } from "react-icons/bs";
-import { DiCodeigniter } from "react-icons/di";
-import { GiDrum, GiDrumKit } from "react-icons/gi";
-import { ImHeadphones } from "react-icons/im";
+import { LuTentTree, LuTent } from "react-icons/lu";
+import { FaTent } from "react-icons/fa6";
+import { GiCampingTent } from "react-icons/gi";
+import { LuTrees } from "react-icons/lu";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -325,7 +326,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   <Link href="/topics/rooftop">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <GiDrumKit />
+                        <LuTentTree />
                       </div>
                       <h3>Rooftop Tents</h3>
                     </div>
@@ -333,7 +334,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   <Link href="/topics/awning">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <GiDrum />
+                        <LuTent />
                       </div>
                       <h3>Awning Tents</h3>
                     </div>
@@ -341,7 +342,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   <Link href="/topics/hitch">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <ImHeadphones />
+                        <GiCampingTent />
                       </div>
                       <h3>Hitch-Mounted Tents</h3>
                     </div>
@@ -349,7 +350,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   <Link href="/topics/popup">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <DiCodeigniter />
+                        <FaTent />
                       </div>
                       <h3>Pop-Up Tents for Cars</h3>
                     </div>
@@ -357,7 +358,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   <Link href="/topics/accessories">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <DiCodeigniter />
+                        <LuTrees />
                       </div>
                       <h3>Accessories</h3>
                     </div>

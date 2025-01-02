@@ -8,7 +8,6 @@ import { ImHeadphones } from "react-icons/im";
 import { DiCodeigniter } from "react-icons/di";
 import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa";
 import { LuTentTree, LuTent } from "react-icons/lu";
-import { TbTent } from "react-icons/tb";
 import { FaTent } from "react-icons/fa6";
 import { GiCampingTent } from "react-icons/gi";
 import { LuTrees } from "react-icons/lu";
@@ -101,7 +100,7 @@ export default function Home() {
         <div className="header-container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
-              <span>TopGear Tents</span> Blog<span>.</span> <br />
+              <span>TopGear </span>Tents<span>.</span> <br />
             </h1>
             <h3 data-aos="fade-right">Your vehicle camping expert</h3>
             <div className="flex gap-2">
