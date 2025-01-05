@@ -22,7 +22,7 @@ export default clientPromise;
 export async function getSortedPostsData() {
   try {
     const client = await clientPromise;
-    const db = client.db("blogdata");
+    const db = client.db("=blogdata");
     const collection = db.collection("blogtest");
 
     // Fetch posts with the blogcategory, tags, slug, and createdAt fields
