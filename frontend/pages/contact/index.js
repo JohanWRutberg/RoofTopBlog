@@ -212,7 +212,7 @@ const Contact = () => {
                       isFormValid() ? "group-hover:-translate-y-[120%] group-hover:opacity-0" : ""
                     } transition-all duration-500`}
                   >
-                    Let´s drum
+                    Let´s camp
                   </span>
                   <BsArrowRight
                     className={`${
