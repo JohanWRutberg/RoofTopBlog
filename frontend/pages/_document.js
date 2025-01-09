@@ -3,16 +3,20 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 
 export default function Document() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.topgeartents.com";
+
   return (
     <Html lang="en">
       <Head>
         {/* CookieYes banner */}
-        <Script
-          id="cookieyes"
-          type="text/javascript"
-          src={`https://cdn-cookieyes.com/client_data/${process.env.NEXT_PUBLIC_COOKIE_YES}/script.js`}
-          strategy="beforeInteractive"
-        ></Script>
+        {process.env.NEXT_PUBLIC_COOKIE_YES && (
+          <Script
+            id="cookieyes"
+            type="text/javascript"
+            src={`https://cdn-cookieyes.com/client_data/${process.env.NEXT_PUBLIC_COOKIE_YES}/script.js`}
+            strategy="beforeInteractive"
+          />
+        )}
 
         {/* Google Tag Manager */}
         <Script id="gtm" strategy="afterInteractive">
@@ -24,19 +28,21 @@ export default function Document() {
         </Script>
 
         {/* Google Analytics */}
-        <Script
-          id="ga"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                page_path: window.location.pathname,
-              });
-            `
-          }}
-        />
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
+          <Script
+            id="ga"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                  page_path: window.location.pathname,
+                });
+              `
+            }}
+          />
+        )}
 
         {/* Essential Meta Tags */}
         <meta charSet="UTF-8" />

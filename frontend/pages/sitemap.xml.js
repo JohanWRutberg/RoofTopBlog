@@ -19,27 +19,26 @@ function generateSiteMap(posts) {
   const uniqueCategories = new Set();
   const uniqueTags = new Set();
 
-  // Generate blog URLs
-  const blogUrls = posts
-    .map(({ slug, createdAt, blogcategory, tags }) => {
-      const lastmod = createdAt ? formatDate(createdAt) : "2024-01-01";
+  // Process each post
+  posts.forEach(({ slug, createdAt, blogcategory, tags }) => {
+    const lastmod = createdAt ? formatDate(createdAt) : "2024-01-01";
 
-      // Add categories and tags to the unique sets
-      if (blogcategory) {
-        blogcategory.forEach((category) => uniqueCategories.add(category));
-      }
-      if (tags) {
-        tags.forEach((tag) => uniqueTags.add(tag));
-      }
+    // Add categories and tags to the unique sets
+    if (blogcategory) {
+      blogcategory.forEach((category) => uniqueCategories.add(category));
+    }
+    if (tags) {
+      tags.forEach((tag) => uniqueTags.add(tag));
+    }
 
-      return `
-        <url>
-          <loc>${`${BASE_URL}/blog/${slug}`}</loc>
-          <lastmod>${lastmod}</lastmod>
-        </url>
-      `;
-    })
-    .join("");
+    // Generate blog URLs
+    const blogUrl = `
+          <url>
+            <loc>${`${BASE_URL}/blog/${slug}`}</loc>
+            <lastmod>${lastmod}</lastmod>
+          </url>
+        `;
+  });
 
   // Create URL entries for unique categories
   const categoryUrls = Array.from(uniqueCategories)
@@ -81,18 +80,26 @@ function generateSiteMap(posts) {
         <url>
           <loc>${BASE_URL}/disclaimer</loc>
         </url>
-        ${blogUrls}
-        ${categoryUrls}
-        ${tagUrls}
-      </urlset>`;
+        ${posts
+          .map(({ slug, createdAt }) => {
+            const lastmod = createdAt ? formatDate(createdAt) : "2024-01-01";
+            return `
+                <url>
+                  <loc>${`${BASE_URL}/blog/${slug}`}</loc>
+                  <lastmod>${lastmod}</lastmod>
+                </url>
+              `;
+          })
+          .join("")}
+          ${categoryUrls}
+          ${tagUrls}
+        </urlset>
+      `;
 }
 
 export async function getServerSideProps({ res }) {
   try {
     const posts = await getSortedPostsData();
-
-    // Debug: Log fetched posts
-    console.log("Fetched posts:", posts);
 
     const sitemap = generateSiteMap(posts);
 
