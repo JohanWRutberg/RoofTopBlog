@@ -174,7 +174,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
           content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
         />
         <meta property="og:image" content={blog.image || "/default-image.png"} />
-        <meta property="og:url" content={`https://www.TopGearTents.com${router.asPath}`} />
+        <meta property="og:url" content={`https://www.topgeartents.com${router.asPath}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={blog.title || "Blog Post"} />
         <meta
