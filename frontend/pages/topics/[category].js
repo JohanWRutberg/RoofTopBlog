@@ -1,5 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -103,7 +104,7 @@ export default function CategoryPage({ initialData, category }) {
                   return (
                     <div className="cate_blog" key={item._id}>
                       <Link href={`/blog/${item.slug}`}>
-                        <img src={firstImageUrl || "/img/noimage.jpg"} alt={item.title} />
+                        <Image src={firstImageUrl || "/img/noimage.jpg"} alt={item.title} width={1250} height={830} />
                       </Link>
 
                       <div className="bloginfo mt-2">
@@ -116,7 +117,7 @@ export default function CategoryPage({ initialData, category }) {
                         <p>{getFirstWords(item.description)}</p>
                         <div className="blogauthor flex gap-1">
                           <div className="blogaimg">
-                            <img src="/img/Logo/TopGearTent_Logo.png" />
+                            <Image src="/img/Logo/TopGearTent_Logo.png" height={50} width={50} alt="logo" />
                           </div>
                           <div className="flex flex-col flex-left gap-05">
                             <h5>TopGear Tents</h5>

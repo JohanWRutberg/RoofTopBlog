@@ -153,7 +153,7 @@ export default function Home() {
                           <p>{getFirstWords(blog.description)}</p>
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
-                              <img src="/img/Logo/TopGearTent_Logo.png" alt="logo" />
+                              <Image src="/img/Logo/TopGearTent_Logo.png" alt="logo" height={50} width={50} />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
                               <h4>TopGear Tents</h4>
