@@ -198,27 +198,6 @@ export default function Blog({
             <option value="tentbox">Tentbox</option>
             <option value="truck">Truck</option>
             <option value="vehicle">Vehicle</option>
-
-            {/* <option value="rooftents">RoofTents</option>
-            <option value="cartents">CarTents</option>
-            <option value="awninggear">AwningGear</option>
-            <option value="popuptent">PopUpTent</option>
-            <option value="hitchtents">HitchTents</option>
-            <option value="tentsetup">TentSetup</option>
-            <option value="campgear">CampGear</option>
-            <option value="rooftopcamping">RooftopCamping</option>
-            <option value="tentaccessories">TentAccessories</option>
-            <option value="overlandtent">OverlandTent</option>
-            <option value="tentshelter">TentShelter</option>
-            <option value="carcamp">CarCamp</option>
-            <option value="offroadtent">OffRoadTent</option>
-            <option value="campingtent">CampingTent</option>
-            <option value="awningsetup">AwningSetup</option>
-            <option value="tentmount">TentMount</option>
-            <option value="popupcamp">PopUpCamp</option>
-            <option value="tentrack">TentRack</option>
-            <option value="gearbox">GearBox</option>
-            <option value="camptools">CampTools</option> */}
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Vald:{" "}
