@@ -79,7 +79,7 @@ export default function Document() {
         />
 
         {/* Favicon */}
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://www.topgeartents.com" />
