@@ -323,12 +323,12 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
               <div className="topics_sec">
                 <h2>Topics</h2>
                 <div className="topics_list">
-                  <Link href="/topics/rooftop">
+                  <Link href="/topics/accessories">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <LuTentTree />
+                        <LuTrees />
                       </div>
-                      <h3>Rooftop Tents</h3>
+                      <h3>Accessories</h3>
                     </div>
                   </Link>
                   <Link href="/topics/awning">
@@ -336,7 +336,15 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                       <div className="flex flex-center topics_svg">
                         <LuTent />
                       </div>
-                      <h3>Awning Tents</h3>
+                      <h3>Awning Tent</h3>
+                    </div>
+                  </Link>
+                  <Link href="/topics/cartent">
+                    <div className="topics">
+                      <div className="flex flex-center topics_svg">
+                        <LuTent />
+                      </div>
+                      <h3>Car Tent</h3>
                     </div>
                   </Link>
                   <Link href="/topics/hitch">
@@ -344,7 +352,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                       <div className="flex flex-center topics_svg">
                         <GiCampingTent />
                       </div>
-                      <h3>Hitch-Mounted Tents</h3>
+                      <h3>Hitch-Mounted Tent</h3>
                     </div>
                   </Link>
                   <Link href="/topics/popup">
@@ -352,15 +360,15 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                       <div className="flex flex-center topics_svg">
                         <FaTent />
                       </div>
-                      <h3>Pop-Up Tents for Cars</h3>
+                      <h3>Pop-Up Tent for Car</h3>
                     </div>
                   </Link>
-                  <Link href="/topics/accessories">
+                  <Link href="/topics/rooftop">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <LuTrees />
+                        <LuTentTree />
                       </div>
-                      <h3>Accessories</h3>
+                      <h3>Rooftop Tent</h3>
                     </div>
                   </Link>
                 </div>

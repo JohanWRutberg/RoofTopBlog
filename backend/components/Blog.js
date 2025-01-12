@@ -87,11 +87,12 @@ export default function Blog({
             onChange={(e) => setBlogcategory(Array.from(e.target.selectedOptions, (option) => option.value))}
             multiple
           >
-            <option value="rooftop">Rooftop Tents</option>
-            <option value="awning">Awning Tents</option>
-            <option value="hitch">Hitch-Mounted Tents</option>
-            <option value="popup">Pop-Up Tents for Cars</option>
             <option value="accessories">Accessories</option>
+            <option value="awning">Awning Tent</option>
+            <option value="cartent">Car Tent</option>
+            <option value="hitch">Hitch-Mounted Tent</option>
+            <option value="popup">Pop-Up Tent for Car</option>
+            <option value="rooftop">Rooftop Tent</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Selected:{" "}
