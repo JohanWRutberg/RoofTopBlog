@@ -1,36 +1,36 @@
 import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { name, email, subject, message } = req.body;
 
-    /* console.log("Form data received:", { name, email, subject, message }); */
-
-    // Konfigurera Nodemailer
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // Use TLS
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS
       }
     });
 
-    // E-postinnehåll
     const mailOptions = {
-      from: email,
+      from: process.env.GMAIL_USER, // Use your authenticated Gmail account
       to: process.env.GMAIL_ADDRESS,
       subject: subject,
-      text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`
+      text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
+      replyTo: email
     };
 
     try {
-      // Skicka e-post
       await transporter.sendMail(mailOptions);
-      /* console.log("Email sent successfully"); */
       res.status(200).json({ message: "Email sent successfully" });
     } catch (error) {
-      console.error("Error sending email:", error); // Logga felet till konsolen
-      res.status(500).json({ error: "Error sending email" });
+      console.error("Error sending email:", error.response || error);
+      res.status(500).json({ error: error.message || "Error sending email" });
     }
   } else {
     res.setHeader("Allow", ["POST"]);
