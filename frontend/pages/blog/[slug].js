@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BsAmazon } from "react-icons/bs";
 import { LuTentTree, LuTent } from "react-icons/lu";
-import { FaTent } from "react-icons/fa6";
+import { FaCarTunnel, FaTent } from "react-icons/fa6";
 import { GiCampingTent } from "react-icons/gi";
 import { LuTrees } from "react-icons/lu";
 import ReactMarkdown from "react-markdown";
@@ -342,7 +342,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   <Link href="/topics/cartent">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <LuTent />
+                        <FaCarTunnel />
                       </div>
                       <h3>Car Tent</h3>
                     </div>

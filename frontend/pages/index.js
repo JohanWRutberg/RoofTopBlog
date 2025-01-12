@@ -3,7 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa";
+/* import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa"; */
+import { FaCarTunnel } from "react-icons/fa6";
 import { LuTentTree, LuTent } from "react-icons/lu";
 import { FaTent } from "react-icons/fa6";
 import { GiCampingTent } from "react-icons/gi";
@@ -219,7 +220,7 @@ export default function Home() {
                 <Link href="/topics/cartent">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
-                      <LuTent />
+                      <FaCarTunnel />
                     </div>
                     <h3>Car Tent</h3>
                   </div>
