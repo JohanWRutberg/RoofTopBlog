@@ -1,7 +1,4 @@
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -18,7 +15,7 @@ export default async function handler(req, res) {
     });
 
     const mailOptions = {
-      from: process.env.GMAIL_USER, // Use your authenticated Gmail account
+      from: process.env.GMAIL_USER,
       to: process.env.GMAIL_ADDRESS,
       subject: subject,
       text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
