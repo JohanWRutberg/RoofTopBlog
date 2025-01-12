@@ -121,7 +121,7 @@ const Contact = () => {
         <title>Contact Us | TopGear Tents</title>
         <meta
           name="description"
-          content="Have questions about electronic drums or accessories? Get in touch with the experts at TopGear Tents today!"
+          content="Have questions about Rooftop tents or accessories? Get in touch with the experts at TopGear Tents today!"
         />
       </Head>
       <div className="slugpage min-h-screen flex flex-col">
