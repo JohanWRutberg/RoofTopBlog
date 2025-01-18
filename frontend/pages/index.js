@@ -58,7 +58,7 @@ export default function Home() {
     if (!text) return "";
     const cleanedText = removeSpecialCharacters(text);
     const words = cleanedText.split(" ");
-    return words.slice(0, 30).join(" ") + "...";
+    return words.slice(0, 15).join(" ") + "...";
   }
 
   return (

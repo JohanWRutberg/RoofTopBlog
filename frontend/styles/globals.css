@@ -959,7 +959,7 @@ button {
 
 .main_blog_section {
   position: relative;
-  background-color: #f1f8e9;
+  background-color: #ffffff;
   padding: 3rem 0;
 }
 
@@ -1002,7 +1002,7 @@ button {
 .blog {
   display: flex;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #f1f8e9;
   align-items: center;
   max-width: 1000px;
   gap: 2rem;
@@ -1212,7 +1212,7 @@ button {
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #f1f8e9;
   border: 1px solid #d1d1d1;
   border-radius: 20px;
   overflow: hidden;
@@ -1280,7 +1280,7 @@ button {
   justify-content: space-evenly; /* Evenly distribute items horizontally */
   align-items: center; /* Align items vertically in the center */
   gap: 10px; /* Spacing between items */
-  background-color: #fff;
+  background-color: #f1f8e9;
   border: 1px solid #d4d4d4;
   border-radius: 10px;
   padding: 2rem 1.5rem;
@@ -1551,7 +1551,7 @@ a:hover .st_icon_amazon,
 
 .footer {
   padding: 4rem 1rem; /* Initial padding */
-  background-color: #ffffff; /* Unified background color for dark mode */
+  background-color: #f1f8e9; /* Unified background color for dark mode */
   color: #818a94; /* Default text color */
   position: relative;
   width: 100%;
@@ -1773,7 +1773,7 @@ a.custom-button {
 .slugpage {
   position: relative;
   padding-top: 5rem;
-  background-color: #f1f8e9;
+  background-color: #ffffff;
   font-family: "Nunito", sans-serif;
 }
 
@@ -1849,7 +1849,7 @@ a.custom-button {
 .blogcontent {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #fff;
+  background-color: #f1f8e9;
   border: 1px solid #c6c6cc;
   border-radius: 20px;
   margin-top: 3rem;
@@ -1952,7 +1952,7 @@ a.custom-button {
 .slug_profile_info {
   position: relative;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #f1f8e9;
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
@@ -1999,7 +1999,7 @@ a.custom-button {
 .slug_blog_links {
   position: relative;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #f1f8e9;
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
@@ -2146,7 +2146,7 @@ a.custom-button {
   width: 100%;
   height: auto;
   padding: 5rem 0;
-  background-color: #f1f8e9;
+  background-color: #ffffff;
 }
 
 .dark .category_slug {
@@ -2191,11 +2191,12 @@ a.custom-button {
   width: 380px;
   overflow: hidden;
   box-shadow: 0 0 5px #dadada;
+  border: 1px solid #d1d1d1;
   border-radius: 10px;
   margin-bottom: 3rem;
   padding: 0.5rem;
-  transition: 0.3s ease-in-out;
-  background-color: #ffffff;
+  transition: 0.2s ease-in-out;
+  background-color: #f1f8e9;
 }
 
 .cate_blog a img {

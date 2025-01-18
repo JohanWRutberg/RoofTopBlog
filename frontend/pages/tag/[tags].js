@@ -68,7 +68,7 @@ export default function CategoryPage({ initialData, tag }) {
     if (!text) return "";
     const cleanedText = removeSpecialCharacters(text);
     const words = cleanedText.split(" ");
-    return words.slice(0, 10).join(" ") + "...";
+    return words.slice(0, 20).join(" ") + "...";
   }
 
   return (
@@ -105,7 +105,7 @@ export default function CategoryPage({ initialData, tag }) {
                       <p>{getFirstWords(item.description)}</p>
                       <div className="blogauthor flex gap-1">
                         <div className="blogaimg">
-                          <Image src="/img/Beat_Master.png" width={50} height={50} alt="logo" />
+                          <Image src="/img/Logo/TopGearTent_Logo.png" width={50} height={50} alt="logo" />
                         </div>
                         <div className="flex flex-col flex-left gap-05">
                           <h4>TopGear Tents</h4>
