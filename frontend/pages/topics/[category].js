@@ -1,5 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -75,6 +76,25 @@ export default function CategoryPage({ initialData, category }) {
 
   return (
     <>
+      <Head>
+        <title>{`${blog.category || "Topic"} | TopGear Tents`}</title>
+
+        <meta name="keywords" content={blog.category || "Topic on TopGear Tents"} />
+        <meta property="og:title" content={blog.category || "Topic on TopGear Tents"} />
+        <meta
+          property="og:description"
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
+        />
+        <meta property="og:image" content={blog.image || "/default-image.png"} />
+        <meta property="og:url" content={`https://www.topgeartents.com${router.asPath}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={blog.category || "Topic on TopGear Tents"} />
+        <meta
+          name="twitter:description"
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
+        />
+        <meta name="twitter:image" content={blog.image || "/default-image.png"} />
+      </Head>
       <div className="blogpage">
         <div className="category_slug">
           <div className="container">
