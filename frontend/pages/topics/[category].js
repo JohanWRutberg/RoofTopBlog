@@ -81,7 +81,7 @@ export default function CategoryPage({ initialData, category }) {
             <div className="category_title">
               <div className="flex gap-1">
                 <h2>
-                  Categories:{" "}
+                  Topics:{" "}
                   {loading ? (
                     <div>Loading...</div>
                   ) : publishedblogs.length ? (

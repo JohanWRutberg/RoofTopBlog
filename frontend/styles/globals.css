@@ -817,7 +817,7 @@ button {
 
 .dark .leftheader_info a:nth-child(2) button {
   background-color: transparent;
-  border: 2px solid #ededed;
+  border: 2px solid #d99605;
   color: #e4e4e4;
 }
 
@@ -1224,7 +1224,7 @@ button {
 }
 
 .dark .topics {
-  border: none;
+  border: 1px solid #303e38;
   box-shadow: none;
   background-color: #303e38;
 }
