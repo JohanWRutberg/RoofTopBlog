@@ -5,6 +5,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
+function capitalizeFirstLetter(str) {
+  if (!str) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
 export default function CategoryPage({ initialData, category }) {
   const [loading, setLoading] = useState(!initialData);
   const [currentPage, setCurrentPage] = useState(1); // Page number
@@ -77,9 +82,9 @@ export default function CategoryPage({ initialData, category }) {
   return (
     <>
       <Head>
-        <title>{category ? `${category} | TopGear Tents` : "TopGear Tents"}</title>
+        <title>{category ? `${capitalizeFirstLetter(category)} | TopGear Tents` : "TopGear Tents"}</title>
         <meta name="keywords" content={category || "Topic on TopGear Tents"} />
-        <meta property="og:title" content={category || "Topic on TopGear Tents"} />
+        <meta property="og:title" content={category ? capitalizeFirstLetter(category) : "Topic on TopGear Tents"} />
         <meta
           property="og:description"
           content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
@@ -87,7 +92,7 @@ export default function CategoryPage({ initialData, category }) {
         <meta property="og:image" content={blog.image || "/default-image.png"} />
         <meta property="og:url" content={`https://www.topgeartents.com${router.asPath}`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={category || "Topic on TopGear Tents"} />
+        <meta name="twitter:title" content={category ? capitalizeFirstLetter(category) : "Topic on TopGear Tents"} />
         <meta
           name="twitter:description"
           content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
