@@ -77,10 +77,9 @@ export default function CategoryPage({ initialData, category }) {
   return (
     <>
       <Head>
-        <title>{`${blog.blogcategory[0] || "Topic"} | TopGear Tents`}</title>
-
-        <meta name="keywords" content={blog.blogcategory[0] || "Topic on TopGear Tents"} />
-        <meta property="og:title" content={blog.blogcategory[0] || "Topic on TopGear Tents"} />
+        <title>{category ? `${category} | TopGear Tents` : "TopGear Tents"}</title>
+        <meta name="keywords" content={category || "Topic on TopGear Tents"} />
+        <meta property="og:title" content={category || "Topic on TopGear Tents"} />
         <meta
           property="og:description"
           content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
@@ -88,13 +87,14 @@ export default function CategoryPage({ initialData, category }) {
         <meta property="og:image" content={blog.image || "/default-image.png"} />
         <meta property="og:url" content={`https://www.topgeartents.com${router.asPath}`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blog.blogcategory[0] || "Topic on TopGear Tents"} />
+        <meta name="twitter:title" content={category || "Topic on TopGear Tents"} />
         <meta
           name="twitter:description"
           content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
         />
         <meta name="twitter:image" content={blog.image || "/default-image.png"} />
       </Head>
+
       <div className="blogpage">
         <div className="category_slug">
           <div className="container">
