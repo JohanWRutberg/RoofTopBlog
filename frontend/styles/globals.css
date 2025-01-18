@@ -1100,6 +1100,7 @@ button {
 
 .blogtag {
   background-color: #e2e8f0;
+  border: 1px solid #d1d1d1;
   display: inline-block;
   padding: 0.3rem 1rem;
   border-radius: 10px;
@@ -1107,8 +1108,9 @@ button {
 }
 
 .blogtag:hover {
-  background-color: #8099ab;
-  color: #fff;
+  background-color: #e2e8f0;
+  border: 1px solid #d99605;
+  color: #d99605;
 }
 
 .bloginfo h4 {
@@ -1249,6 +1251,7 @@ button {
 
 .topics:hover {
   box-shadow: 0 5px 10px #d4d3d3;
+  border: 1px solid #d99605;
   transform: translateY(-5px);
 }
 
@@ -1296,13 +1299,15 @@ button {
 .tags_list a {
   background-color: #e2e8f0;
   padding: 8px;
+  border: 1px solid #d4d4d4;
   border-radius: 10px;
   transition: 0.2s ease;
 }
 
 .tags_list a:hover {
-  background-color: #8099ab;
-  color: #fff;
+  background-color: #e2e8f0;
+  border: 1px solid #d99605;
+  color: #d99605;
 }
 
 .letstalk_sec {
