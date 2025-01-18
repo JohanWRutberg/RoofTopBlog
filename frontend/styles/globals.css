@@ -2164,6 +2164,16 @@ a.custom-button {
   gap: 1rem;
 }
 
+.category_title h1 {
+  font-size: 30px;
+  text-transform: capitalize;
+  color: #8fabdb;
+}
+
+.dark .category_title h1 {
+  color: #fcfcfc;
+}
+
 .category_title h2 {
   font-size: 26px;
   text-transform: capitalize;
@@ -2213,6 +2223,7 @@ a.custom-button {
 
 .dark .cate_blog {
   background-color: #303e38;
+  border: 1px solid #232e29;
   box-shadow: 0 0 5px #222;
 }
 
