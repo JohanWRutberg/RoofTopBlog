@@ -77,10 +77,10 @@ export default function CategoryPage({ initialData, category }) {
   return (
     <>
       <Head>
-        <title>{`${blog.category || "Topic"} | TopGear Tents`}</title>
+        <title>{`${blog.blogcategory || "Topic"} | TopGear Tents`}</title>
 
-        <meta name="keywords" content={blog.category || "Topic on TopGear Tents"} />
-        <meta property="og:title" content={blog.category || "Topic on TopGear Tents"} />
+        <meta name="keywords" content={blog.blogcategory || "Topic on TopGear Tents"} />
+        <meta property="og:title" content={blog.blogcategory || "Topic on TopGear Tents"} />
         <meta
           property="og:description"
           content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
@@ -88,7 +88,7 @@ export default function CategoryPage({ initialData, category }) {
         <meta property="og:image" content={blog.image || "/default-image.png"} />
         <meta property="og:url" content={`https://www.topgeartents.com${router.asPath}`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blog.category || "Topic on TopGear Tents"} />
+        <meta name="twitter:title" content={blog.blogcategory || "Topic on TopGear Tents"} />
         <meta
           name="twitter:description"
           content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
