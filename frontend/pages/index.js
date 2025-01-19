@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-/* import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa"; */
+import { FaInstagramSquare, FaPinterestSquare } from "react-icons/fa";
 import { FaCarTunnel } from "react-icons/fa6";
 import { LuTentTree, LuTent } from "react-icons/lu";
 import { FaTent } from "react-icons/fa6";
@@ -278,6 +278,24 @@ export default function Home() {
                 <Link href="/tag/truck">#Truck</Link>
                 <Link href="/tag/vehicle">#Vehicle</Link>
                 {/* Add other tags */}
+              </div>
+            </div>
+            <div className="letstalk_sec mt-3">
+              <h2>Let's Talk</h2>
+              <div className="talk_sec">
+                <h4>Do you have a question or want to share your experience with rooftop tents?</h4>
+                <div className="social_talks flex flex-center gap-1 mt-2">
+                  <div className="st_icon">
+                    <Link href="https://www.instagram.com/topgeartents" target="_blank">
+                      <FaInstagramSquare style={{ color: "#de3fac", fontSize: "34px" }} />
+                    </Link>
+                  </div>
+                  <div className="st_icon">
+                    <Link href="https://se.pinterest.com/topgeartents/" target="_blank">
+                      <FaPinterestSquare style={{ color: "#e60023", fontSize: "34px" }} />
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

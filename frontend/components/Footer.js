@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaInstagram, FaPinterestP } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <div className="footer">
-      <div className="container flex flex-wrap">
-        <div className="footer_logo">
+      <div className="container flex flex-wrap justify-between items-start">
+        <div className="footer_logo flex flex-col justify-start">
           <Link href="/">
             <Image src="/img/Logo/TopGearTent_Logo_Text.png" alt="logo" width={100} height={100} />
           </Link>
@@ -14,7 +15,7 @@ export default function Footer() {
             Coded By <span>@JRcoder</span>
           </h3>
         </div>
-        <div className="q_links">
+        <div className="q_links flex flex-col justify-start">
           <h3>Legal Stuff Links</h3>
           <ul>
             <li>
@@ -28,7 +29,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="q_links affiliate_disclaimer">
+        <div className="q_links affiliate_disclaimer flex flex-col justify-start">
           <h3>Disclaimer</h3>
           <p>
             As an Amazon Associate, we earn from qualifying purchases. <br />
@@ -39,24 +40,30 @@ export default function Footer() {
             Thank you for your support!
           </p>
         </div>
+        <div className="q_links flex flex-col justify-start">
+          <h3>Social Media</h3>
+          <ul>
+            <li>
+              <Link
+                href="https://www.instagram.com/topgeartents"
+                target="_blank"
+                style={{ color: "#de3fac", fontSize: "14px" }}
+              >
+                <FaInstagram style={{ color: "#de3fac", fontSize: "34px" }} />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://se.pinterest.com/topgeartents/"
+                target="_blank"
+                style={{ color: "#e60023", fontSize: "14px" }}
+              >
+                <FaPinterestP style={{ color: "#e60023", fontSize: "34px" }} />
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
-}
-
-{
-  /* <div className="q_links">
-            <h3>Social Media</h3>
-            <ul>
-              <li>
-                <Link href="/">Instagram</Link>
-              </li>
-              <li>
-                <Link href="/">Pinterest</Link>
-              </li>
-              <li>
-                <Link href="/">Facebook</Link>
-              </li>
-            </ul>
-          </div> */
 }
