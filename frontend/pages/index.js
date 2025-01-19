@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { FaInstagramSquare, FaPinterestSquare } from "react-icons/fa";
+import { FaInstagram, FaPinterestP } from "react-icons/fa";
 import { FaCarTunnel } from "react-icons/fa6";
 import { LuTentTree, LuTent } from "react-icons/lu";
 import { FaTent } from "react-icons/fa6";
@@ -287,12 +287,12 @@ export default function Home() {
                 <div className="social_talks flex flex-center gap-1 mt-2">
                   <div className="st_icon">
                     <Link href="https://www.instagram.com/topgeartents" target="_blank">
-                      <FaInstagramSquare style={{ color: "#de3fac", fontSize: "34px" }} />
+                      <FaInstagram style={{ color: "#de3fac", fontSize: "34px" }} />
                     </Link>
                   </div>
                   <div className="st_icon">
                     <Link href="https://se.pinterest.com/topgeartents/" target="_blank">
-                      <FaPinterestSquare style={{ color: "#e60023", fontSize: "34px" }} />
+                      <FaPinterestP style={{ color: "#e60023", fontSize: "34px" }} />
                     </Link>
                   </div>
                 </div>

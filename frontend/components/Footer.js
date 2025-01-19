@@ -49,7 +49,7 @@ export default function Footer() {
                 target="_blank"
                 style={{ color: "#de3fac", fontSize: "14px" }}
               >
-                <FaInstagram style={{ color: "#de3fac", fontSize: "34px" }} />
+                <FaInstagram style={{ color: "#de3fac", fontSize: "28px" }} />
               </Link>
             </li>
             <li>
@@ -58,7 +58,7 @@ export default function Footer() {
                 target="_blank"
                 style={{ color: "#e60023", fontSize: "14px" }}
               >
-                <FaPinterestP style={{ color: "#e60023", fontSize: "34px" }} />
+                <FaPinterestP style={{ color: "#e60023", fontSize: "28px" }} />
               </Link>
             </li>
           </ul>
