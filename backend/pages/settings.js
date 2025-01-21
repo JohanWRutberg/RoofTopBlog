@@ -52,7 +52,7 @@ export default function Settings() {
 
           <div className="profilesettings">
             <div className="leftprofile_details flex" data-aos="fade-up">
-              <Image src="/img/Beat_Master.png" alt="coder" height={100} width={100} />
+              <Image src="/img/Logo/TopGearTent_Logo.png" alt="coder" height={100} width={100} />
               <div className="w-100">
                 <div className="flex flex-sb flex-left mt-2">
                   <h2>Min Profil:</h2>

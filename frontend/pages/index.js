@@ -287,12 +287,12 @@ export default function Home() {
                 <div className="social_talks flex flex-center gap-1 mt-2">
                   <div className="st_icon">
                     <Link href="https://www.instagram.com/topgeartents" target="_blank">
-                      <FaInstagram style={{ color: "#de3fac", fontSize: "34px" }} />
+                      <FaInstagram style={{ color: "#de3fac", fontSize: "30px" }} />
                     </Link>
                   </div>
                   <div className="st_icon">
                     <Link href="https://se.pinterest.com/topgeartents/" target="_blank">
-                      <FaPinterestP style={{ color: "#e60023", fontSize: "34px" }} />
+                      <FaPinterestP style={{ color: "#e60023", fontSize: "30px" }} />
                     </Link>
                   </div>
                 </div>
