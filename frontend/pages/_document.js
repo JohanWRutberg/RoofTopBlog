@@ -82,7 +82,7 @@ export default function Document() {
         <link rel="icon" href="/favicon.ico" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://www.topgeartents.com" />
+        {/* <link rel="canonical" href="https://www.topgeartents.com" /> */}
       </Head>
 
       <body>
