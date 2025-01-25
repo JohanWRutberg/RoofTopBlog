@@ -41,7 +41,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="q_links flex flex-col justify-start">
-          <h3>Sooocial Media</h3>
+          <h3>Social Media</h3>
           <ul>
             <li>
               <Link
