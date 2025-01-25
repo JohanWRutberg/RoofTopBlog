@@ -283,7 +283,7 @@ export default function Home() {
             <div className="letstalk_sec mt-3">
               <h2>Let's Talk</h2>
               <div className="talk_sec">
-                <h4>Do you have a question or want to share your experience with rooftop tents?</h4>
+                <h4>Visit our social media platforms and share your experience with vehicle tents!</h4>
                 <div className="social_talks flex flex-center gap-1 mt-2">
                   <div className="st_icon">
                     <Link href="https://www.instagram.com/topgeartents" target="_blank">
