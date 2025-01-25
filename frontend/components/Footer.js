@@ -31,7 +31,7 @@ export default function Footer() {
         </div>
         <div className="q_links affiliate_disclaimer flex flex-col justify-start">
           <h3>Disclaimer</h3>
-          <p>
+          <p className="text-center text-xs">
             As an Amazon Associate, we earn from qualifying purchases. <br />
             This means that if you click on a link to an Amazon product on this site and make a purchase, we may receive
             a commission at no additional cost to you. This helps support the site and allows us to continue providing
