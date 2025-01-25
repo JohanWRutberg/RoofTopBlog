@@ -315,7 +315,7 @@ button {
 
 .header_sec {
   position: relative;
-  background-color: #e9f5ec; /* Light mode background */
+  background-color: #ffffff; /* Light mode background */
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), /* Subtle large shadow */ 0 4px 6px -2px rgba(0, 0, 0, 0.1),
     /* Secondary soft shadow */ 0 0 15px 5px rgba(0, 0, 0, 0.05); /* Outer glow effect */
   border-bottom: 2px solid rgba(0, 0, 0, 0.15); /* Subtle separator */
@@ -2151,7 +2151,7 @@ a.custom-button {
   width: 100%;
   height: auto;
   padding: 5rem 0;
-  background-color: #ffffff;
+  background-color: #f1f8e9;
 }
 
 .dark .category_slug {
