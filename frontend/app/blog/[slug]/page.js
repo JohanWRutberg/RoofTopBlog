@@ -38,19 +38,18 @@ function extractAmazonLinks(markdownContent) {
 }
 
 export default function BlogPage() {
-  const params = useParams(); // Correctly access route parameters
+  const { slug } = useParams(); // Extract the 'slug' parameter from the URL
   const router = useRouter(); // Use for navigation
-  const { slug } = params || {}; // Ensure params is not undefined
 
   const [blog, setBlog] = useState({});
+  const [linkDetails, setLinkDetails] = useState([]);
   const [blogPostLinks, setBlogPostLinks] = useState([]);
-  const [linkDetails, setLinkDetails] = useState([]); // Initialize linkDetails
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!slug) {
       console.error("Slug is undefined");
-      router.push("/404");
+      router.push("/404"); // Redirect to 404 page if slug is undefined
       return;
     }
 
@@ -61,7 +60,7 @@ export default function BlogPage() {
 
         if (!alldata || alldata.length === 0) {
           console.error("No blog data found");
-          router.push("/404");
+          router.push("/404"); // Redirect to 404 page if no data is found
           return;
         }
 
@@ -89,10 +88,10 @@ export default function BlogPage() {
           }));
 
         setBlogPostLinks(sortedBlogs);
-        setLoading(false);
+        setLoading(false); // Set loading to false when data is fetched
       } catch (error) {
         console.error("Error fetching blog:", error);
-        router.push("/404");
+        router.push("/404"); // Redirect to 404 page in case of an error
       }
     };
 
