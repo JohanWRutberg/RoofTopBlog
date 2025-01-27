@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 function capitalizeFirstLetter(str) {
@@ -21,25 +21,29 @@ async function fetchBlogData(tags) {
   }
 }
 
-export default function CategoryPage({ params }) {
-  const { tags } = params; // Extract the tags from params
+export default function CategoryPage() {
+  const { tags } = useParams(); // Use useParams() to access the tag from the URL
+  const router = useRouter();
+
   const [loading, setLoading] = useState(true);
   const [blog, setBlog] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // Page number
   const [perPage] = useState(6); // Number of blogs per page
-  const router = useRouter();
 
   useEffect(() => {
-    // Function to fetch blog data
+    // Ensure tags is not undefined before fetching data
+    if (!tags) {
+      console.error("Tags are undefined");
+      router.push("/404"); // Redirect to 404 page if tags are missing
+      return;
+    }
+
+    // Fetch blog data when the tags change
     const fetchBlogDataAndSetState = async () => {
-      if (tags) {
-        setLoading(true);
-        const fetchedData = await fetchBlogData(tags);
-        setBlog(fetchedData);
-        setLoading(false);
-      } else {
-        router.push("/404");
-      }
+      setLoading(true);
+      const fetchedData = await fetchBlogData(tags);
+      setBlog(fetchedData);
+      setLoading(false);
     };
 
     fetchBlogDataAndSetState();
