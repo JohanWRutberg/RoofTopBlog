@@ -47,11 +47,10 @@ export default function Document() {
         {/* Essential Meta Tags */}
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
         <meta name="author" content="TopGear Tents" />
         <meta
           name="description"
-          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
+          content="Explore our Blog about Rooftop tents for all kinds of vehicles. Your indoor and outdoor adventure!"
         />
 
         {/* Open Graph Meta Tags */}
@@ -59,11 +58,11 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
+          content="Explore our Blog about Rooftop tents for all kinds of vehicles. Your indoor and outdoor adventure!"
         />
         <meta
           property="og:description"
-          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
+          content="Explore our Blog about Rooftop tents for all kinds of vehicles. Your indoor and outdoor adventure!"
         />
         <meta property="og:image" content="https://www.TopGearTents.com/og-image.jpg" />
         <meta property="og:image:width" content="920" />
@@ -80,9 +79,6 @@ export default function Document() {
 
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
-
-        {/* Canonical URL */}
-        {/* <link rel="canonical" href="https://www.topgeartents.com" /> */}
       </Head>
 
       <body>

@@ -1,3 +1,4 @@
+"use client";
 import axios from "axios";
 import Link from "next/link";
 import Head from "next/head";
@@ -10,36 +11,41 @@ function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-export default function CategoryPage({ initialData, category }) {
-  const [loading, setLoading] = useState(!initialData);
+async function fetchCategoryData(category) {
+  try {
+    const res = await axios.get(`/api/getblog?blogcategory=${category}`);
+    return res.data;
+  } catch (error) {
+    console.error("Error fetching category data", error);
+    return [];
+  }
+}
+
+export default function CategoryPage({ params }) {
+  const { category } = params; // Extract the category from params
+  const [loading, setLoading] = useState(true);
+  const [blog, setBlog] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // Page number
   const [perPage] = useState(7); // Number of blogs per page
-  const [blog, setBlog] = useState(initialData || []);
   const router = useRouter();
 
   useEffect(() => {
-    // Function to fetch blog data
-    const fetchBlogdata = async () => {
-      try {
-        const res = await axios.get(`/api/getblog?blogcategory=${category}`);
-        const alldata = res.data;
-        setBlog(alldata);
+    // Fetch blog data only if category exists
+    const fetchBlogDataAndSetState = async () => {
+      if (category) {
+        setLoading(true);
+        const fetchedData = await fetchCategoryData(category);
+        setBlog(fetchedData);
         setLoading(false);
-      } catch (error) {
-        console.error("Error fetching blog data", error);
-        setLoading(false);
+      } else {
+        router.push("/404");
       }
     };
 
-    // Fetch blog data only if category exists
-    if (category) {
-      fetchBlogdata();
-    } else {
-      router.push("/404");
-    }
-  }, [category]);
+    fetchBlogDataAndSetState();
+  }, [category, router]);
 
-  // Function to handle page change
+  // Handle page changes
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -49,7 +55,6 @@ export default function CategoryPage({ initialData, category }) {
   const currentBlogs = blog.slice(indexOfFirstblog, indexOfLastblog);
 
   const allblog = blog.length;
-
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(allblog / perPage); i++) {
@@ -87,17 +92,17 @@ export default function CategoryPage({ initialData, category }) {
         <meta property="og:title" content={category ? capitalizeFirstLetter(category) : "Topic on TopGear Tents"} />
         <meta
           property="og:description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
+          content={publishedblogs.length ? publishedblogs[0].description.slice(0, 150) : "Blog post on TopGear Tents"}
         />
-        <meta property="og:image" content={blog.image || "/default-image.png"} />
+        <meta property="og:image" content={publishedblogs[0]?.image || "/default-image.png"} />
         <meta property="og:url" content={`https://www.topgeartents.com${router.asPath}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={category ? capitalizeFirstLetter(category) : "Topic on TopGear Tents"} />
         <meta
           name="twitter:description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on TopGear Tents"}
+          content={publishedblogs.length ? publishedblogs[0].description.slice(0, 150) : "Blog post on TopGear Tents"}
         />
-        <meta name="twitter:image" content={blog.image || "/default-image.png"} />
+        <meta name="twitter:image" content={publishedblogs[0]?.image || "/default-image.png"} />
       </Head>
 
       <div className="blogpage">
@@ -187,25 +192,4 @@ export default function CategoryPage({ initialData, category }) {
       </div>
     </>
   );
-}
-
-// Fetching data at the server side
-export async function getServerSideProps(context) {
-  const { category } = context.params;
-  let initialData = [];
-
-  try {
-    /* const res = await axios.get(`http://localhost:3000/api/getblog?blogcategory=${category}`); */
-    const res = await axios.get(`http://www.topgeartents.com/api/getblog?blogcategory=${category}`);
-    initialData = res.data;
-  } catch (error) {
-    console.error("Error fetching blog data", error);
-  }
-
-  return {
-    props: {
-      initialData,
-      category
-    }
-  };
 }

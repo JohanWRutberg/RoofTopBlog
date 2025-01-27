@@ -1745,7 +1745,7 @@ a.custom-button {
 /* ================================================== */
 
 .mailform {
-  background-color: #f1f8e9;
+  background-color: #ffffff;
 }
 
 .dark .mailform {
@@ -1969,6 +1969,24 @@ a.custom-button {
 .dark .slug_profile_info {
   border: none;
   background-color: #303e38;
+}
+
+.slug_profile_info a {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.dark .slug_profile_info a {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.slug_profile_info a:hover {
+  color: #000; /* Change text color when hovered */
+}
+
+.dark .slug_profile_info a:hover {
+  color: #fff; /* Change text color when hovered */
 }
 
 .slugprofile_sec {
