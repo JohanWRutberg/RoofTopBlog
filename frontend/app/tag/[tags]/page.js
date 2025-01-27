@@ -21,8 +21,8 @@ async function fetchBlogData(tags) {
   }
 }
 
-export default function CategoryPage() {
-  const { tags } = useParams(); // Use useParams() to access the tag from the URL
+export default function CategoryPage({ params }) {
+  const { tags } = params; // Extract the 'tags' directly from the props
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);
@@ -31,14 +31,12 @@ export default function CategoryPage() {
   const [perPage] = useState(6); // Number of blogs per page
 
   useEffect(() => {
-    // Ensure tags is not undefined before fetching data
     if (!tags) {
       console.error("Tags are undefined");
       router.push("/404"); // Redirect to 404 page if tags are missing
       return;
     }
 
-    // Fetch blog data when the tags change
     const fetchBlogDataAndSetState = async () => {
       setLoading(true);
       const fetchedData = await fetchBlogData(tags);
