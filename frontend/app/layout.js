@@ -4,6 +4,7 @@ import Aos from "@/components/Aos";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTopBtn from "@/components/ScrollToTopBtn";
+/* import TopLoadingLine from "@/components/TopLoadingLine"; */
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "@/styles/globals.css";
