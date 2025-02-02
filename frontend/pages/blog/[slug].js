@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
 
   try {
     // Fetch the specific blog post based on the slug
-    const res = await axios.get(`${process.env.NEXT_WEBSITE_URL}/api/getblog?slug=${slug}`);
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/getblog?slug=${slug}`);
     const alldata = res.data;
 
     if (!alldata || alldata.length === 0) {
@@ -41,7 +41,7 @@ export async function getServerSideProps(context) {
     const blog = { ...alldata[0], image: firstImageUrl };
 
     // Fetch all blog posts for backlinks
-    const resAllBlogs = await axios.get(`${process.env.NEXT_WEBSITE_URL}/api/getblog`);
+    const resAllBlogs = await axios.get(`${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/getblog`);
     const blogPosts = resAllBlogs.data;
     const blogPostLinks = blogPosts.map((post) => ({
       href: `/blog/${post.slug}`,
